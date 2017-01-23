@@ -1,0 +1,11 @@
+<!-- Search -->
+<md-list-item class="sidenav-search">
+  <form name="searchForm" (ngSubmit)="searchUsers()">
+    <md-input-container md-float layout="row">
+      <input md-input type="text" [(ngModel)]="searchStr" placeholder="find someone" name="search">
+      <button type="submit" class="sidenav-search-btn-icon">
+        <i class="fa fa-search fa-5"></i>
+      </button>
+    </md-input-container>
+  </form>
+</md-list-item>

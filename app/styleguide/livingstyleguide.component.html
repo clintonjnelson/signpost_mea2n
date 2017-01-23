@@ -1,0 +1,34 @@
+<div class="flex-container" fxLayout="row">
+
+  <!-- NavbarComponent | signpost-navbar -->
+  <md-card class="lsg-card6 flex-item">
+    <h2>Signpost Navbar</h2>
+    <signpost-navbar></signpost-navbar>
+  </md-card>
+
+  <!-- SidenavComponent | sidenav -->
+  <md-card class="lsg-card1 flex-item">
+    <sidenav></sidenav>
+  </md-card>
+
+  <!-- LoginSignupFormComponent | login-signup-form -->
+  <md-card class="lsg-card2 flex-item">
+    <h2>Login & Sign Up Form</h2>
+    <login-signup-form></login-signup-form>
+  </md-card>
+
+  <!-- NavlinkComponent | navlink | linkPath, linkIcon, linkName -->
+  <md-card class="lsg-card3 flex-item">
+    <h2>NavBar Link</h2>
+    <navlink
+      [linkPath]="'http://localhost:3000/styleguide'"
+      linkIcon="{{'fa fa-facebook-official fa-5'}}"
+      linkName="styleguide"></navlink>
+  </md-card>
+
+  <!-- SearchBoxComponent | search-box -->
+  <md-card class="lsg-card4 flex-item">
+    <h2>Search Box for Users & Signs</h2>
+    <search-box></search-box>
+  </md-card>
+</div>
