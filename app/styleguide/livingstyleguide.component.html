@@ -23,12 +23,25 @@
     <navlink
       [linkPath]="'http://localhost:3000/styleguide'"
       linkIcon="{{'fa fa-facebook-official fa-5'}}"
-      linkName="styleguide"></navlink>
+      linkName="styleguide">
+    </navlink>
   </md-card>
 
   <!-- SearchBoxComponent | search-box -->
   <md-card class="lsg-card4 flex-item">
     <h2>Search Box for Users & Signs</h2>
     <search-box></search-box>
+  </md-card>
+
+  <!-- SearchResultsComponent | search-results | Users: -->
+  <md-card class="lsg-card5 flex-item">
+    <h2>Search Results for Users</h2>
+    <search-results [users]="users" [signs]="[]"></search-results>
+  </md-card>
+
+  <!-- SearchResultsComponent | search-results | Signs: -->
+  <md-card class="lsg-card6 flex-item">
+    <h2>Search Results for Signs</h2>
+    <search-results [signs]="signs" users="[]"></search-results>
   </md-card>
 </div>
