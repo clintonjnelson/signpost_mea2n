@@ -33,15 +33,40 @@
     <search-box></search-box>
   </md-card>
 
-  <!-- SearchResultsComponent | search-results | Users: -->
+  <!-- SearchResultsComponent | search-results | users, signs -->
   <md-card class="lsg-card5 flex-item">
     <h2>Search Results for Users</h2>
     <search-results [users]="users" [signs]="[]"></search-results>
   </md-card>
 
-  <!-- SearchResultsComponent | search-results | Signs: -->
-  <md-card class="lsg-card6 flex-item">
+  <!-- SearchResultsComponent | search-results | users, signs -->
+  <md-card class="lsg-card5 flex-item">
     <h2>Search Results for Signs</h2>
-    <search-results [signs]="signs" users="[]"></search-results>
+    <search-results [signs]="signs" [users]="[]"></search-results>
   </md-card>
+
+  <!-- SignComponent | sign | sign -->
+  <md-card class="lsg-card6 flex-item">
+    <h2>Custom Sign</h2>
+    <sign [sign]="customSign"></sign>
+  </md-card>
+
+  <!-- SignComponent | sign | sign -->
+  <md-card class="lsg-card6 flex-item">
+    <h2>Default Sign</h2>
+    <sign [sign]="defaultSign"></sign>
+  </md-card>
+
+  <!-- SignComponent | sign | sign -->
+  <md-card class="lsg-card6 flex-item">
+    <h2>Phone Sign</h2>
+    <sign [sign]="phoneSign"></sign>
+  </md-card>
+
+  <!-- SignComponent | sign | sign -->
+  <md-card class="lsg-card6 flex-item">
+    <h2>Email Sign</h2>
+    <sign [sign]="emailSign"></sign>
+  </md-card>
+
 </div>
