@@ -5,11 +5,11 @@
       <div layout="column">
 
         <!-- Users Results Found -->
-        <section *ngIf="users">
+        <section *ngIf="users.length > 0">
           <h3 md-subheader class="md-no-sticky">users found:</h3>
           <ul>
             <li *ngFor="let user of users">
-              <i class="fa fa-user-circle-o fa-4"></i>
+              <i class="fa fa-user-circle-o fa-4x"></i>
               <div class="md-list-item-text">
                 <a href="{{'http://localhost:3000/#/' + user.username}}">
                   <h3>{{ user.username }}</h3>
@@ -22,11 +22,11 @@
 
         <!-- Signs Results Found -->
         <!-- TODO: MAKE DIRECTIVE TO CORRESPOND TO TYPE FOUND -->
-        <section *ngIf="signs.length">
+        <section *ngIf="signs.length > 0">
           <h3 md-subheader class="md-no-sticky">signs found:</h3>
           <ul>
             <li *ngFor="let sign of signs">
-              <i [ngClass]="iconClass(sign.icon)" style="fill: {{sign.bgColor}}" size="40"></i>
+              <i [ngClass]="iconClass(sign.icon)"></i>
               <div class="md-list-item-text">
                 <a href="{{'http://localhost:3000/#/' + sign.userId}}">
                   <h3>{{ sign.knownAs }}</h3>
