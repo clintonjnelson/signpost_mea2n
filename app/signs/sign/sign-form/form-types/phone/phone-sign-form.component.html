@@ -1,0 +1,34 @@
+<form flex name="signForm" class="sign-listitem-form" layout="column">
+
+  <!-- sign Title -->
+  <md-input-container layout="row">
+    <i class="{{helpers.buildIconClass('star', 1)}}"></i>
+    <input md-input type="text" name="title" [(ngModel)]="sign.signName" placeholder="Sign Title" md-maxlength="30">
+  </md-input-container>
+
+    <!-- phone -->
+  <md-input-container layout="row">
+    <i class="{{helpers.buildIconClass('phone', 1)}}"></i>
+    <input md-input type="tel" name="phone" [(ngModel)]="sign.phone" placeholder="(555)555-5555"/>
+  </md-input-container>
+
+  <!-- description -->
+  <md-input-container layout="row">
+    <i class="{{helpers.buildIconClass('info-circle', 1)}}"></i>
+    <input md-input type="text" name="desc" [(ngModel)]="sign.description" placeholder="short description" md-maxlength="30">
+  </md-input-container>
+
+
+  <!-- form buttons -->
+  <div>
+    <!-- ok button -->
+    <a (click)="emitSubmit(sign)" type="submit" class="sign-listitem-saveicon">
+      <i class="{{helpers.buildIconClass('check', 2)}}"></i>
+    </a>
+    <!-- cancel button -->
+    <a (click)="emitCancel()" class="sign-listitem-cancelicon">
+      <i class="{{helpers.buildIconClass('times', 2)}}"></i>
+    </a>
+  </div>
+
+</form>
