@@ -17,10 +17,14 @@ import { NavLinkComponent }         from './shared/navigation/navlink/navlink.co
 import { SidenavComponent }         from './shared/navigation/sidenav/sidenav.component';
 import { LoginSignupFormComponent } from './shared/forms/login-signup-form/login-signup-form.component';
 import { LivingStyleGuideComponent } from './styleguide/livingstyleguide.component';
+import { SignComponent }            from './signs/sign/sign.component';
+import { CustomSignFormComponent }  from './signs/sign/sign-form/form-types/custom/custom-sign-form.component';
+import { DefaultSignFormComponent } from './signs/sign/sign-form/form-types/default/default-sign-form.component';
+import { EmailSignFormComponent }   from './signs/sign/sign-form/form-types/email/email-sign-form.component';
+import { PhoneSignFormComponent }   from './signs/sign/sign-form/form-types/phone/phone-sign-form.component';
 
-
-// Services
-
+// Services - make them available EVERYWHERE (otherwise, just add it specifically into Component as a provider)
+import { HelpersService } from './shared/helpers/helpers.service';
 
 @NgModule({
   imports:      [
@@ -38,10 +42,17 @@ import { LivingStyleGuideComponent } from './styleguide/livingstyleguide.compone
                   LoginSignupFormComponent,
                   SidenavComponent,
                   LivingStyleGuideComponent,
-
+                  SignComponent,
+                  CustomSignFormComponent,
+                  DefaultSignFormComponent,
+                  EmailSignFormComponent,
+                  PhoneSignFormComponent,
                 ],
   bootstrap:    [
-                  AppComponent
+                  AppComponent,
+                ],
+  providers:    [
+                  HelpersService,
                 ]
 })
 export class AppModule { }
