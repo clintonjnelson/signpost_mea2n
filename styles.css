@@ -1,4 +1,4 @@
-
+/*CREATE DYNAMIC HOVER COLORS BY mAKING THE HOVER COLOR CLASS BUILT FROM ICON NAME*/
 /*
 http://www.color-hex.com/color/a6a6a6
 5a5a5a    DARK Grey
@@ -11,8 +11,8 @@ b7b7b7
 c9c9c9    LIGHT Grey
 e4e4e4
 ffffff    white
+88B04B    GREEN 2017 PANTONE
 */
-
 
 body {
   background-color: #808080;
@@ -25,6 +25,7 @@ body {
   background-color: #808080;
 }
 
+
 /*COLORS*/
 .facebook-color {
   fill: #3b5998 !important;
@@ -36,6 +37,12 @@ body {
   fill: #5a5a5a !important;
 }
 
+i {
+  color: white;
+}
+i:hover {
+  color: #88B04B;
+}
 
 
 
@@ -147,6 +154,19 @@ md-checkbox.md-checked.sidenav-login-newaccount .md-icon {
   fill: #955251 !important;
 }
 
+/*Top Navigation Bar*/
+.nav-links-oauth {
+  list-style-type: none;
+}
+.nav-links-oauth li {
+  display: inline;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 0px;
+}
+.nav-links-oauth a {
+  text-decoration: none;
+}
 
 
 /*New Sign Fab*/
