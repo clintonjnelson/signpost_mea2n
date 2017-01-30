@@ -1,61 +1,44 @@
-<md-sidenav-container layout="row">
-  <!-- MAY NEED A SIDENAV CONTAINER FOR PROPER OPERATION -->
-  <md-sidenav #start (open)="closeStartButton.focus()" class="md-sidenav-left">
-    Open The Navbar!
-    <button md-button #closeStartButton (click)="start.close()">Close</button>
-    <!-- Signed IN OR OUT content -->
-    <md-list>
-      <search-box></search-box>
-    </md-list>
+<!-- Navigation Bar -->
+<md-card class="lsg-card6 flex-item">
+  <!-- ROW HEIGHT SHOULD BE DYNAMIC BUT 'FIT' DOESNT WORK WELL - FIGURE THIS OUT -->
+  <md-grid-list *ngIf="!showLogin" cols="3" rowHeight="50px" gutterSize="4px" [style.background]="navBkgdColor" id="main-navbar" class="navbar">
 
+    <!-- First Navlink -->
+    <md-grid-tile [style.background]="navItemColor">
+      <a routerLink="/">
+        <i class="{{helpers.buildIconClass('user', 2)}}"></i>
+      </a>
+    </md-grid-tile>
 
-    <!-- Signed IN content -->
-    <md-list *ngIf="isSignedIn">
-      <!-- MAKE THIS A NG-REPEAT DIRECTIVE -->
-      <ul class="navbar-links">
-        <!-- <li *ngFor="let link of myLinks">
-          <navlink
-            linkPath={{link.path}}
-            linkIcon={{link.icon}}
-            linkName={{link.name}}>
-          </navlink>
-        </li> -->
+    <!-- If NOT logged in, show login options -->
+    <md-grid-tile *ngIf="!auth.isLoggedIn" (click)="toggleShowLogin()" [style.background]="navItemColor">
+      <div>
+        <i class="{{helpers.buildIconClass('sign-in', 2)}}"></i>
+      </div>
+    </md-grid-tile>
+
+    <!-- If NOT logged in, show login options -->
+    <!-- REMOVE THE LOGIN CLICK ACTION FROM THIS ONCE HOOKED UP!!! -->
+    <md-grid-tile (click)="auth.login()" *ngIf="!auth.isLoggedIn" [style.background]="navItemColor">
+      <ul class="nav-links-oauth">
+        <li *ngFor="let oauth of oauths">
+          <a [href]="oauth.url">
+            <i class="{{helpers.buildIconClass(oauth.icon, 2)}}"></i>
+          </a>
+        </li>
       </ul>
-    </md-list>
+    </md-grid-tile>
 
+    <!-- If LOGGED IN, show options -->
+    <md-grid-tile *ngIf="auth.isLoggedIn" (click)="logout()" [style.background]="navItemColor">
+      <div>
+        <i class="{{helpers.buildIconClass('sign-out', 2)}}"></i>
+      </div>
+    </md-grid-tile>
+  </md-grid-list>
 
-    <!-- Signed OUT content -->
-    <md-list *ngIf="isSignedOut">
-
-      <!-- MAYBE START HERE WITH THE NGFOR LOOPING, CREATING LIST-ITEMS???? -->
-      <md-list-item>
-        <md-list>
-          <h4 class="sidenav-oauth-login-title"> login options </h4>
-          <!-- Oauth Login Links -->
-          <ul class="navbar-links">
-            <li *ngFor="let link of oauthLinks">
-              <navlink
-                linkPath={{link.path}}
-                linkIcon={{link.icon}}
-                linkName={{link.name}}>
-              </navlink>
-            </li>
-          </ul>
-
-          <br>
-          <h4 class="sidenav-oauth-login-title"> OR </h4>
-          <!-- Signpost Login Form -->
-          <login-signup-form></login-signup-form>
-          <br>
-
-        </md-list>
-      </md-list-item>
-    </md-list>
-  </md-sidenav>
-
-  <div class="sidenav-menu">
-    <div data-ng-click="openLeftMenu()" class="bg-gray">
-      <md-icon icon="menu" style="fill: white" size="50"></md-icon>
-    </div>
-  </div>
-</md-sidenav-container>
+  <!-- When LOGIN is clicked, it will show this section and change the cols to hide parts of the last section -->
+  <md-grid-list *ngIf="showLogin" cols="1" rowHeight="150px" [style.background]="navBkgdColor" id="main-navbar" class="navbar" >
+    <login-signup-form (close)="onCloseLogin($event)"></login-signup-form>
+  </md-grid-list>
+</md-card>

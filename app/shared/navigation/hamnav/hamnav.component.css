@@ -1,0 +1,113 @@
+/*// Styles for the Header Area*/
+
+
+
+/*///// Navbar Area*/
+.navbar {
+  border-bottom: none;
+  margin-bottom: -1px;
+}
+
+
+#bs-example-navbar-collapse-1 {
+  border: none;
+  box-shadow: none;
+  text-align: center;
+  margin: auto;
+}
+
+/*make the search input more flat*/
+#bs-example-navbar-collapse-1 > .navbar-form > .form-group > input {
+  border-radius: 1px;
+}
+
+.navbar-default button.navbar-toggle:focus {
+  background-color: transparent;
+}
+.navbar-default button.navbar-toggle:hover {
+  background-color: transparent;
+}
+.navbar-default button.navbar-toggle .collapsed {
+  background-color: transparent;
+}
+.navbar-default button.navbar-toggle .collapsed:focus {
+  background-color: transparent;
+}
+.navbar-default button.navbar-toggle .collapsed:hover {
+  background-color: transparent;
+}
+.navbar-default {
+  border: none;
+  background-color: #5E5E5E; /* gray-4 (background color)*/
+}
+.navbar-default .navbar-icon {
+    font-size: 28px;  /* control all navbar icons*/
+}
+.navbar-default .navbar-icon span {
+      font-size: 16px;  /*Text on the icons*/
+}
+.navbar-default .navbar-toggle {
+    border: none;
+    float: none;
+}
+.navbar-default .navbar-toggle button {
+      padding: none;
+}
+.navbar-default .navbar-toggle .icon-bar {
+      background-color: white;
+}
+
+.navbar-default .collapse {
+    text-align: center;
+    margin: auto;
+}
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+.navbar-default .navbar-nav > li > a:hover {
+    color: #b77c7b;
+}
+
+.navbar-default .navbar-form {
+    border: none;
+    box-shadow: none;
+}
+/*///// Signin Area*/
+#signin-area {
+  display: none;  /*make sure the div is hidden until clicked - jQuery show*/
+}
+
+#signin-area form {   /* make the div be its own box */
+    background-color: #E4E4E4; /*gray1*/
+    border: 2px solid #7E7E7E;  /*gray3*/
+    border-radius: 1px;
+    margin: auto;
+    max-width: 300px;
+    padding-bottom: 10px;
+    padding-top: 15px;
+}
+
+#signin-area form.form-group {
+      text-align: right;   /*make the label text align-right*/
+}
+#signin-area form.form-group label {
+        color: #5E5E5E;   /*gray4*/
+        margin-right: 10px;  /*space between label & input*/
+}
+
+#signin-area form.form-group input {
+  /*make the labels align right with a gap to the div edge*/
+      float: right;
+      margin-right: 35px;
+}
+#signin-area.login-button { /*customized submit button*/
+    background-color: #955251;  /*marsala*/
+    border-radius: 1px;
+    border-color: #74403F;  /*darker marsala*/
+    color: white;
+}
+#signin-area#forgot-password {
+    display: inline-block;
+    padding-top: 15px;
+    margin-right: 60px;
+}
