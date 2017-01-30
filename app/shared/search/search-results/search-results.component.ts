@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { Sign } from '../signs/sign.model';
+// import { Sign } from '../../../signs/sign.model';
+import { Sign } from 'signs/sign.model';
 
 
 // SAME THING AS ANOTHER COMPONENT HAS, SO BREAK OUT & SHARE
