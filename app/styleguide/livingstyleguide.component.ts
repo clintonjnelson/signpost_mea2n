@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { User } from '../shared/search/search-results/search-results.component';
-import { Sign, EmailSign, PhoneSign } from '../signs/sign.model';
+import { User } from 'shared/search/search-results/search-results.component';
+import { Sign, EmailSign, PhoneSign } from 'signs/sign.model';
 
 const USERS: User[] = [{username: 'Jen'}, {username: 'clint'}];
 const DEFAULT_FACEBOOK_SIGN: Sign = {
@@ -31,7 +31,7 @@ const EMAIL_SIGN: EmailSign = {
     _id: '111111',
     bgColor: 'green',
     description: 'email sign',
-    icon: 'email',
+    icon: 'envelope',
     knownAs: 'my email name',
     linkUrl: '',
     picUrl: 'http://facebook.com/image',
