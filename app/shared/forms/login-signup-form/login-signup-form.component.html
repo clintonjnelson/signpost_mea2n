@@ -1,42 +1,39 @@
 <!-- Signpost Login Form -->
-<md-card class="sidenav-login">
-  <h4 class="sidenav-login-title" (ngCclick)="loginToggle()"> login with signpost </h4>
-  <div [hidden]="showLogin" class="md-padding md-default-theme sidenav-login-content">
-    <div>
-      <form name="loginForm" (ngSubmit)="login()">
+<!-- <md-card class="sidenav-login"> -->
+<div>
+  <form name="loginForm" (ngSubmit)="login()">
+    <!-- Email Input -->
+    <md-input-container md-no-float layout="row" class="login-input-container">
+      <input md-input type="text" [(ngModel)]="userForm.email" placeholder="email" name="email" required="required">
+    </md-input-container>
 
-        <!-- Email Input -->
-        <md-input-container md-no-float layout="row" class="login-input-container">
-          <input md-input type="text" [(ngModel)]="newUser.email" placeholder="email" name="email">
-        </md-input-container>
-
-        <!-- Password Input -->
-        <md-input-container md-no-float layout="row" class="login-input-container">
-          <input md-input type="password" [(ngModel)]="newUser.password" placeholder="password" name=password>
-        </md-input-container>
+    <!-- Password Input -->
+    <md-input-container md-no-float layout="row" class="login-input-container">
+      <input md-input type="password" [(ngModel)]="userForm.password" placeholder="password" name=password required="required">
+    </md-input-container>
 
 
-        <!-- Submit Form Button -->
-        <div layout="row">
-          <button type="submit">
-            <i class="fa fa-sign-in fa-4"></i>
-            Sign In
-          </button>
+    <!-- New User Checkbox class="sidenav-login-newaccount" -->
+    <md-checkbox [(ngModel)]="userForm.newAccount" color="primary" name="new account">
+      new here?
+    </md-checkbox>
 
-          <!-- New User Checkbox class="sidenav-login-newaccount" -->
-          <md-checkbox [(ngModel)]="newUser.newAccount" name="new account">
-            new here?
-          </md-checkbox>
-        </div>
 
-        <!-- Terms & Conditions Checkbox -->
-        <div layout="row">
-          <md-checkbox [(ngModel)]="newUser.termsCond" [hidden]="newUser.newAccount" class="sidenav-login-termscond" name="terms and conditions">
-            I agree to the
-            <a href="/#/termsandconditions">terms and conditions</a>
-          </md-checkbox>
-        </div>
-      </form>
-    </div>
-  </div>
-</md-card>
+    <!-- Terms & Conditions Checkbox -->
+    <md-checkbox *ngIf="userForm.newAccount" [(ngModel)]="userForm.termsCond" class="sidenav-login-termscond" name="terms and conditions" required="{{userForm.newAccount ? 'false' : 'required'}}">
+      I agree to the
+      <a href="/#/termsandconditions">terms and conditions</a>
+    </md-checkbox>
+
+    <!-- Submit Form Button -->
+    <button type="submit" (click)="login()">
+      <i class="fa fa-sign-in fa-2x"></i>
+    </button>
+
+    <!-- Cancel Form Button -->
+    <button type="cancel" (click)="cancel()">
+      <i class="fa fa-times fa-2x"></i>
+    </button>
+  </form>
+</div>
+<!-- </md-card> -->

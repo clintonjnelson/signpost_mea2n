@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { AuthService } from '../../../core/services/auth.service';
 
-export class NewUser {
-  email: string;
-  password: string;
+export class UserForm {
+  email:      string;
+  password:   string;
   newAccount: boolean;
-  termsCond: boolean;
+  termsCond:  boolean;
 }
+
 
 
 @Component({
@@ -15,24 +17,32 @@ export class NewUser {
   styleUrls:  ['login-signup-form.component.css']
 })
 
+
 export class LoginSignupFormComponent {
-  newUser: NewUser = {
-    email: 'test@example.com',
-    password: 'password',
+  @Output() close = new EventEmitter<any>();
+  userForm: UserForm = {
+    email:      '',
+    password:   '',
     newAccount: false,
-    termsCond: false
+    termsCond:  false
   };
-  showLogin: boolean;
 
-  login(): void {
+  constructor( private auth: AuthService) {}
 
+  login(): any {
+    console.log("LOGIN CLICKED");
+    this.auth.login();
+    // VALIDATE SUCCESS BEFORE CLOSING WHEN HTTP HOOKED UP
+    this.close.emit(null);
+    return false;
   }
 
-  loginToggle(): void {
-
+  cancel(): void {
+    console.log("CLOSE CLICKED!");
+    this.close.emit(null);
+    return false;
   }
 }
-
 
 
 
