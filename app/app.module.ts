@@ -16,6 +16,7 @@ import { HamnavComponent }          from './shared/navigation/hamnav/hamnav.comp
 import { NavbarComponent }          from './shared/navigation/navbar/navbar.component';
 import { NavLinkComponent }         from './shared/navigation/navlink/navlink.component';
 import { SidenavComponent }         from './shared/navigation/sidenav/sidenav.component';
+import { IconLinkComponent }        from './shared/icon-links/icon-links.component';
 import { LoginSignupFormComponent } from './shared/forms/login-signup-form/login-signup-form.component';
 import { LivingStyleGuideComponent } from './styleguide/livingstyleguide.component';
 import { SignComponent }            from './signs/sign/sign.component';
@@ -44,6 +45,7 @@ import { AuthService }    from './core/services/auth.service';
                   NavLinkComponent,
                   LoginSignupFormComponent,
                   SidenavComponent,
+                  IconLinkComponent,
                   LivingStyleGuideComponent,
                   SignComponent,
                   CustomSignFormComponent,

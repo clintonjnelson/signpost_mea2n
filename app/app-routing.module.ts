@@ -8,7 +8,7 @@ import { LivingStyleGuideComponent } from './styleguide/livingstyleguide.compone
 
 // App Routes
 const routes: Routes = [
-  { path: '', redirectTo: '/styleguide', pathMatch: 'full' },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'styleguide', component: LivingStyleGuideComponent }
 ];
 
