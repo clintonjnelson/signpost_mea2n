@@ -1,9 +1,18 @@
 <div class="flex-container" fxLayout="row">
 
   <!-- NavbarComponent | signpost-navbar -->
-  <md-card class="lsg-card6 flex-item">
+  <md-card class="lsg-card5 flex-item">
     <h2>Signpost Navbar</h2>
     <signpost-navbar></signpost-navbar>
+  </md-card>
+
+  <!-- IconLinkComponet | url, icon, bgColor -->
+  <md-card class="lsg-card6 flex-item">
+    <h2>Signpost Icon-Link</h2>
+    <icon-link [url]="'http://localhost:3000/styleguide'"
+               [icon]="'facebook'"
+               [bgColor]="'#7d7d7d'">
+    </icon-link>
   </md-card>
 
   <!-- SidenavComponent | sidenav -->
