@@ -29,7 +29,7 @@ export class LoginSignupFormComponent {
 
   constructor( private auth: AuthService) {}
 
-  login(): any {
+  login(): boolean {
     console.log("LOGIN CLICKED");
     this.auth.login();
     // VALIDATE SUCCESS BEFORE CLOSING WHEN HTTP HOOKED UP
@@ -37,7 +37,7 @@ export class LoginSignupFormComponent {
     return false;
   }
 
-  cancel(): void {
+  cancel(): boolean {
     console.log("CLOSE CLICKED!");
     this.close.emit(null);
     return false;
