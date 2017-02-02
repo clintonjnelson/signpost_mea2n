@@ -1,0 +1,55 @@
+/*Flex with space-between will push one to the right and one to the left!*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+.navbar-signpost-icon {
+  position: relative;
+  bottom: 10px;
+}
+#image-navbar-signpost {
+  width: 150%;
+  height: 150%;
+}
+
+.login-signup-area {
+  height: 32px;
+}
+.login-signup-link {
+  overflow: hidden;
+  display: inline-block;
+  right: 10px;
+}
+
+/*This makes BOTH elements hover style at same time*/
+.login-signup-link:hover i, .login-signup-link:hover span {
+  color: #88B04B;
+}
+
+
+.login-text {
+  bottom: 5px;
+  color: white;
+  font-family: helvetica;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+}
+
+.navbar-login-links {
+  margin: 0;
+  list-style-type: none;
+}
+.navbar-login-links li {
+  display: inline;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 0px;
+}
+.navbar-login-links a {
+  text-decoration: none;
+}
+
+.login-link {}
+.navbar-bottom-hr {}
+

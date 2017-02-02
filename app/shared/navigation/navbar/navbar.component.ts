@@ -7,12 +7,13 @@ import { AuthService }    from '../../../core/services/auth.service';
 export class OauthLink {
   icon: string;
   url:  string;
+  bgColor: string;
 }
 
 const OAUTHS: OauthLink[] = [
-  {icon: 'facebook-official', url: 'http://localhost:3000/styleguide'},
-  {icon: 'instagram', url: 'http://localhost:3000/styleguide'},
-  {icon: 'linkedin', url: 'http://localhost:3000/styleguide'},
+  {icon: 'facebook-official', url: 'http://localhost:3000/styleguide', bgColor: ''},
+  {icon: 'instagram', url: 'http://localhost:3000/styleguide', bgColor: ''},
+  {icon: 'linkedin', url: 'http://localhost:3000/styleguide', bgColor: ''},
 ]
 
 
@@ -23,32 +24,46 @@ const OAUTHS: OauthLink[] = [
   styleUrls:  ['navbar.component.css']
 })
 
-export class NavbarComponent implements OnInit {
-  showLogin: boolean = false;
+export class NavbarComponent {
+  showLoginLinks: boolean = false;
+  showSignpostLoginForm: boolean = false;
   navBkgdColor: string = '#9a9a9a'
   navItemColor: string = '#c9c9c9'
-  oauths = OAUTHS;
+  oauthLinks = OAUTHS;
 
   constructor(
     private helpers: HelpersService,
-    public auth:    AuthService
+    public auth:     AuthService
   ) {}
 
   logout(): void {
     this.auth.logout();
   }
 
-  toggleShowLogin(): void {
-    if(!this.showLogin) {
-      this.showLogin = true;
+  toggleShowSignpostLoginForm(input: any = null): void {
+    // If setting value directly, do that.
+    if(typeof(input) === 'boolean') {
+      this.showSignpostLoginForm = input;
     }
+    // Else, just toggle the value
     else {
-      this.showLogin = false;
+      this.showSignpostLoginForm = !this.showSignpostLoginForm;
+    }
+  }
+
+  toggleShowLoginLinks(input: any = null): void {
+    // If setting value directly, do that.
+    if(typeof(input) === 'boolean') {
+      this.showLoginLinks = input;
+    }
+    // Else, just toggle the value
+    else {
+      this.showLoginLinks = !this.showLoginLinks;
     }
   }
 
   onCloseLogin(event: any) {
-    this.toggleShowLogin();
+    this.toggleShowSignpostLoginForm();
   }
 }
 
