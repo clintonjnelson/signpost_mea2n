@@ -1,0 +1,41 @@
+.sign-content-component {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sign-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  justify-content: space-between;
+}
+
+.sign-content-edit-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.sign-edit-icon-container {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.sign-edit-icon {
+}
+
+.sign-content-title, .sign-content-first-line, .sign-content-second-line {
+  font-family: helvetica, sans-serif;
+  color: white;
+  margin: 0;
+}
+.sign-content-title {
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.sign-content-first-line {
+
+}
+.sign-content-second-line {
+  font-size: 16px;
+}

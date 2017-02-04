@@ -1,0 +1,35 @@
+<!--
+<div class="sign-content" *ngIf="!isEditing">
+  <h3 class="sign-content-title">{{ title }}</h3>
+  <p class="sign-content-first-line"> {{ firstLine }} </p>
+  <p class="sign-content-second-line"> <small>{{ secondLine }}</small> </p>
+</div>
+
+
+<div [ngSwitch]="getFormType(sign.signType)" *ngIf="isEditing">
+  <custom-sign-form
+    *ngSwitchCase="'custom'"
+    [sign]="sign"
+    (close)="onClose($event)"
+    (submit)="onSubmit($event)"
+  ></custom-sign-form>
+  <default-sign-form
+    *ngSwitchCase="'default'"
+    [sign]="sign"
+    (close)="onClose($event)"
+    (submit)="onSubmit($event)"
+  ></default-sign-form>
+  <email-sign-form
+    *ngSwitchCase="'email'"
+    [sign]="sign"
+    (close)="onClose($event)"
+    (submit)="onSubmit($event)"
+  ></email-sign-form>
+  <phone-sign-form
+    *ngSwitchCase="'phone'"
+    [sign]="sign"
+    (close)="onClose($event)"
+    (submit)="onSubmit($event)"
+  ></phone-sign-form>
+</div>
+ -->

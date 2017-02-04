@@ -1,0 +1,47 @@
+<div class="sign-content-component">
+  <!-- Sign Info -->
+  <div class="sign-content" *ngIf="!isEditing">
+    <h3 class="sign-content-title">{{ sign.email }}</h3>
+    <p class="sign-content-first-line"> <small>{{ sign.description }}</small></p>
+  </div>
+
+  <!-- Sign Edit Form -->
+  <div *ngIf="isEditing" class="sign-content-edit-form">
+    <form flex name="signForm" class="sign-listitem-form" layout="column">
+
+        <!-- email -->
+      <md-input-container layout="row">
+        <i class="{{helpers.buildIconClass('envelope', 1)}}"></i>
+        <input md-input type="email" name="email" [(ngModel)]="sign.email" placeholder="emailmee@example.com"/>
+      </md-input-container>
+
+      <!-- description -->
+      <md-input-container layout="row">
+        <i class="{{helpers.buildIconClass('info-circle', 1)}}"></i>
+        <input md-input type="text" name="desc" [(ngModel)]="sign.description" placeholder="short description" md-maxlength="30">
+      </md-input-container>
+
+      <!-- form buttons -->
+      <div>
+        <!-- ok button -->
+        <a (click)="emitSubmit(sign)" type="submit" class="sign-listitem-saveicon">
+          <i class="{{helpers.buildIconClass('check', 2)}}"></i>
+        </a>
+        <!-- cancel button -->
+        <a (click)="emitCancel()" class="sign-listitem-cancelicon">
+          <i class="{{helpers.buildIconClass('times', 2)}}"></i>
+        </a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Right Container -->
+  <div class="sign-edit-icon-container">
+    <!-- Edit Icon -->
+    <div *ngIf="isOwner(sign) && !isEditing" class="sign-edit-icon">
+      <a (click)="toggleEditing()" class="edit-icon">
+        <i class="fa fa-pencil fa-4" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</div>
