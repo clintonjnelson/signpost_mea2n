@@ -1,38 +1,38 @@
 <!-- Signpost Login Form -->
 <!-- <md-card class="sidenav-login"> -->
 <div>
-  <form name="loginForm" (ngSubmit)="login()">
+  <form name="loginForm" (ngSubmit)="login()" class="login-signup-form" #loginForm="ngForm">
     <!-- Email Input -->
     <md-input-container md-no-float layout="row" class="login-input-container">
-      <input md-input type="text" [(ngModel)]="userForm.email" placeholder="email" name="email" required="required">
+      <input md-input type="text" [(ngModel)]="userForm.email" placeholder="email" name="email" minlength="5" required="required">
     </md-input-container>
 
     <!-- Password Input -->
     <md-input-container md-no-float layout="row" class="login-input-container">
-      <input md-input type="password" [(ngModel)]="userForm.password" placeholder="password" name=password required="required">
+      <input md-input type="password" [(ngModel)]="userForm.password" placeholder="password" minlength="6" name=password required="required">
     </md-input-container>
 
 
     <!-- New User Checkbox class="sidenav-login-newaccount" -->
-    <md-checkbox [(ngModel)]="userForm.newAccount" color="primary" name="new account">
+    <md-checkbox [(ngModel)]="userForm.newAccount" color="primary" name="new account" class="login-signup-checkbox">
       new here?
     </md-checkbox>
 
-
     <!-- Terms & Conditions Checkbox -->
-    <md-checkbox *ngIf="userForm.newAccount" [(ngModel)]="userForm.termsCond" class="sidenav-login-termscond" name="terms and conditions" required="{{userForm.newAccount ? 'false' : 'required'}}">
+    <md-checkbox *ngIf="userForm.newAccount" [(ngModel)]="userForm.termsCond" class="login-signup-checkbox" name="terms and conditions" [required]="true">
       I agree to the
       <a href="/#/termsandconditions">terms and conditions</a>
     </md-checkbox>
 
+
     <!-- Submit Form Button -->
-    <button type="submit" (click)="login()">
-      <i class="fa fa-sign-in fa-2x"></i>
+    <button md-button type="submit" (click)="login()" class="login-signup-button submit" [disabled]="loginForm.invalid">
+      <i class="fa fa-sign-in fa-3x"></i>
     </button>
 
     <!-- Cancel Form Button -->
-    <button type="cancel" (click)="cancel()">
-      <i class="fa fa-times fa-2x"></i>
+    <button md-button type="cancel" (click)="cancel()" class="login-signup-button cancel">
+      <i class="fa fa-times fa-3x"></i>
     </button>
   </form>
 </div>

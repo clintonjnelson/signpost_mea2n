@@ -1,0 +1,25 @@
+.login-signup-form {
+  display: block;
+}
+
+.login-input-container {
+  display: block;
+  padding-top: 5px;
+  width: 290px;
+}
+.login-input-container input {
+  font-size: 18px;
+}
+.login-signup-checkbox {
+  display: block;
+}
+.login-signup-button {
+  background: none;
+  border: none;
+}
+button[disabled].submit i, i:hover {
+  color: #ff9999 !important;
+}
+.cancel i:hover {
+  color:red;
+}
