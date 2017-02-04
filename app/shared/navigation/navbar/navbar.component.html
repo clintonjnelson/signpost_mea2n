@@ -5,7 +5,9 @@
       <img src="favicon.ico" alt="signpost icon" id="image-navbar-signpost">
     </a>
   </div>
-  <div class="login-signup-area">
+
+  <!-- Icons When Logged OUT -->
+  <div class="login-signup-area" *ngIf="auth.isLoggedOut">
     <section (click)="toggleShowLoginLinks()" *ngIf="!showLoginLinks" class="login-signup-link">
       <i class="{{helpers.buildIconClass('angle-double-left', 2)}}">
         <span class="login-text">Login | Signup</span>
@@ -30,61 +32,29 @@
       </ul>
     </section>
   </div>
+
+  <!-- Icons when Logged IN -->
+  <div class="user-nav-area" *ngIf="auth.isLoggedIn">
+    <!-- Toggle for User Nav Links -->
+    <section (click)="toggleShowUserNavLinks()" *ngIf="!showUserNavLinks" class="user-nav-link">
+      <div class="user-navlinks-toggle">
+        <i class="{{helpers.buildIconClass('angle-double-left', 2)}}"></i>
+        <i class="{{helpers.buildIconClass('user', 2)}}"></i>
+      </div>
+    </section>
+    <section *ngIf="showUserNavLinks">
+      <ul class="navbar-login-links">
+        <li (click)="toggleShowUserNavLinks()">
+          <i class="{{helpers.buildIconClass('angle-double-right', 2)}}"></i>
+        </li>
+        <li (click)="auth.logout()" class="user-signout-link">
+          <i class="{{helpers.buildIconClass('sign-out', 2)}}"></i>
+        </li>
+      </ul>
+    </section>
+  </div>
 </div>
 <hr class="navbar-bottom-hr">
 <section *ngIf="showSignpostLoginForm" class="navbar-login-signup-form">
   <login-signup-form (close)="onCloseLogin($event)"></login-signup-form>
 </section>
-
-
-
-
-
-
-
-
-<!-- Navigation Bar
-<md-card class="lsg-card6 flex-item">
-  ROW HEIGHT SHOULD BE DYNAMIC BUT 'FIT' DOESNT WORK WELL - FIGURE THIS OUT
-  <md-grid-list *ngIf="!showLogin" cols="3" rowHeight="50px" gutterSize="4px" [style.background]="navBkgdColor" id="main-navbar" class="navbar">
-
-    First Navlink
-    <md-grid-tile [style.background]="navItemColor">
-      <a routerLink="/">
-        <i class="{{helpers.buildIconClass('user', 2)}}"></i>
-      </a>
-    </md-grid-tile>
-
-    If NOT logged in, show login options
-    <md-grid-tile *ngIf="!auth.isLoggedIn" (click)="toggleShowLogin()" [style.background]="navItemColor">
-      <div>
-        <i class="{{helpers.buildIconClass('sign-in', 2)}}"></i>
-      </div>
-    </md-grid-tile>
-
-    If NOT logged in, show login options
-    REMOVE THE LOGIN CLICK ACTION FROM THIS ONCE HOOKED UP!!!
-    <md-grid-tile (click)="auth.login()" *ngIf="!auth.isLoggedIn" [style.background]="navItemColor">
-      <ul class="nav-links-oauth">
-        <li *ngFor="let oauth of oauths">
-          <a [href]="oauth.url">
-            <i class="{{helpers.buildIconClass(oauth.icon, 2)}}"></i>
-          </a>
-        </li>
-      </ul>
-    </md-grid-tile>
-
-    If LOGGED IN, show options
-    <md-grid-tile *ngIf="auth.isLoggedIn" (click)="logout()" [style.background]="navItemColor">
-      <div>
-        <i class="{{helpers.buildIconClass('sign-out', 2)}}"></i>
-      </div>
-    </md-grid-tile>
-  </md-grid-list>
-
-  When LOGIN is clicked, it will show this section and change the cols to hide parts of the last section
-  <md-grid-list *ngIf="showLogin" cols="1" rowHeight="150px" [style.background]="navBkgdColor" id="main-navbar" class="navbar" >
-    <login-signup-form (close)="onCloseLogin($event)"></login-signup-form>
-  </md-grid-list>
-</md-card>
- -->

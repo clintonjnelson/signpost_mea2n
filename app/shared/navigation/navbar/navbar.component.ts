@@ -25,21 +25,22 @@ const OAUTHS: OauthLink[] = [
 })
 
 export class NavbarComponent {
+  // Logged OUT links
   showLoginLinks: boolean = false;
   showSignpostLoginForm: boolean = false;
-  navBkgdColor: string = '#9a9a9a'
-  navItemColor: string = '#c9c9c9'
+  // navBkgdColor: string = '#9a9a9a';
+  // navItemColor: string = '#c9c9c9';
   oauthLinks = OAUTHS;
+  // Logged IN links
+  showUserNavLinks: boolean = false;
+
 
   constructor(
     private helpers: HelpersService,
-    public auth:     AuthService
+    public  auth:    AuthService
   ) {}
 
-  logout(): void {
-    this.auth.logout();
-  }
-
+  //Logged OUT Helpers
   toggleShowSignpostLoginForm(input: any = null): void {
     // If setting value directly, do that.
     if(typeof(input) === 'boolean') {
@@ -60,10 +61,29 @@ export class NavbarComponent {
     else {
       this.showLoginLinks = !this.showLoginLinks;
     }
+    if(this.showSignpostLoginForm) {
+      this.toggleShowSignpostLoginForm(false);
+    }
   }
 
   onCloseLogin(event: any) {
     this.toggleShowSignpostLoginForm();
+  }
+
+  // Logged IN Helpers
+  toggleShowUserNavLinks(input: any = null) {
+    // If setting value directly, do that.
+    if(typeof(input) === 'boolean') {
+      this.showUserNavLinks = input;
+    }
+    // Else, just toggle the value
+    else {
+    this.showUserNavLinks = !this.showUserNavLinks
+    }
+  }
+
+  logout(): void {
+    this.auth.logout();
   }
 }
 
