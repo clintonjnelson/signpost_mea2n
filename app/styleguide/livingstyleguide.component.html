@@ -1,5 +1,29 @@
 <div class="flex-container" fxLayout="row">
 
+  <!-- SignComponent | sign | sign -->
+  <md-card class="lsg-card6 flex-item">
+    <h2>Custom Sign</h2>
+    <sign [sign]="customSign"></sign>
+  </md-card>
+
+  <!-- SignComponent | sign | sign -->
+  <md-card class="lsg-card6 flex-item">
+    <h2>Default Sign</h2>
+    <sign [sign]="defaultSign"></sign>
+  </md-card>
+
+  <!-- SignComponent | sign | sign -->
+  <md-card class="lsg-card6 flex-item">
+    <h2>Phone Sign</h2>
+    <sign [sign]="phoneSign"></sign>
+  </md-card>
+
+  <!-- SignComponent | sign | sign -->
+  <md-card class="lsg-card6 flex-item">
+    <h2>Email Sign</h2>
+    <sign [sign]="emailSign"></sign>
+  </md-card>
+
   <!-- NavbarComponent | signpost-navbar -->
   <md-card class="lsg-card5 flex-item">
     <h2>Signpost Navbar</h2>
@@ -52,35 +76,5 @@
   <md-card class="lsg-card5 flex-item">
     <h2>Search Results for Signs</h2>
     <search-results [signs]="signs" [users]="[]"></search-results>
-  </md-card>
-
-  <!-- SignComponent | sign | sign -->
-  <md-card class="lsg-card6 flex-item">
-    <h2>Custom Sign</h2>
-    <sign [sign]="customSign"></sign>
-  </md-card>
-
-  <!-- SignComponent | sign | sign -->
-  <md-card class="lsg-card6 flex-item">
-    <h2>Default Sign</h2>
-    <sign [sign]="defaultSign"></sign>
-  </md-card>
-
-  <!-- SignComponent | sign | sign -->
-  <md-card class="lsg-card6 flex-item">
-    <h2>Phone Sign</h2>
-    <sign [sign]="phoneSign"></sign>
-  </md-card>
-
-  <!-- SignComponent | sign | sign -->
-  <md-card class="lsg-card6 flex-item">
-    <h2>Email Sign</h2>
-    <sign [sign]="emailSign"></sign>
-  </md-card>
-
-  <!-- SignComponent | sign | sign -->
-  <md-card class="lsg-card1 flex-item">
-    <h2>Hamburger Navigation</h2>
-    <hamnav></hamnav>
   </md-card>
 </div>
