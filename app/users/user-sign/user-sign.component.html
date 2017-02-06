@@ -1,0 +1,22 @@
+<!-- DO WE REALLY NEED AN ID HERE WITH: id="{{'user-sign-' + sign._id}}"  -->
+<div layout="row" class="sign">
+
+  <!-- Main Icon -->
+  <div class="sign-image-container">
+    <!-- // TODO: MAKE THE DIRECTIVE THAT MAKES THIS A HOVER IMAGE ICON WITH PICTURE -->
+    <!-- <img src="{{sign.picUrl}}" alt="{{sign.signType + ' optional image'}}" class="sign-listitem-image" height="60" width="60"> -->
+    <!-- <a routerLink="[/{{user.username}}]" class="sign-image"> -->
+      <i class="{{helpers.buildIconClass('user', 4)}}"></i>
+    <!-- </a> -->
+  </div>
+
+  <!-- Sign Content & Edit Form-->
+  <div class="sign-content-container">
+    <div class="sign-content-component">
+      <!-- Sign Info -->
+      <div class="sign-content">
+        <h3 class="sign-content-title">{{ user.username }}</h3>
+      </div>
+    </div>
+  </div>
+</div>
