@@ -1,44 +1,26 @@
 <div>
-  <h1>Search</h1>
-  <div layout="row" >
-    <div flex="90" offset="5">
-      <div layout="column">
+  <!-- Users Results Found -->
+  <section *ngIf="users.length > 0">
+    <h3 class="search-subheading">users found</h3>
+    <ul>
+      <li *ngFor="let user of users">
+        <a routerLink="[/{{user.username}}]" class="search-results-user-sign">
+          <user-sign [user]="user"></user-sign>
+        </a>
+      </li>
+    </ul>
+  </section>
 
-        <!-- Users Results Found -->
-        <section *ngIf="users.length > 0">
-          <h3 md-subheader class="md-no-sticky">users found:</h3>
-          <ul>
-            <li *ngFor="let user of users">
-              <i class="fa fa-user-circle-o fa-4x"></i>
-              <div class="md-list-item-text">
-                <a href="{{'http://localhost:3000/#/' + user.username}}">
-                  <h3>{{ user.username }}</h3>
-                </a>
-              </div>
-              <md-divider></md-divider>
-            </li>
-          </ul>
-        </section>
-
-        <!-- Signs Results Found -->
-        <!-- TODO: MAKE DIRECTIVE TO CORRESPOND TO TYPE FOUND -->
-        <section *ngIf="signs.length > 0">
-          <h3 md-subheader class="md-no-sticky">signs found:</h3>
-          <ul>
-            <li *ngFor="let sign of signs">
-              <i [ngClass]="iconClass(sign.icon)"></i>
-              <div class="md-list-item-text">
-                <a href="{{'http://localhost:3000/#/' + sign.userId}}">
-                  <h3>{{ sign.knownAs }}</h3>
-                </a>
-              </div>
-              <md-divider></md-divider>
-            </li>
-          </ul>
-        </section>
-
-      </div>
-    </div>
-    <div flex></div>
-  </div>
+  <!-- Signs Results Found -->
+  <section *ngIf="signs.length > 0">
+    <h3 class="search-subheading">signs found</h3>
+    <ul>
+      <li *ngFor="let sign of signs">
+        <!-- THIS SHOULD LINK TO THE OWNER OF THE SIGN'S SIGNPOST PAGE -->
+        <a routerLink="/" class="search-results-signs">
+          <sign [sign]="sign"></sign>
+        </a>
+      </li>
+    </ul>
+  </section>
 </div>

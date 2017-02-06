@@ -1,0 +1,17 @@
+.search-results-container {
+  max-width: 750px;
+}
+
+.search-results-heading {
+  color: white;
+  text-align: center;
+}
+
+.md-input-element {
+  color: white;
+}
+
+.search-box-form {
+  display: flex;
+  flex-direction: row;
+}

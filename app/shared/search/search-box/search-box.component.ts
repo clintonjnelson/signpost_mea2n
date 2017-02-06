@@ -1,4 +1,44 @@
 import { Component } from '@angular/core';
+import { User } from '../../../users/user.model';
+import { Sign } from '../../../signs/sign.model';
+
+const FOUND_USERS: User[] = [
+  { username: "Jen", picUrl: "http://example.com/image1.jpg" },
+  { username: "Clint", picUrl: "http://example.com/image1.jpg" },
+  { username: "Eilee", picUrl: "http://example.com/image1.jpg" },
+  { username: "Clara", picUrl: "http://example.com/image1.jpg" },
+];
+
+const DEFAULT_FACEBOOK_SIGN: Sign = {
+    _id: '12345',
+    bgColor: '#3b5998',
+    description: 'some sign',
+    icon: 'facebook',
+    knownAs: 'my name',
+    linkUrl: 'http://facebook.com',
+    picUrl: 'http://facebook.com/image',
+    signName: 'facebook',
+    signType: 'facebook',
+    username: 'myactualusername',
+  };
+const CUSTOM_ETSY_SIGN: Sign = {
+    _id: '54321',
+    bgColor: 'orange',
+    description: 'etsy sign',
+    icon: 'etsy',
+    knownAs: 'my etsy name',
+    linkUrl: 'http://etsy.com',
+    picUrl: 'http://etsy.com/image',
+    signName: 'etsy',
+    signType: 'custom',
+    username: 'myetsyusername',
+};
+
+const FOUND_SIGNS: Sign[] = [
+  DEFAULT_FACEBOOK_SIGN,
+  CUSTOM_ETSY_SIGN
+];
+
 
 @Component({
   moduleId: module.id,
@@ -9,11 +49,15 @@ import { Component } from '@angular/core';
 
 export class SearchBoxComponent {
   searchStr: string;
-  foundUsers: string[];     // users found by search
-  foundSigns: string[];     // signs found by search
+  foundUsers: User[];     // users found by search
+  foundSigns: Sign[];     // signs found by search
 
   searchUsers() {
     console.log("SEARCH USERS TRIGGERED");
+    this.foundUsers = FOUND_USERS;
+    this.foundSigns = FOUND_SIGNS;
+
+
     //         console.log("SEARCHING CLICKED!");
     //         console.log("Search string is: ", $scope.searchStr);
 

@@ -1,0 +1,18 @@
+.search-subheading {
+  color: white;
+}
+
+.search-results-user-sign {
+  text-decoration: none;
+}
+.search-results-signs {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  margin-bottom: 5px;
+}
