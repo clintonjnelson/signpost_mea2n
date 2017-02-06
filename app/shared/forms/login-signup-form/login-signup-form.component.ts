@@ -1,12 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
-
-export class UserForm {
-  email:      string;
-  password:   string;
-  newAccount: boolean;
-  termsCond:  boolean;
-}
+import { UserCreds } from '../../../users/user.model';
 
 
 
@@ -20,7 +14,7 @@ export class UserForm {
 
 export class LoginSignupFormComponent {
   @Output() close = new EventEmitter<any>();
-  userForm: UserForm = {
+  userForm: UserCreds = {
     email:      '',
     password:   '',
     newAccount: false,
