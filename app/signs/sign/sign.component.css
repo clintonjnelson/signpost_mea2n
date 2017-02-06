@@ -8,20 +8,20 @@
   /*background-color: #8d8d8d;*/
   border: 3px solid #c9c9c9;
   border-radius: 5px;
-  padding: 5px;
   display: flex;
-  max-width: 600px;
   flex-direction: row;
-  z-index: 999;
+  padding: 5px;
   position: relative;
+  max-width: 600px;
+  z-index: 999;
+  transform: rotate(0deg);
 }
 
 .sign-image-container {
   border-radius: 3px;
   display: flex;
   flex-direction: row;
-  height: 65px;
-  width: 65px;
+  height: 66px;
   text-align: center;
 }
 i.underlay-icon {
@@ -38,17 +38,15 @@ i.underlay-icon {
 .sign-image {
   border-radius: 3px;
 }
-/*div.sign:hover {
-  background-color: #8d8d8d
-}*/
-
 
 .sign-content-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-grow: 2;
+  margin-left: 65px;        /*This is for the overlap with icon*/
   padding-left: 10px;
-  z-index: 10;
+  position: absolute;       /*This is for the overlap with icon*/
+  z-index: 10;              /*This is for the overlap with icon*/
 }
 
 

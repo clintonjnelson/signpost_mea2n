@@ -1,6 +1,7 @@
 .sign-content-component {
   display: flex;
   flex-direction: row;
+  flex-grow: 2;
   justify-content: space-between;
 }
 .sign-content {
@@ -19,6 +20,9 @@
   align-self: flex-end;
   display: flex;
   flex-direction: column-reverse;
+  position: fixed;
+  right: 0;
+  bottom: 0;
 }
 .sign-edit-icon {
 }
