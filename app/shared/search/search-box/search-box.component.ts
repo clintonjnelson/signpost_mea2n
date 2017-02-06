@@ -3,10 +3,10 @@ import { User } from '../../../users/user.model';
 import { Sign } from '../../../signs/sign.model';
 
 const FOUND_USERS: User[] = [
-  { username: "Jen", picUrl: "http://example.com/image1.jpg" },
-  { username: "Clint", picUrl: "http://example.com/image1.jpg" },
-  { username: "Eilee", picUrl: "http://example.com/image1.jpg" },
-  { username: "Clara", picUrl: "http://example.com/image1.jpg" },
+  { username: "Jen",   picUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Official_portrait_of_Barack_Obama.jpg" },
+  { username: "Clint", picUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/44_Bill_Clinton_3x4.jpg/220px-44_Bill_Clinton_3x4.jpg" },
+  { username: "Eilee", picUrl: "" },
+  { username: "Clara", picUrl: "" },
 ];
 
 const DEFAULT_FACEBOOK_SIGN: Sign = {
@@ -16,7 +16,7 @@ const DEFAULT_FACEBOOK_SIGN: Sign = {
     icon: 'facebook',
     knownAs: 'my name',
     linkUrl: 'http://facebook.com',
-    picUrl: 'http://facebook.com/image',
+    picUrl: 'https://il5.picdn.net/shutterstock/videos/3178849/thumb/1.jpg',
     signName: 'facebook',
     signType: 'facebook',
     username: 'myactualusername',
@@ -28,7 +28,7 @@ const CUSTOM_ETSY_SIGN: Sign = {
     icon: 'etsy',
     knownAs: 'my etsy name',
     linkUrl: 'http://etsy.com',
-    picUrl: 'http://etsy.com/image',
+    picUrl: 'https://il5.picdn.net/shutterstock/videos/3178849/thumb/1.jpg',
     signName: 'etsy',
     signType: 'custom',
     username: 'myetsyusername',

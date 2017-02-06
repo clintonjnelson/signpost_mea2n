@@ -1,12 +1,12 @@
-<div id="{{'sign_' + sign._id}}" layout="row" class="sign">
-
+<div id="{{'sign_' + sign._id}}" layout="row" class="sign" [style.background]="sign.bgColor" [style.borderColor]="sign.bgColor">
   <!-- Main Icon -->
-  <div class="sign-image-container" [style.background]="sign.bgColor">
+  <div class="sign-image-container">
     <!-- // TODO: MAKE THE DIRECTIVE THAT MAKES THIS A HOVER IMAGE ICON WITH PICTURE -->
-    <!-- <img src="{{sign.picUrl}}" alt="{{sign.signType + ' optional image'}}" class="sign-listitem-image" height="60" width="60"> -->
-    <a href="{{sign.linkUrl}}" class="sign-image">
-      <i class="{{helpers.buildIconClass(sign.icon, 3)}}"></i>
+    <a href="{{sign.linkUrl}}" class="centered-item">
+      <!-- <i class="{{helpers.buildIconClass(sign.icon, 3)}}"></i> -->
+      <img src="{{sign.picUrl}}" alt="{{sign.signType + ' optional image'}}" height="70" width="70" class="sign-image">
     </a>
+    <i class="{{helpers.buildIconClass(sign.icon, 5)}} underlay-icon"></i>
   </div>
 
   <!-- Sign Content & Edit Form-->

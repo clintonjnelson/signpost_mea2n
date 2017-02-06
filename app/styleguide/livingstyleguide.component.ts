@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import { User } from 'shared/search/search-results/search-results.component';
+import { User } from '../users/user.model';
 import { Sign, EmailSign, PhoneSign } from 'signs/sign.model';
 
-const USERS: User[] = [{username: 'Jen'}, {username: 'clint'}];
+const USERS: User[] = [
+    {username: 'Jen',   picUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Official_portrait_of_Barack_Obama.jpg'},
+    {username: 'clint', picUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/44_Bill_Clinton_3x4.jpg/220px-44_Bill_Clinton_3x4.jpg'}
+  ];
 const DEFAULT_FACEBOOK_SIGN: Sign = {
     _id: '12345',
     bgColor: 'red',
@@ -10,7 +13,7 @@ const DEFAULT_FACEBOOK_SIGN: Sign = {
     icon: 'facebook-official',
     knownAs: 'my name',
     linkUrl: 'http://facebook.com',
-    picUrl: 'http://facebook.com/image',
+    picUrl: 'https://il5.picdn.net/shutterstock/videos/3178849/thumb/1.jpg',
     signName: 'facebook',
     signType: 'facebook',
     username: 'myactualusername',
@@ -22,7 +25,7 @@ const CUSTOM_ETSY_SIGN: Sign = {
     icon: 'etsy',
     knownAs: 'my etsy name',
     linkUrl: 'http://etsy.com',
-    picUrl: 'http://etsy.com/image',
+    picUrl: 'https://il5.picdn.net/shutterstock/videos/3178849/thumb/1.jpg',
     signName: 'etsy',
     signType: 'custom',
     username: 'myetsyusername',
@@ -34,7 +37,7 @@ const EMAIL_SIGN: EmailSign = {
     icon: 'envelope',
     knownAs: 'my email name',
     linkUrl: '',
-    picUrl: 'http://facebook.com/image',
+    picUrl: 'https://il5.picdn.net/shutterstock/videos/3178849/thumb/1.jpg',
     signName: 'email',
     signType: 'email',
     username: 'myemailname',
@@ -47,7 +50,7 @@ const PHONE_SIGN: PhoneSign = {
     icon: 'phone',
     knownAs: 'my phone name',
     linkUrl: '',
-    picUrl: 'http://facebook.com/image',
+    picUrl: 'https://il5.picdn.net/shutterstock/videos/3178849/thumb/1.jpg',
     signName: 'phone',
     signType: 'phone',
     username: 'myphonename',

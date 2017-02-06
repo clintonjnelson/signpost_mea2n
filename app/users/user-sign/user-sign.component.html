@@ -3,11 +3,8 @@
 
   <!-- Main Icon -->
   <div class="sign-image-container">
-    <!-- // TODO: MAKE THE DIRECTIVE THAT MAKES THIS A HOVER IMAGE ICON WITH PICTURE -->
-    <!-- <img src="{{sign.picUrl}}" alt="{{sign.signType + ' optional image'}}" class="sign-listitem-image" height="60" width="60"> -->
-    <!-- <a routerLink="[/{{user.username}}]" class="sign-image"> -->
-      <i class="{{helpers.buildIconClass('user', 4)}}"></i>
-    <!-- </a> -->
+    <img *ngIf="user.picUrl" src="{{user.picUrl}}" alt="{{'optional user image'}}" height="70" width="70" class="centered-item">
+    <i class="{{helpers.buildIconClass('user', 4)}} underlay-icon centered-item"></i>
   </div>
 
   <!-- Sign Content & Edit Form-->
