@@ -1,21 +1,30 @@
 .sign {
+  /*background-color: #8d8d8d;*/
   border: 3px solid #c9c9c9;
   border-radius: 5px;
   padding: 5px;
   display: flex;
+  max-width: 600px;
   flex-direction: row;
+}
+div.sign:hover {
+  background-color: #8d8d8d
 }
 
 /*Div Group*/
 .sign-image-container {
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
+  height: 65px;
+  width: 65px;
+  text-align: center;
 }
 .sign-content-container {
   display: flex;
   flex-direction: column;
   flex-grow: 2;
-  padding-left: 10px;
+  padding-left: 8px;
 }
 
 .sign-image {

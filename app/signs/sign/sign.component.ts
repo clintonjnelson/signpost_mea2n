@@ -19,7 +19,6 @@ export class SignComponent {
   constructor( private helpers: HelpersService ) {}
 
   getFormType(signType: string): string {
-    console.log("SIGN TYPE SUBMITTED IS: ", signType);
     switch (signType) {
       case 'custom': return 'custom';
       case 'email':  return 'email';

@@ -1,11 +1,11 @@
 <div id="{{'sign_' + sign._id}}" layout="row" class="sign">
 
   <!-- Main Icon -->
-  <div class="sign-image-container">
+  <div class="sign-image-container" [style.background]="sign.bgColor">
     <!-- // TODO: MAKE THE DIRECTIVE THAT MAKES THIS A HOVER IMAGE ICON WITH PICTURE -->
     <!-- <img src="{{sign.picUrl}}" alt="{{sign.signType + ' optional image'}}" class="sign-listitem-image" height="60" width="60"> -->
     <a href="{{sign.linkUrl}}" class="sign-image">
-      <i class="{{helpers.buildIconClass(sign.icon, 4)}}"></i>
+      <i class="{{helpers.buildIconClass(sign.icon, 3)}}"></i>
     </a>
   </div>
 
