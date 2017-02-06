@@ -11,9 +11,9 @@ export class OauthLink {
 }
 
 const OAUTHS: OauthLink[] = [
-  {icon: 'facebook-official', url: 'http://localhost:3000/styleguide', bgColor: ''},
-  {icon: 'instagram', url: 'http://localhost:3000/styleguide', bgColor: ''},
-  {icon: 'linkedin', url: 'http://localhost:3000/styleguide', bgColor: ''},
+  {icon: 'facebook-official', url: 'http://localhost:3000/styleguide', bgColor: '#3b5998'},
+  {icon: 'instagram', url: 'http://localhost:3000/styleguide', bgColor: '#9b6954'},
+  {icon: 'linkedin', url: 'http://localhost:3000/styleguide', bgColor: '#007bb5'},
 ]
 
 
