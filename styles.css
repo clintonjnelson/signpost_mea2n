@@ -42,7 +42,7 @@ body {
 i {
   color: white;
 }
-i:hover {
+i.sp-hover:hover {
   color: #88B04B;
 }
 
