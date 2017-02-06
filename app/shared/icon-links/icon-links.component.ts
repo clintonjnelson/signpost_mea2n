@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { HelpersService } from '../helpers/helpers.service';
+import { HoverColorDirective } from '../hover-color/hover-color.directive';
+
 
 @Component({
   moduleId: module.id,
