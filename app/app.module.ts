@@ -28,6 +28,7 @@ import { EmailSignContentComponent }   from './signs/sign/sign-content/email/ema
 
 // Directives
 import { HoverColorDirective } from './shared/hover-color/hover-color.directive';
+import { HoverBackgroundDirective } from './shared/hover-background/hover-background.component';
 
 // Services - make them available EVERYWHERE (otherwise, just add it specifically into Component as a provider)
 import { HelpersService } from './shared/helpers/helpers.service';
@@ -58,7 +59,8 @@ import { AuthService }    from './core/services/auth.service';
                   PhoneSignContentComponent,
                   EmailSignContentComponent,
 
-                  HoverColorDirective
+                  HoverColorDirective,
+                  HoverBackgroundDirective,
                 ],
   bootstrap:    [
                   AppComponent,
