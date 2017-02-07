@@ -13,8 +13,6 @@ import { HelpersService } from '../../shared/helpers/helpers.service';
 
 export class SignComponent {
   @Input() sign: Sign;
-  // icons:         string  = '60px';
-  // isEditing:     boolean = false;
 
   constructor( private helpers: HelpersService ) {}
 

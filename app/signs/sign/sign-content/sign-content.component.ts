@@ -36,6 +36,6 @@ export class SignContentComponent {
 
   // FIX ONCE HAVE THE SESSIONS SERVICE TO CHECK OWNER VS SIGN OWNER
   isOwner(checkSign: Sign): boolean {
-    return (true ? true : false)
+    return (true ? true : false);
   }
 }

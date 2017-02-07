@@ -14,7 +14,6 @@ import { SearchBoxComponent }          from './shared/search/search-box/search-b
 import { SearchResultsComponent}       from './shared/search/search-results/search-results.component';
 import { NavbarComponent }             from './shared/navigation/navbar/navbar.component';
 import { NavLinkComponent }            from './shared/navigation/navlink/navlink.component';
-import { SidenavComponent }            from './shared/navigation/sidenav/sidenav.component';
 import { IconLinkComponent }           from './shared/icon-links/icon-links.component';
 import { LoginSignupFormComponent }    from './shared/forms/login-signup-form/login-signup-form.component';
 import { LivingStyleGuideComponent }   from './styleguide/livingstyleguide.component';
@@ -25,6 +24,7 @@ import { DefaultSignContentComponent } from './signs/sign/sign-content/default/d
 import { CustomSignContentComponent }  from './signs/sign/sign-content/custom/custom-sign-content.component';
 import { PhoneSignContentComponent }   from './signs/sign/sign-content/phone/phone-sign-content.component';
 import { EmailSignContentComponent }   from './signs/sign/sign-content/email/email-sign-content.component';
+import { SignsComponent }              from './signs/signs.component';
 
 // Directives
 import { HoverColorDirective } from './shared/hover-color/hover-color.directive';
@@ -48,7 +48,6 @@ import { AuthService }    from './core/services/auth.service';
                   SearchResultsComponent,
                   NavLinkComponent,
                   LoginSignupFormComponent,
-                  SidenavComponent,
                   IconLinkComponent,
                   LivingStyleGuideComponent,
                   UserSignComponent,
@@ -58,6 +57,7 @@ import { AuthService }    from './core/services/auth.service';
                   CustomSignContentComponent,
                   PhoneSignContentComponent,
                   EmailSignContentComponent,
+                  SignsComponent,
 
                   HoverColorDirective,
                   HoverBackgroundDirective,

@@ -10,6 +10,7 @@ export class Sign {
   signName:    string;
   signType:    string;
   username:    string;
+  owner:       string;
 }
 
 export class EmailSign extends Sign {

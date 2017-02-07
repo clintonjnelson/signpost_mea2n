@@ -1,11 +1,6 @@
-import { Component } from '@angular/core';
-import { User } from '../users/user.model';
-import { Sign, EmailSign, PhoneSign } from 'signs/sign.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { Sign, PhoneSign, EmailSign } from './sign.model';
 
-const USERS: User[] = [
-    {username: 'Jen',   picUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Official_portrait_of_Barack_Obama.jpg'},
-    {username: 'clint', picUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/44_Bill_Clinton_3x4.jpg/220px-44_Bill_Clinton_3x4.jpg'}
-  ];
 const DEFAULT_FACEBOOK_SIGN: Sign = {
     _id: '12345',
     bgColor: 'red',
@@ -63,25 +58,21 @@ const PHONE_SIGN: PhoneSign = {
 
 const SIGNS: Sign[] = [DEFAULT_FACEBOOK_SIGN, CUSTOM_ETSY_SIGN, EMAIL_SIGN, PHONE_SIGN];
 
+
 @Component({
   moduleId: module.id,
-  selector: 'livingstyleguide',
-  templateUrl: 'livingstyleguide.component.html',
-  styleUrls:  ['livingstyleguide.component.css']
+  selector: 'signs-list',
+  templateUrl: 'signs.component.html',
+  styleUrls:  ['signs.component.css']
 })
 
-export class LivingStyleGuideComponent {
-  // May need to hardcode things in here for components brought in
+export class SignsComponent implements OnInit {
+  @Input() signs: Sign[];
 
-
-  // SearchResultsComponent
-  users = USERS;
-  signs = SIGNS;
-
-  // SignComponent
-  customSign = CUSTOM_ETSY_SIGN;
-  defaultSign = DEFAULT_FACEBOOK_SIGN;
-  emailSign   = EMAIL_SIGN;
-  phoneSign   = PHONE_SIGN;
-
+  // TODO: GET THE USER'S SIGNS BASED ON THE USERNAME IN THE ROUTE
+  ngOnInit(): void {
+    if(!this.signs || !this.signs.length) {
+      this.signs = SIGNS;
+    }
+  }
 }

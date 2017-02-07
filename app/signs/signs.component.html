@@ -1,0 +1,13 @@
+<!-- User Page -->
+<div class="user-signs-list-container">
+  <h2 class="user-signs-heading">Signs</h2>
+
+  <!-- User's Signs -->
+  <section class="user-signs-list">
+    <ul>
+      <li *ngFor="let sign of signs">
+        <sign [sign]="sign"></sign>
+      </li>
+    </ul>
+  </section>
+</div>
