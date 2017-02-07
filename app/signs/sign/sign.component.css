@@ -10,6 +10,7 @@
   flex-direction: row;
   padding: 5px;
   position: relative;
+  min-width: 0px;
   width: 100%;
   max-width: 600px;
   z-index: 999;
@@ -33,7 +34,7 @@ i.underlay-icon {
 .centered-item {
   position: relative;
   top: 50%;
-  transform: translateY(-53%);
+  transform: translateY(-50%);
 }
 .sign-image {
   border-radius: 3px;
@@ -43,12 +44,12 @@ i.underlay-icon {
   display: flex;
   flex-direction: row;
   flex-grow: 2;
-  transform: translateX(-70px);
+  margin-left: -70px;
+  /*transform: translateX(-70px);    This was stealing the edit icon fixed reference*/
   z-index: 10;                  /*This is for the overlap with icon*/
 }
 
 .sign-angled-tip {
-  /*border-right:  44px solid transparent;*/
   border-top:    44px solid transparent;
   border-bottom: 44px solid transparent;
   border-left:   44px solid blue;

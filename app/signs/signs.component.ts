@@ -38,7 +38,7 @@ const EMAIL_SIGN: EmailSign = {
     signName: 'email',
     signType: 'email',
     username: 'myemailname',
-    email: "fakeemail@example.com",
+    email: "fakeemailsomething@example.com",
     owner: 'someusername'
 };
 const PHONE_SIGN: PhoneSign = {

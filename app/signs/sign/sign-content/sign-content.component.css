@@ -10,6 +10,12 @@
   flex-grow: 2;
   justify-content: space-between;
 }
+.sign-content > h2 {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .sign-content-edit-form {
   display: flex;
@@ -17,11 +23,11 @@
 }
 
 .sign-edit-icon-container {
-  align-self: flex-end;
+/*  align-self: flex-end;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column-reverse;*/
   position: fixed;
-  transform: translateX(65px);       /*Corrects for our shift of the div over*/
+  transform: translateX(0px);       /*Corrects for our shift of the div over*/
   right: 0;
   bottom: 0;
 }
@@ -36,6 +42,10 @@
 .sign-content-title {
   font-size: 22px;
   font-weight: normal;
+  /*Next Part is for Truncating Long String... not sure if it works or not*/
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sign-content-first-line {
