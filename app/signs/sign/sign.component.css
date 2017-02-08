@@ -47,6 +47,12 @@ i.underlay-icon {
   margin-left: -70px;
   /*transform: translateX(-70px);    This was stealing the edit icon fixed reference*/
   z-index: 10;                  /*This is for the overlap with icon*/
+  overflow: hidden;
+}
+
+/*WHEN YOU MAKE A NEW COMPONENT, FLEX MAY NEED VALUES ON IT IN CSS!!!*/
+email-sign-content {
+  min-width: 0px;
 }
 
 .sign-angled-tip {

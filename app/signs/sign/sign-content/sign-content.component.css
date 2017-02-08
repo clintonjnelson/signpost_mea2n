@@ -9,12 +9,12 @@
   flex-direction: column;
   flex-grow: 2;
   justify-content: space-between;
-}
-.sign-content > h2 {
   min-width: 0;
+}
+h3, p {
+  text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .sign-content-edit-form {
@@ -40,7 +40,7 @@
   margin: 0;
 }
 .sign-content-title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: normal;
   /*Next Part is for Truncating Long String... not sure if it works or not*/
   white-space: nowrap;
