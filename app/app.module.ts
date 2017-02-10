@@ -22,8 +22,7 @@ import { SignComponent }               from './signs/sign/sign.component';
 import { SignContentComponent }        from './signs/sign/sign-content/sign-content.component';
 import { DefaultSignContentComponent } from './signs/sign/sign-content/default/default-sign-content.component';
 import { CustomSignContentComponent }  from './signs/sign/sign-content/custom/custom-sign-content.component';
-import { PhoneSignContentComponent }   from './signs/sign/sign-content/phone/phone-sign-content.component';
-import { EmailSignContentComponent }   from './signs/sign/sign-content/email/email-sign-content.component';
+import { GenericSignContentComponent } from './signs/sign/sign-content/generic/generic-sign-content.component';
 import { SignsComponent }              from './signs/signs.component';
 
 // Directives
@@ -55,8 +54,7 @@ import { AuthService }    from './core/services/auth.service';
                   SignContentComponent,        // Superclass
                   DefaultSignContentComponent,
                   CustomSignContentComponent,
-                  PhoneSignContentComponent,
-                  EmailSignContentComponent,
+                  GenericSignContentComponent,
                   SignsComponent,
 
                   HoverColorDirective,

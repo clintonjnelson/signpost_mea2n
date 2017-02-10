@@ -18,10 +18,10 @@ export class SignComponent {
 
   getFormType(signType: string): string {
     switch (signType) {
-      case 'custom': return 'custom';
-      case 'email':  return 'email';
-      case 'phone':  return 'phone';
-      default:       return 'default';
+      case 'custom':   return 'custom';
+      case 'generic':  return 'generic';
+      case 'default':  return 'default';
+      default: console.log('No sign type match found for ', signType);
     }
   }
 }

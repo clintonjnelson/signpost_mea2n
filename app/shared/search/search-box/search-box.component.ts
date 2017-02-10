@@ -18,7 +18,7 @@ const DEFAULT_FACEBOOK_SIGN: Sign = {
     linkUrl: 'http://facebook.com',
     picUrl: 'https://il5.picdn.net/shutterstock/videos/3178849/thumb/1.jpg',
     signName: 'facebook',
-    signType: 'facebook',
+    signType: 'default',
     username: 'myactualusername',
   };
 const CUSTOM_ETSY_SIGN: Sign = {

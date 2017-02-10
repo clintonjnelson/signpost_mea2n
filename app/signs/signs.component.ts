@@ -10,7 +10,7 @@ const DEFAULT_FACEBOOK_SIGN: Sign = {
     linkUrl: 'http://facebook.com',
     picUrl: 'https://il5.picdn.net/shutterstock/videos/3178849/thumb/1.jpg',
     signName: 'facebook',
-    signType: 'facebook',
+    signType: 'default',
     username: 'myactualusername',
     owner: 'someusername'
   };
@@ -36,7 +36,7 @@ const EMAIL_SIGN: EmailSign = {
     linkUrl: '',
     picUrl: 'https://il5.picdn.net/shutterstock/videos/3178849/thumb/1.jpg',
     signName: 'email',
-    signType: 'email',
+    signType: 'generic',
     username: 'myemailname',
     email: "fakeemailsomething@example.com",
     owner: 'someusername'
@@ -50,7 +50,7 @@ const PHONE_SIGN: PhoneSign = {
     linkUrl: '',
     picUrl: 'https://il5.picdn.net/shutterstock/videos/3178849/thumb/1.jpg',
     signName: 'phone',
-    signType: 'phone',
+    signType: 'generic',
     username: 'myphonename',
     phone: "(555)555-5555",
     owner: 'someusername'
