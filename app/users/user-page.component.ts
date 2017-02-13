@@ -74,4 +74,9 @@ export class UserPageComponent {
   ngOnInit(): void {
     this.signs = SIGNS;
   }
+
+  close(event): void {
+    // INSTEAD OF MANUALLY PUSHING, MIGHT WANT TO JUST RELOAD FROM SERVER!
+    this.signs.push(event);     // bubbles sign up, so add it to the list
+  }
 }

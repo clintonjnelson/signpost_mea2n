@@ -1,7 +1,5 @@
-import { Component, Input} from '@angular/core';
-
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Sign } from '../sign.model';
-
 import { HelpersService } from '../../shared/helpers/helpers.service';
 
 @Component({
@@ -14,6 +12,7 @@ import { HelpersService } from '../../shared/helpers/helpers.service';
 export class SignComponent {
   @Input() forNewSign: boolean = false;
   @Input() sign: Sign;
+  @Output() closeEE = new EventEmitter<any>();
 
   constructor( private helpers: HelpersService ) {}
 
@@ -24,6 +23,11 @@ export class SignComponent {
       case 'default':  return 'default';
       default: console.log('No sign type match found for ', signType);
     }
+  }
+
+  close(event): void {
+    console.log("SIGN AT THE SIGNCOMPONENT LEVEL IS: ", event);
+    this.closeEE.emit(event);    // keep passing the sign up
   }
 }
 

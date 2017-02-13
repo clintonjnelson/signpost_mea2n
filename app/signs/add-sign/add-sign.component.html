@@ -31,8 +31,8 @@
     </div>
 
     <div *ngIf="showSignForm">
-      <h2>Preview: </h2>
-      <sign [sign]="selectedSign" [forNewSign]="true"></sign>
+      <!-- <h3 class="preview-area">Preview Sign</h3> -->
+      <sign [sign]="selectedSign" [forNewSign]="true" (closeEE)="close($event)"></sign>
     </div>
   </div>
 </div>

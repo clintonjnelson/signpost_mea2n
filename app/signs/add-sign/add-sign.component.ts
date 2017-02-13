@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { HelpersService } from '../../shared/helpers/helpers.service';
 import { Sign } from '../sign.model';
 
@@ -51,6 +51,9 @@ const GENERIC_SIGNS: Sign[] = [
     _id: '', description: '', knownAs: '', linkUrl: '#', picUrl: '#', username: '', owner: '' },
 ];
 
+
+
+
 @Component({
   moduleId: module.id,
   selector: 'add-sign',
@@ -65,7 +68,7 @@ export class AddSignComponent {
 
   showAddSignIcons: boolean = false;
   showSignForm: boolean = false;
-
+  @Output() closeEE = new EventEmitter<any>()
 
   constructor(private helpers: HelpersService) {}
 
@@ -85,6 +88,14 @@ export class AddSignComponent {
   setSign(sign: Sign) {
     this.selectedSign = sign;
     console.log("SETTING SIGN TO: ", sign);
+  }
+
+  close(event) {
+    console.log("SIGN AT THE ADDSIGN LEVEL IS: ", event);
+    // Reset the area to closed. Triggered by event emitters from inner save/close
+    this.toggleShowAddSignIcons(false);
+    this.toggleShowForm(false);
+    this.closeEE.emit(event);    // keep passing the sign up
   }
 }
 

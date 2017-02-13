@@ -43,7 +43,8 @@
         </a>
         <!-- cancel button -->
         <a (click)="cancel()" class="sign-listitem-cancelicon">
-          <i class="{{helpers.buildIconClass('times', 2)}}"></i>
+          <i *ngIf="!showPreviewLabel" class="{{helpers.buildIconClass('times', 2)}}"></i>
+          <p *ngIf="showPreviewLabel"  class="preview-label">Preview</p>
         </a>
       </div>
 

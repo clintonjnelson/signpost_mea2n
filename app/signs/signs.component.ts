@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Sign, PhoneSign, EmailSign } from './sign.model';
 
 
@@ -9,6 +9,6 @@ import { Sign, PhoneSign, EmailSign } from './sign.model';
   styleUrls:  ['signs.component.css']
 })
 
-export class SignsComponent implements OnInit {
+export class SignsComponent {
   @Input() signs: Sign[];
 }
