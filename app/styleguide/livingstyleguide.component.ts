@@ -43,7 +43,7 @@ const EMAIL_SIGN: EmailSign = {
     signName: 'email',
     signType: 'generic',
     username: 'myemailname',
-    email: "fakeemail@example.com",
+    email: "somereallyfakeemail@example.com",
     owner: 'someusername'
 };
 const PHONE_SIGN: PhoneSign = {

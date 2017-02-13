@@ -23,3 +23,7 @@
   background-color: #88B04B;
   margin-bottom: 30px;
 }
+
+md-card > h2 {
+  text-align: center;
+}
