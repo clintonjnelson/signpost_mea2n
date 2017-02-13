@@ -17,13 +17,16 @@ import { NavLinkComponent }            from './shared/navigation/navlink/navlink
 import { IconLinkComponent }           from './shared/icon-links/icon-links.component';
 import { LoginSignupFormComponent }    from './shared/forms/login-signup-form/login-signup-form.component';
 import { LivingStyleGuideComponent }   from './styleguide/livingstyleguide.component';
-import { UserSignComponent }           from './users/user-sign/user-sign.component';
+
 import { SignComponent }               from './signs/sign/sign.component';
+import { SignsComponent }              from './signs/signs.component';
 import { SignContentComponent }        from './signs/sign/sign-content/sign-content.component';
 import { DefaultSignContentComponent } from './signs/sign/sign-content/default/default-sign-content.component';
 import { CustomSignContentComponent }  from './signs/sign/sign-content/custom/custom-sign-content.component';
 import { GenericSignContentComponent } from './signs/sign/sign-content/generic/generic-sign-content.component';
-import { SignsComponent }              from './signs/signs.component';
+import { UserPageComponent }           from './users/user-page.component';
+import { UserSignComponent }           from './users/user-sign/user-sign.component';
+import { AddSignComponent }            from './signs/add-sign/add-sign.component';
 
 // Directives
 import { HoverColorDirective } from './shared/hover-color/hover-color.directive';
@@ -49,13 +52,15 @@ import { AuthService }    from './core/services/auth.service';
                   LoginSignupFormComponent,
                   IconLinkComponent,
                   LivingStyleGuideComponent,
-                  UserSignComponent,
                   SignComponent,
+                  SignsComponent,
                   SignContentComponent,        // Superclass
                   DefaultSignContentComponent,
                   CustomSignContentComponent,
                   GenericSignContentComponent,
-                  SignsComponent,
+                  UserPageComponent,
+                  UserSignComponent,
+                  AddSignComponent,
 
                   HoverColorDirective,
                   HoverBackgroundDirective,
