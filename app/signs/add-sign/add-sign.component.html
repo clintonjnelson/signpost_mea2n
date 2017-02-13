@@ -1,0 +1,38 @@
+<div class="add-sign-comtainer">
+  <!-- Add-Sign Icon -->
+  <div *ngIf="!showAddSignIcons" class="add-sign-icon-container">
+    <i class="{{helpers.buildIconClass('plus', 2)}}" (click)="toggleShowAddSignIcons()"></i>
+  </div>
+
+  <div *ngIf="showAddSignIcons">
+    <!-- Heading -->
+    <p class="heading">add a sign</p>
+
+    <!-- Oauth Links -->
+    <div>
+      <ul>
+        <li *ngFor="let oLink of oauths" class="oauth-icons-list">
+          <icon-link [url]="oLink.url"
+                     [icon]="oLink.icon"
+                     [bgColor]="oLink.bgColor"
+                     [iconSize]="2">
+          </icon-link>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Generic & Custom Links -->
+    <div>
+      <ul>
+        <li *ngFor="let custom of customs" class="oauth-icons-list">
+          <i [hoverColor]="custom.bgColor" class="{{helpers.buildIconClass(custom.icon, 2)}}" (click)="toggleShowForm(true); setSign(custom)"></i>
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="showSignForm">
+      <h2>Preview: </h2>
+      <sign [sign]="selectedSign" [forNewSign]="true"></sign>
+    </div>
+  </div>
+</div>

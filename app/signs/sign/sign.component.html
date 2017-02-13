@@ -1,20 +1,27 @@
 <div class="sign-container">
   <div id="{{'sign_' + sign._id}}" class="sign" [style.background]="sign.bgColor" [style.borderColor]="sign.bgColor">
-    <!-- Main Icon -->
-    <div class="sign-image-container">
-      <!-- // TODO: MAKE THE DIRECTIVE THAT MAKES THIS A HOVER IMAGE ICON WITH PICTURE -->
+
+
+    <!-- Main Icon - SHOW IF THERE'S A PIC URL -->
+    <div *ngIf="sign.picUrl" class="sign-image-container">
       <a href="{{sign.linkUrl}}" class="centered-item">
-        <!-- <i class="{{helpers.buildIconClass(sign.icon, 3)}}"></i> -->
-        <img src="{{sign.picUrl}}" alt="{{sign.signName + ' optional image'}}" height="70" width="70" class="sign-image">
+        <img src="{{sign.picUrl}}" height="70" width="70" class="sign-image">
       </a>
       <i class="{{helpers.buildIconClass(sign.icon, 5)}} underlay-icon"></i>
     </div>
 
+    <!-- IF NO PIC URL THEN JUST SHOW ICON AS LINK -->
+    <div *ngIf="!sign.picUrl" class="sign-image-container">
+      <a href="{{sign.linkUrl}}" class="centered-item">
+        <i class="{{helpers.buildIconClass(sign.icon, 5)}} underlay-icon"></i>
+      </a>
+    </div>
+
     <!-- Sign Content & Edit Form-->
-    <div class="sign-content-container" [ngSwitch]="getFormType(sign.signType)">
-      <default-sign-content *ngSwitchCase="'default'" [sign]="sign"></default-sign-content>
-      <custom-sign-content  *ngSwitchCase="'custom'"  [sign]="sign"></custom-sign-content>
-      <generic-sign-content *ngSwitchCase="'generic'" [sign]="sign"></generic-sign-content>
+    <div class="sign-content-container" [ngSwitch]="getFormType(sign.signType)" [ngClass]="{'shift-left': sign.picUrl}">
+      <default-sign-content *ngSwitchCase="'default'" [sign]="sign" [forNewSign]="forNewSign"></default-sign-content>
+      <custom-sign-content  *ngSwitchCase="'custom'"  [sign]="sign" [forNewSign]="forNewSign"></custom-sign-content>
+      <generic-sign-content *ngSwitchCase="'generic'" [sign]="sign" [forNewSign]="forNewSign"></generic-sign-content>
     </div>
   </div>
   <div class="sign-angled-tip" [style.borderLeftColor]="sign.bgColor"></div>

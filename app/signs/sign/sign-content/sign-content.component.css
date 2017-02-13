@@ -8,8 +8,6 @@
   display: flex;
   flex-direction: column;
   flex-grow: 2;
-  justify-content: space-between;
-  min-width: 0;
 }
 h3, p {
   text-overflow: ellipsis;
@@ -23,9 +21,6 @@ h3, p {
 }
 
 .sign-edit-icon-container {
-/*  align-self: flex-end;
-  display: flex;
-  flex-direction: column-reverse;*/
   position: fixed;
   transform: translateX(0px);       /*Corrects for our shift of the div over*/
   right: 0;

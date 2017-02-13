@@ -10,11 +10,12 @@
   flex-direction: row;
   padding: 5px;
   position: relative;
-  min-width: 0px;
+  min-width: 0;
   width: 100%;
   max-width: 600px;
   z-index: 999;
   transform: rotate(0deg);
+  overflow: hidden;
 }
 
 .sign-image-container {
@@ -25,8 +26,7 @@
   text-align: center;
 }
 i.underlay-icon {
-  margin-left: 10px;
-  transform:translateY(-7px);
+  transform:translateY(-5px);
   opacity: 0.4;
   width: 70px;
   z-index: 1;
@@ -38,27 +38,33 @@ i.underlay-icon {
 }
 .sign-image {
   border-radius: 3px;
+  margin-right: 10px;
 }
 
-.sign-content-container {
+div.sign-content-container {
   display: flex;
   flex-direction: row;
   flex-grow: 2;
+  z-index: 10;
+}
+
+/*Based on a ngClass, since only need this when pic AND image exist*/
+.shift-left {
   margin-left: -70px;
-  /*transform: translateX(-70px);    This was stealing the edit icon fixed reference*/
-  z-index: 10;                  /*This is for the overlap with icon*/
-  overflow: hidden;
 }
 
 /*WHEN YOU MAKE A NEW COMPONENT, FLEX MAY NEED VALUES ON IT IN CSS!!!*/
-email-sign-content {
-  min-width: 0px;
+generic-sign-content, custom-sign-content, default-sign-content {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 2;
+  min-width: 0;
 }
 
 .sign-angled-tip {
   border-top:    44px solid transparent;
   border-bottom: 44px solid transparent;
-  border-left:   44px solid blue;
+  border-left:   44px solid transparent;
   display: flex;
   align-self: flex-end;
   margin-left: -2px;

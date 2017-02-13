@@ -12,6 +12,7 @@ import { HelpersService } from '../../shared/helpers/helpers.service';
 })
 
 export class SignComponent {
+  @Input() forNewSign: boolean = false;
   @Input() sign: Sign;
 
   constructor( private helpers: HelpersService ) {}

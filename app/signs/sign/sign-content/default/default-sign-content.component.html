@@ -19,11 +19,11 @@
       <!-- Form Buttons -->
       <div>
         <!-- ok button -->
-        <a (click)="emitSubmit(sign)" type="submit" class="sign-listitem-saveicon" >
+        <a (click)="save(sign)" type="submit" class="sign-listitem-saveicon" >
           <i class="{{helpers.buildIconClass('check', 2)}}"></i>
         </a>
         <!-- cancel button -->
-        <a (click)="emitCancel()" class="sign-listitem-cancelicon">
+        <a (click)="cancel()" class="sign-listitem-cancelicon">
           <i class="{{helpers.buildIconClass('times', 2)}}"></i>
         </a>
       </div>
