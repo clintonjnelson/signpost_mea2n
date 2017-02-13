@@ -16,10 +16,11 @@ const DEFAULT_FACEBOOK_SIGN: Sign = {
     icon: 'facebook',
     knownAs: 'my name',
     linkUrl: 'http://facebook.com',
-    picUrl: 'https://il5.picdn.net/shutterstock/videos/3178849/thumb/1.jpg',
+    picUrl: '',
     signName: 'facebook',
     signType: 'default',
     username: 'myactualusername',
+    owner: 'signowner'
   };
 const CUSTOM_ETSY_SIGN: Sign = {
     _id: '54321',
@@ -32,6 +33,7 @@ const CUSTOM_ETSY_SIGN: Sign = {
     signName: 'etsy',
     signType: 'custom',
     username: 'myetsyusername',
+    owner: 'signowner'
 };
 
 const FOUND_SIGNS: Sign[] = [
