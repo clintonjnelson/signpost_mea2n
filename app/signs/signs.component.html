@@ -6,7 +6,7 @@
   <section class="user-signs-list">
     <ul>
       <li *ngFor="let sign of signs">
-        <sign [sign]="sign"></sign>
+        <sign [sign]="sign" (saveEE)="save($event)" (destroyEE)="destroy($event)"></sign>
       </li>
     </ul>
   </section>

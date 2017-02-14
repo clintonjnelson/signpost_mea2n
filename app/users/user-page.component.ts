@@ -69,14 +69,25 @@ const SIGNS: Sign[] = [DEFAULT_FACEBOOK_SIGN, CUSTOM_ETSY_SIGN, EMAIL_SIGN, PHON
 
 export class UserPageComponent {
   signs: Sign[];
+  isOwner: boolean = true;    // DECIDE IF NEED THIS HERE OR DEEPER... PROBABLY DEEPER?
 
   // TODO: GET THE USER'S SIGNS BASED ON THE USERNAME IN THE ROUTE
   ngOnInit(): void {
     this.signs = SIGNS;
   }
 
-  close(event: any): void {
+  destroy(event: any) {
+    console.log("MADE IT TO USER-PAGE DESTROY. SIGN IS: ", event);
+    var theseSigns = this.signs;
+    if(!!event.sign && event.destroy === true) {
+      this.signs.splice(theseSigns.indexOf(event.sign), 1);
+      console.log("TRIED TO SPLICE OUT THE SIGN...");
+    }
+  }
+
+  save(event: any): void {
     // INSTEAD OF MANUALLY PUSHING, MIGHT WANT TO JUST RELOAD FROM SERVER!
+    console.log("MADE IT TO USER-PAGE SAVE. SIGN IS: ", event);
     this.signs.push(event);     // bubbles sign up, so add it to the list
   }
 }

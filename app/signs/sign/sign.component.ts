@@ -12,7 +12,8 @@ import { HelpersService } from '../../shared/helpers/helpers.service';
 export class SignComponent {
   @Input() forNewSign: boolean = false;
   @Input() sign: Sign;
-  @Output() closeEE = new EventEmitter<any>();
+  @Output() saveEE    = new EventEmitter<any>();
+  @Output() destroyEE = new EventEmitter<any>();
 
   constructor( private helpers: HelpersService ) {}
 
@@ -25,9 +26,16 @@ export class SignComponent {
     }
   }
 
-  close(event: any): void {
+  destroy(event: any) {
+    console.log("SIGNCOMPONENT DESTROY EVENT IS EMITTING EVENT TO ADD-SIGN: ", event);
+    // COULD MAKE CONDITIONAL ON NEW SIGN, BUT THEN AGAIN MAY NEED TO UPDATE SIGNS
+    // DO WE REALLY NEED THE FULL OBJECT IF CAN CLOSE NEWSIGN STUFF BASE ON LOGIC IN HERE???
+    this.destroyEE.emit(event);
+  }
+
+  save(event: any): void {
     console.log("SIGN AT THE SIGNCOMPONENT LEVEL IS: ", event);
-    this.closeEE.emit(event);    // keep passing the sign up
+    this.saveEE.emit(event);    // keep passing the sign up
   }
 }
 

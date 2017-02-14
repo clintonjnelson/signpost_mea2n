@@ -24,18 +24,25 @@
         </a>
         <!-- cancel button -->
         <a (click)="cancel()" class="sign-listitem-cancelicon">
-          <i class="{{helpers.buildIconClass('times', 2)}}"></i>
+          <i *ngIf="!showPreviewLabel" class="{{helpers.buildIconClass('times', 2)}}"></i>
+          <p *ngIf="showPreviewLabel"  class="preview-label">Preview</p>
         </a>
       </div>
     </form>
   </div>
 
-  <!-- Right Container -->
-  <div class="sign-edit-icon-container">
+  <!-- Right Sign Management Icons Container -->
+  <div *ngIf="isOwner(sign) && !isEditing" [style.background]="sign.bgColor" class="sign-management-icons-container">
+    <!-- Delete Icon -->
+    <div class="sign-delete-icon">
+      <a (click)="destroy()" class="sign-delete-icon">
+        <i class="fa fa-times fa-1x" aria-hidden="true"></i>
+      </a>
+    </div>
     <!-- Edit Icon -->
-    <div *ngIf="isOwner(sign) && !isEditing" class="sign-edit-icon">
+    <div class="sign-edit-icon">
       <a (click)="toggleEditing()" class="edit-icon">
-        <i class="fa fa-pencil fa-4" aria-hidden="true"></i>
+        <i class="fa fa-pencil fa-1x" aria-hidden="true"></i>
       </a>
     </div>
   </div>

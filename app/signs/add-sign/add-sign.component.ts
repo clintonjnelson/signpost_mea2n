@@ -68,7 +68,8 @@ export class AddSignComponent {
 
   showAddSignIcons: boolean = false;
   showSignForm: boolean = false;
-  @Output() closeEE = new EventEmitter<any>()
+  @Output() saveEE  = new EventEmitter<any>()
+  @Output() destroyEE = new EventEmitter<any>();
 
   constructor(private helpers: HelpersService) {}
 
@@ -90,12 +91,25 @@ export class AddSignComponent {
     console.log("SETTING SIGN TO: ", sign);
   }
 
-  close(event: any) {
+  destroy(event: any) {
+    console.log("IN ADD-SIGN DESTROY FUNCTION; EVENT IS ", event);
+    // SHOULD NEVER NEED THIS ON AN ADD-SIGN AREA; ONLY ON NORMAL SIGN.
+    // if(!!event.sign && event.destroy === true) {
+    //   this.destroyEE.emit(event);
+    // }
+    this.toggleShowForm(false);
+  }
+
+  save(event: any) {
     console.log("SIGN AT THE ADDSIGN LEVEL IS: ", event);
     // Reset the area to closed. Triggered by event emitters from inner save/close
+    this.closeForms();
+    this.saveEE.emit(event);    // keep passing the sign up
+  }
+
+  private closeForms() {
     this.toggleShowAddSignIcons(false);
     this.toggleShowForm(false);
-    this.closeEE.emit(event);    // keep passing the sign up
   }
 }
 

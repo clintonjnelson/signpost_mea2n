@@ -13,8 +13,8 @@ import { Sign } from '../../sign.model';
 export class SignContentComponent {
   private _forNewSign: void;
   @Input() sign: Sign;
-  @Output() closeEE = new EventEmitter<any>();
-  // @Output() submit = new EventEmitter<Sign>();
+  @Output() saveEE  = new EventEmitter<any>();
+  @Output() destroyEE = new EventEmitter<any>();
 
   isEditing:        boolean = false;
   forSignCreation:  boolean = false;
@@ -33,6 +33,20 @@ export class SignContentComponent {
     this.toggleEditing();
   }
 
+  destroy() {
+    console.log("INSIDE DELETE...");
+    var delSign = this.sign;
+    if(this.forSignCreation) {
+      console.log("FOR NEW SIGN CREATION, SO PASSING CLOSE ONLY");
+      this.destroyEE.emit({sign: null, destroy: false, close: true});
+    }
+    else {
+      console.log("SHOULD CALL TO DESTROY SIGN; EMITTING TO SIGNCOMPONENT?");
+      this.destroyEE.emit({sign: delSign, destroy: true, close: true});
+    }
+    this.toggleEditing(false);  // Close editing window
+  }
+
   save(sign: Sign) {
     if(this.forSignCreation) {
       console.log("SUBMIT: THIS SHOULD CALL THE CREATE SIGN ROUTE");
@@ -41,12 +55,13 @@ export class SignContentComponent {
       console.log("SUBMIT: THIS SHOULD CALL THE UPDATE SIGN ROUTE");
     }
     // ONLY CLOSE THE ADDSIGN AREA & Toggle Editing UPON SUCCESS!!!!
-    this.toggleEditing();       // SHOULD ONLY DO UPON SUCCESS!!!!!!!
-    this.closeEE.emit(sign);    // keep passing the sign up
+    this.toggleEditing(false);       // SHOULD ONLY DO UPON SUCCESS!!!!!!!
+    this.saveEE.emit(sign);    // keep passing the sign up
   }
 
-  toggleEditing(): void {
-    this.isEditing = !this.isEditing;
+  toggleEditing(input: any = null): void {
+    if(typeof(input) === 'boolean') { this.isEditing = input; }
+    else { this.isEditing = !this.isEditing; }
     console.log("EDITING TOGGLED & IS NOW: ", this.isEditing);
   }
 

@@ -19,9 +19,9 @@
 
     <!-- Sign Content & Edit Form-->
     <div class="sign-content-container" [ngSwitch]="getFormType(sign.signType)" [ngClass]="{'shift-left': sign.picUrl}">
-      <default-sign-content *ngSwitchCase="'default'" [sign]="sign" [forNewSign]="forNewSign" (closeEE)="close($event)"></default-sign-content>
-      <custom-sign-content  *ngSwitchCase="'custom'"  [sign]="sign" [forNewSign]="forNewSign" (closeEE)="close($event)"></custom-sign-content>
-      <generic-sign-content *ngSwitchCase="'generic'" [sign]="sign" [forNewSign]="forNewSign" (closeEE)="close($event)"></generic-sign-content>
+      <default-sign-content *ngSwitchCase="'default'" [sign]="sign" [forNewSign]="forNewSign" (saveEE)="save($event)" (destroyEE)="destroy($event)"></default-sign-content>
+      <custom-sign-content  *ngSwitchCase="'custom'"  [sign]="sign" [forNewSign]="forNewSign" (saveEE)="save($event)" (destroyEE)="destroy($event)"></custom-sign-content>
+      <generic-sign-content *ngSwitchCase="'generic'" [sign]="sign" [forNewSign]="forNewSign" (saveEE)="save($event)" (destroyEE)="destroy($event)"></generic-sign-content>
     </div>
   </div>
   <div class="sign-angled-tip" [style.borderLeftColor]="sign.bgColor"></div>
