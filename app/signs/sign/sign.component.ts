@@ -25,7 +25,7 @@ export class SignComponent {
     }
   }
 
-  close(event): void {
+  close(event: any): void {
     console.log("SIGN AT THE SIGNCOMPONENT LEVEL IS: ", event);
     this.closeEE.emit(event);    // keep passing the sign up
   }

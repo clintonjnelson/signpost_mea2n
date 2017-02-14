@@ -90,7 +90,7 @@ export class AddSignComponent {
     console.log("SETTING SIGN TO: ", sign);
   }
 
-  close(event) {
+  close(event: any) {
     console.log("SIGN AT THE ADDSIGN LEVEL IS: ", event);
     // Reset the area to closed. Triggered by event emitters from inner save/close
     this.toggleShowAddSignIcons(false);

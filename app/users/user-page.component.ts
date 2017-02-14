@@ -75,7 +75,7 @@ export class UserPageComponent {
     this.signs = SIGNS;
   }
 
-  close(event): void {
+  close(event: any): void {
     // INSTEAD OF MANUALLY PUSHING, MIGHT WANT TO JUST RELOAD FROM SERVER!
     this.signs.push(event);     // bubbles sign up, so add it to the list
   }
