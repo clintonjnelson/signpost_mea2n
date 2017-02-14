@@ -56,3 +56,12 @@
 .user-navlinks-toggle:hover i, .user-navlinks-toggle:hover div {
   color: #88B04B;
 }
+.user-signout-link {
+  position: relative;
+  bottom: 3px;
+}
+.signout-text {
+  color: white;
+  display: inline;
+  font-family: helvetica, sans-serif;
+}
