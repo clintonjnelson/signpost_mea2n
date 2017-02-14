@@ -1,13 +1,26 @@
+.preview-watermark {
+  position: absolute;
+  left: 0;
+  top: 50%;
+
+  color: white;
+  font-size: 24px;
+  font-family: helvetica, sans-serif;
+  opacity: 0.5;
+}
+
 .sign-content-component {
   display: flex;
   flex-direction: row;
-  flex-grow: 2;
+  /*flex-grow: 2;*/
+  width: 100%;
   justify-content: space-between;
 }
 .sign-content {
   display: flex;
   flex-direction: column;
   flex-grow: 2;
+  width: 100%;
 }
 h3, p {
   text-overflow: ellipsis;
@@ -18,15 +31,6 @@ h3, p {
 .sign-content-edit-form {
   display: flex;
   flex-direction: row;
-}
-
-.sign-edit-icon-container {
-  position: fixed;
-  transform: translateX(0px);       /*Corrects for our shift of the div over*/
-  right: 0;
-  bottom: 0;
-}
-.sign-edit-icon {
 }
 
 .sign-content-title, .sign-content-first-line, .sign-content-second-line {
@@ -42,10 +46,31 @@ h3, p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-.sign-content-first-line {
-
-}
+.sign-content-first-line {}
 .sign-content-second-line {
   font-size: 16px;
+}
+
+/* Sign Management Container Area */
+.sign-management-icons-container {
+  position: absolute;   /* testing */
+  right: 0;             /* testing */
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.sign-delete-icon {
+  color: white;
+  font-family: helvetica, sans-serif;
+  font-weight: bold;
+  top: 0px;
+}
+.sign-delete-icon:hover, .sign-delete-icon > i:hover {
+  color: #FF3030;
+}
+.sign-edit-icon {
+  bottom: 0;
+  margin-bottom: 8px;
 }
