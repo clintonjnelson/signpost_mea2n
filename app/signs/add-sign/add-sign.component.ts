@@ -1,21 +1,22 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { HelpersService } from '../../shared/helpers/helpers.service';
 import { Sign } from '../sign.model';
 
 export class Link {
-  url:     string;
-  icon:    string;
-  bgColor: string;
+  url:      string;
+  icon:     string;
+  bgColor:  string;
+  linkName: string;
 }
 
 const OLINKS: Link[] = [
-  {url: 'www.google.com', icon: 'facebook', bgColor: 'green'},
-  {url: 'www.google.com', icon: 'instagram', bgColor: 'blue'},
-  {url: 'www.google.com', icon: 'linkedin', bgColor: 'red'},
-  {url: 'www.google.com', icon: 'vine', bgColor: 'orange'},
-  {url: 'www.google.com', icon: 'reddit', bgColor: 'yellow'},
-  {url: 'www.google.com', icon: 'snapchat', bgColor: 'purple'},
-  {url: 'www.google.com', icon: 'pinterest', bgColor: 'black'}
+  {url: 'www.google.com', icon: 'facebook',  bgColor: 'green',  linkName: 'facebook'},
+  {url: 'www.google.com', icon: 'instagram', bgColor: 'blue',   linkName: 'instagram'},
+  {url: 'www.google.com', icon: 'linkedin',  bgColor: 'red',    linkName: 'linkedin'},
+  {url: 'www.google.com', icon: 'vine',      bgColor: 'orange', linkName: 'vine'},
+  {url: 'www.google.com', icon: 'reddit',    bgColor: 'yellow', linkName: 'reddit'},
+  {url: 'www.google.com', icon: 'snapchat',  bgColor: 'purple', linkName: 'snapchat'},
+  {url: 'www.google.com', icon: 'pinterest', bgColor: 'black',  linkName: 'pinterest'}
 ];
 
 const CUSTOM_SIGNS: Sign[] = [
@@ -68,29 +69,29 @@ export class AddSignComponent {
 
   showAddSignIcons: boolean = false;
   showSignForm: boolean = false;
+  @Input()  signs: Sign[];
   @Output() saveEE  = new EventEmitter<any>()
   @Output() destroyEE = new EventEmitter<any>();
 
   constructor(private helpers: HelpersService) {}
 
-
-  toggleShowAddSignIcons(input: any = null): void {
-    // If setting value directly, do that. Else, just toggle the value
-    if(typeof(input) === 'boolean') { this.showAddSignIcons = input; }
-    else { this.showAddSignIcons = !this.showAddSignIcons; }
+  isOauthAdded(checkLink: Link): boolean {
+    var returnVal = false;
+    this.signs.forEach(function(elem: Sign, ind: Number, orig: Sign[]) {
+      if(elem.signName === checkLink.linkName) {
+        returnVal = true;
+      }
+    });
+    return returnVal;
   }
 
-  toggleShowForm(input: any = null):void {
-    // If setting value directly, do that. Else, just toggle the value
-    if(typeof(input) === 'boolean') { this.showSignForm = input; }
-    else { this.showSignForm = !this.showSignForm; }
-  }
-
+  // Set the sign to create RENAME: SET_CREATE_SIGN, SELECTED_CREATE_SIGN
   setSign(sign: Sign) {
     this.selectedSign = sign;
     console.log("SETTING SIGN TO: ", sign);
   }
 
+  // Functions for Bubbling Up
   destroy(event: any) {
     console.log("IN ADD-SIGN DESTROY FUNCTION; EVENT IS ", event);
     // SHOULD NEVER NEED THIS ON AN ADD-SIGN AREA; ONLY ON NORMAL SIGN.
@@ -99,7 +100,6 @@ export class AddSignComponent {
     // }
     this.toggleShowForm(false);
   }
-
   save(event: any) {
     console.log("SIGN AT THE ADDSIGN LEVEL IS: ", event);
     // Reset the area to closed. Triggered by event emitters from inner save/close
@@ -107,9 +107,20 @@ export class AddSignComponent {
     this.saveEE.emit(event);    // keep passing the sign up
   }
 
+  // Toggle Control Functions
   private closeForms() {
     this.toggleShowAddSignIcons(false);
     this.toggleShowForm(false);
+  }
+  toggleShowAddSignIcons(input: any = null): void {
+    // If setting value directly, do that. Else, just toggle the value
+    if(typeof(input) === 'boolean') { this.showAddSignIcons = input; }
+    else { this.showAddSignIcons = !this.showAddSignIcons; }
+  }
+  toggleShowForm(input: any = null):void {
+    // If setting value directly, do that. Else, just toggle the value
+    if(typeof(input) === 'boolean') { this.showSignForm = input; }
+    else { this.showSignForm = !this.showSignForm; }
   }
 }
 

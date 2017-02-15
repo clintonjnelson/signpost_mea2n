@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Sign, PhoneSign, EmailSign } from '../signs/sign.model';
+import { AuthService } from '../core/services/auth.service';
 
 const DEFAULT_FACEBOOK_SIGN: Sign = {
     _id: '12345',
@@ -68,12 +69,17 @@ const SIGNS: Sign[] = [DEFAULT_FACEBOOK_SIGN, CUSTOM_ETSY_SIGN, EMAIL_SIGN, PHON
 })
 
 export class UserPageComponent {
+  constructor( private auth: AuthService ) {}
+
   signs: Sign[];
-  isOwner: boolean = true;    // DECIDE IF NEED THIS HERE OR DEEPER... PROBABLY DEEPER?
+  isOwner: boolean = false;
 
   // TODO: GET THE USER'S SIGNS BASED ON THE USERNAME IN THE ROUTE
   ngOnInit(): void {
     this.signs = SIGNS;
+    // LOOKUP USERNAME IN ROUTE & COMPARE TO USERNAME IN SESSION VIA AUTH SERVICE METHOD
+    var usernameFromRoute = "USERNAME222"
+    this.isOwner = ( this.auth.isOwner(usernameFromRoute) ? true : false);
   }
 
   destroy(event: any) {

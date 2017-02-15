@@ -12,7 +12,8 @@
     <div>
       <ul>
         <li *ngFor="let oLink of oauths" class="oauth-icons-list">
-          <icon-link [url]="oLink.url"
+          <icon-link *ngIf="!isOauthAdded(oLink)"
+                     [url]="oLink.url"
                      [icon]="oLink.icon"
                      [bgColor]="oLink.bgColor"
                      [iconSize]="2">

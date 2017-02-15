@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { HelpersService } from '../../../shared/helpers/helpers.service';
+import { AuthService } from '../../../core/services/auth.service';
 
 import { Sign } from '../../sign.model';
 
@@ -10,15 +11,15 @@ import { Sign } from '../../sign.model';
   styleUrls:  ['sign-content.component.css']
 })
 
-export class SignContentComponent {
-  private _forNewSign: void;
-  @Input() sign: Sign;
+export class SignContentComponent implements OnInit {
+  @Input()  sign: Sign;
   @Output() saveEE  = new EventEmitter<any>();
   @Output() destroyEE = new EventEmitter<any>();
-
-  isEditing:        boolean = false;
-  forSignCreation:  boolean = false;
-  showPreviewLabel: boolean = false;
+  isOwner:             boolean = false;
+  isEditing:           boolean = false;
+  forSignCreation:     boolean = false;
+  showPreviewLabel:    boolean = false;
+  private _forNewSign: void;  // IS THIS REALLY NEEDED????
   @Input('forNewSign') set forNewSign(val: boolean) {
     if(val === true) {
       this.isEditing        = true;
@@ -27,7 +28,12 @@ export class SignContentComponent {
     }
   }
 
-  constructor( private helpers: HelpersService ) {}
+  constructor( private helpers: HelpersService,
+               private auth:    AuthService) {}
+
+  ngOnInit() {
+    this.isOwner = this.auth.isOwner(this.sign.username);
+  }
 
   cancel() {
     this.toggleEditing();
@@ -63,10 +69,5 @@ export class SignContentComponent {
     if(typeof(input) === 'boolean') { this.isEditing = input; }
     else { this.isEditing = !this.isEditing; }
     console.log("EDITING TOGGLED & IS NOW: ", this.isEditing);
-  }
-
-  // FIX ONCE HAVE THE SESSIONS SERVICE TO CHECK OWNER VS SIGN OWNER
-  isOwner(checkSign: Sign): boolean {
-    return (true ? true : false);
   }
 }

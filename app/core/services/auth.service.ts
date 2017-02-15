@@ -11,6 +11,14 @@ export class AuthService {
     this.isLoggedOut = !this.isLoggedIn;
   }
 
+  isOwner(username: string) {
+    // GET USERNAME FROM SESSION STORAGE & COMPARE
+    // MAYBE STORE USERNAME LOCALLY IN THIS AUTH SERVICE
+    var gotUsernameFromSomewhere = "user1";
+    // RETURN THE COMPARISON OF USERNAMES
+    return (true ? true : false);
+  }
+
   toggleIsLoggedInOut() {
     this.isLoggedIn = !this.isLoggedIn;  // Toggle
     this.isLoggedOut = !this.isLoggedIn; // Opposite
