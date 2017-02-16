@@ -56,7 +56,7 @@
   </div>
 
   <!-- Right Sign Management Icons Container -->
-  <div *ngIf="auth.isLoggedIn && isOwner" [style.background]="sign.bgColor" class="sign-management-icons-container">
+  <div *ngIf="auth.isLoggedIn && isOwner && !isEditing" [style.background]="sign.bgColor" class="sign-management-icons-container">
     <!-- Delete Icon -->
     <div class="sign-delete-icon">
       <a (click)="destroy()" class="sign-delete-icon">
@@ -64,7 +64,7 @@
       </a>
     </div>
     <!-- Edit Icon -->
-    <div *ngIf="!isEditing" class="sign-edit-icon">
+    <div class="sign-edit-icon">
       <a (click)="toggleEditing()" class="edit-icon">
         <i class="fa fa-pencil fa-1x" aria-hidden="true"></i>
       </a>

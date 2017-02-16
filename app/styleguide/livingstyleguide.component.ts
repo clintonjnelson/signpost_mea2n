@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from '../users/user.model';
-import { Sign, EmailSign, PhoneSign } from 'signs/sign.model';
+import { Sign } from 'signs/sign.model';
 
 const USERS: User[] = [
     {username: 'Jen',   picUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Official_portrait_of_Barack_Obama.jpg'},
@@ -32,32 +32,30 @@ const CUSTOM_ETSY_SIGN: Sign = {
     username: 'myetsyusername',
     owner: 'someusername'
 };
-const EMAIL_SIGN: EmailSign = {
+const EMAIL_SIGN: Sign = {
     _id: '111111',
     bgColor: 'green',
     description: 'email sign',
     icon: 'envelope',
-    knownAs: 'my email name',
+    knownAs: 'somereallyfakeemail@example.com',
     linkUrl: '',
     picUrl: 'https://il5.picdn.net/shutterstock/videos/3178849/thumb/1.jpg',
     signName: 'email',
     signType: 'generic',
     username: 'myemailname',
-    email: "somereallyfakeemail@example.com",
     owner: 'someusername'
 };
-const PHONE_SIGN: PhoneSign = {
+const PHONE_SIGN: Sign = {
     _id: '555555',
     bgColor: 'blue',
     description: 'phone sign',
     icon: 'phone',
-    knownAs: 'my phone name',
+    knownAs: '(555)555-5555',
     linkUrl: '',
     picUrl: 'https://il5.picdn.net/shutterstock/videos/3178849/thumb/1.jpg',
     signName: 'phone',
     signType: 'generic',
     username: 'myphonename',
-    phone: "(555)555-5555",
     owner: 'someusername'
 };
 

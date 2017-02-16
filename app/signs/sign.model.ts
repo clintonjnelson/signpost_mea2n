@@ -13,10 +13,10 @@ export class Sign {
   owner:       string;
 }
 
-export class EmailSign extends Sign {
-  email: string;
-}
+// export class EmailSign extends Sign {
+//   email: string;
+// }
 
-export class PhoneSign extends Sign {
-  phone: string;
-}
+// export class PhoneSign extends Sign {
+//   phone: string;
+// }

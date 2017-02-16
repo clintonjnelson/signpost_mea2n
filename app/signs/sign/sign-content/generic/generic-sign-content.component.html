@@ -14,13 +14,13 @@
         <!-- email -->
         <md-input-container *ngSwitchCase="'email'">
           <i class="{{helpers.buildIconClass('envelope', 1)}}"></i>
-          <input md-input type="email" name="email" [(ngModel)]="sign.email" placeholder="emailmee@example.com"/>
+          <input md-input type="email" name="email" [(ngModel)]="sign.knownAs" placeholder="emailmee@example.com"/>
         </md-input-container>
 
         <!-- phone -->
         <md-input-container *ngSwitchCase="'phone'">
           <i class="{{helpers.buildIconClass('phone', 1)}}"></i>
-          <input md-input type="tel" name="phone" [(ngModel)]="sign.phone" placeholder="(555)555-5555"/>
+          <input md-input type="tel" name="phone" [(ngModel)]="sign.knownAs" placeholder="(555)555-5555"/>
         </md-input-container>
 
         <!-- Website -->
@@ -53,7 +53,7 @@
   </div>
 
   <!-- Right Sign Management Icons Container -->
-  <div *ngIf="auth.isLoggedIn && isOwner" [style.background]="sign.bgColor" class="sign-management-icons-container">
+  <div *ngIf="auth.isLoggedIn && isOwner && !isEditing" [style.background]="sign.bgColor" class="sign-management-icons-container">
     <!-- Delete Icon -->
     <div class="sign-delete-icon">
       <a (click)="destroy()" class="sign-delete-icon">
@@ -61,7 +61,7 @@
       </a>
     </div>
     <!-- Edit Icon -->
-    <div *ngIf="!isEditing" class="sign-edit-icon">
+    <div class="sign-edit-icon">
       <a (click)="toggleEditing()" class="edit-icon">
         <i class="fa fa-pencil fa-1x" aria-hidden="true"></i>
       </a>

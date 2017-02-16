@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Sign, PhoneSign, EmailSign } from './sign.model';
+import { Sign } from './sign.model';
 
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Sign, PhoneSign, EmailSign } from '../signs/sign.model';
+import { Sign } from '../signs/sign.model';
 import { AuthService } from '../core/services/auth.service';
 
 const DEFAULT_FACEBOOK_SIGN: Sign = {
@@ -28,32 +28,30 @@ const CUSTOM_ETSY_SIGN: Sign = {
     username: 'myetsyusername',
     owner: 'someusername'
 };
-const EMAIL_SIGN: EmailSign = {
+const EMAIL_SIGN: Sign = {
     _id: '111111',
     bgColor: '#88B04B',
     description: 'email sign',
     icon: 'envelope',
-    knownAs: 'my email name',
+    knownAs: 'fakeemailsomething@example.com',
     linkUrl: '',
     picUrl: '',
     signName: 'email',
     signType: 'generic',
     username: 'myemailname',
-    email: "fakeemailsomething@example.com",
     owner: 'someusername'
 };
-const PHONE_SIGN: PhoneSign = {
+const PHONE_SIGN: Sign = {
     _id: '555555',
     bgColor: '#964F4C',
     description: 'phone sign',
     icon: 'phone',
-    knownAs: 'my phone name',
+    knownAs: '(555)555-5555',
     linkUrl: '',
     picUrl: '',
     signName: 'phone',
     signType: 'generic',
     username: 'myphonename',
-    phone: "(555)555-5555",
     owner: 'someusername'
 };
 
