@@ -10,6 +10,6 @@ export class UserCreds {
   termsCond:  boolean;
 }
 
-export class UserInfo extends User {
+export class UserSettings extends User {
   email:  string;
 }
