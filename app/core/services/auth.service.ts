@@ -5,10 +5,12 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   isLoggedIn: boolean;
   isLoggedOut: boolean;
+  username: string;
 
   constructor() {
     this.isLoggedIn = !!window.localStorage.getItem('auth_key');
     this.isLoggedOut = !this.isLoggedIn;
+    this.username   = window.localStorage.getItem('username');
   }
 
   isOwner(username: string) {
@@ -27,12 +29,14 @@ export class AuthService {
   login() {
     console.log("AUTH LOGIN CLICKED");
     window.localStorage.setItem('auth_key', 'supersecretkey');
+    window.localStorage.setItem('username', 'adminuser');
     this.toggleIsLoggedInOut()
   }
 
   logout() {
     console.log("AUTH LOGOUT CLICKED");
     window.localStorage.setItem('auth_key', '');
+    window.localStorage.setItem('username', '')
     this.toggleIsLoggedInOut();
   }
 }

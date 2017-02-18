@@ -24,9 +24,11 @@ import { SignContentComponent }        from './signs/sign/sign-content/sign-cont
 import { DefaultSignContentComponent } from './signs/sign/sign-content/default/default-sign-content.component';
 import { CustomSignContentComponent }  from './signs/sign/sign-content/custom/custom-sign-content.component';
 import { GenericSignContentComponent } from './signs/sign/sign-content/generic/generic-sign-content.component';
-import { UserPageComponent }           from './users/user-page.component';
-import { UserSignComponent }           from './users/user-sign/user-sign.component';
 import { AddSignComponent }            from './signs/add-sign/add-sign.component';
+
+import { UserSignComponent }           from './users/user-sign/user-sign.component';
+import { UserPageComponent }           from './users/user-page.component';
+import { UserSettingsComponent }       from './users/settings/user-settings.component';
 
 // Directives
 import { HoverColorDirective } from './shared/hover-color/hover-color.directive';
@@ -58,9 +60,11 @@ import { AuthService }    from './core/services/auth.service';
                   DefaultSignContentComponent,
                   CustomSignContentComponent,
                   GenericSignContentComponent,
-                  UserPageComponent,
-                  UserSignComponent,
                   AddSignComponent,
+
+                  UserSignComponent,
+                  UserPageComponent,
+                  UserSettingsComponent,
 
                   HoverColorDirective,
                   HoverBackgroundDirective,

@@ -12,14 +12,14 @@
       <!-- Description -->
       <md-input-container layout="row">
         <i class="{{helpers.buildIconClass('info-circle', 1)}} centered-item"></i>
-        <input md-input type="text" name="desc" [(ngModel)]="sign.description" placeholder="short description" md-maxlength="30">
+        <input md-input type="text" name="desc" ngControl="desc" [(ngModel)]="tempSign.description" placeholder="short description" md-maxlength="30">
       </md-input-container>
 
 
       <!-- Form Buttons -->
       <div>
         <!-- ok button -->
-        <a (click)="save(sign)" type="submit" class="sign-listitem-saveicon" >
+        <a (click)="save(tempSign)" type="submit" class="sign-listitem-saveicon" >
           <i class="{{helpers.buildIconClass('check', 2)}}"></i>
         </a>
         <!-- cancel button -->

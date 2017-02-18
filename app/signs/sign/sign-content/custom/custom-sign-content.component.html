@@ -17,32 +17,32 @@
       <!-- sign Title -->
       <md-input-container layout="row">
         <i class="{{helpers.buildIconClass('star', 1)}}"></i>
-        <input md-input type="text" name="title" [(ngModel)]="sign.signName" placeholder="Sign Title" md-maxlength="30">
+        <input md-input type="text" name="title" ngControl="title" [(ngModel)]="tempSign.signName" placeholder="Sign Title" md-maxlength="30">
       </md-input-container>
 
       <!-- url -->
       <md-input-container layout="row">
         <i class="{{helpers.buildIconClass('link', 1)}}"></i>
-        <input md-input type="url" name="url" [(ngModel)]="sign.linkUrl" placeholder="http://www.somewebsite.com/..."/>
+        <input md-input type="url" name="url" ngControl="url" [(ngModel)]="tempSign.linkUrl" placeholder="http://www.somewebsite.com/..."/>
       </md-input-container>
 
       <!-- knownAs/username -->
       <md-input-container layout="row">
         <i class="{{helpers.buildIconClass('user-o', 1)}}"></i>
-        <input md-input type="text" name="username" [(ngModel)]="sign.knownAs" placeholder="@myusername" md-maxlength="30">
+        <input md-input type="text" name="username" ngControl="username" [(ngModel)]="tempSign.knownAs" placeholder="@myusername" md-maxlength="30">
       </md-input-container>
 
       <!-- description -->
       <md-input-container layout="row">
         <i class="{{helpers.buildIconClass('info-circle', 1)}}"></i>
-        <input md-input type="text" name="desc" [(ngModel)]="sign.description" placeholder="short description" md-maxlength="30">
+        <input md-input type="text" name="desc" ngControl="desc" [(ngModel)]="tempSign.description" placeholder="short description">
       </md-input-container>
 
 
       <!-- form buttons -->
       <div>
         <!-- ok button -->
-        <a (click)="save(sign)" type="submit" class="sign-listitem-saveicon">
+        <a (click)="save(tempSign)" type="submit" class="sign-listitem-saveicon">
           <i class="{{helpers.buildIconClass('check', 2)}}"></i>
         </a>
         <!-- cancel button -->

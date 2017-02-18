@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { HelpersService } from '../../../shared/helpers/helpers.service';
 import { AuthService } from '../../../core/services/auth.service';
 
@@ -12,10 +13,14 @@ import { Sign } from '../../sign.model';
 })
 
 export class SignContentComponent implements OnInit {
+  @ViewChild('signForm') signForm: FormGroup;
   @Input()  sign: Sign;
   @Output() saveEE  = new EventEmitter<any>();
   @Output() destroyEE = new EventEmitter<any>();
-  isOwner:             boolean = false;
+  tempSign: Sign;
+  isOwner: boolean = false;
+
+  // For a new sign? If so, tailor the sign form accordingly.
   isEditing:           boolean = false;
   forSignCreation:     boolean = false;
   showPreviewLabel:    boolean = false;
@@ -33,10 +38,12 @@ export class SignContentComponent implements OnInit {
 
   ngOnInit() {
     this.isOwner = this.auth.isOwner(this.sign.username);
+    this.resetTempSign();
   }
 
   cancel() {
     this.toggleEditing();
+    this.resetTempSign();
   }
 
   destroy() {
@@ -53,21 +60,39 @@ export class SignContentComponent implements OnInit {
     this.toggleEditing(false);  // Close editing window
   }
 
-  save(sign: Sign) {
+  // HAVE TEMP SIGN SO DONT NEED TO PASS INTO THE METHOD.... BEST PRACTICES HERE?
+  save(tempSign: Sign) {
     if(this.forSignCreation) {
       console.log("SUBMIT: THIS SHOULD CALL THE CREATE SIGN ROUTE");
     }
     else {
       console.log("SUBMIT: THIS SHOULD CALL THE UPDATE SIGN ROUTE");
+      // After success, update the sign and then reset the temp sign
+      this.sign = Object.assign({}, tempSign);
+      this.resetTempSign();
     }
     // ONLY CLOSE THE ADDSIGN AREA & Toggle Editing UPON SUCCESS!!!!
     this.toggleEditing(false);       // SHOULD ONLY DO UPON SUCCESS!!!!!!!
-    this.saveEE.emit(sign);    // keep passing the sign up
+    this.saveEE.emit(sign);      // keep passing the sign up
   }
 
   toggleEditing(input: any = null): void {
     if(typeof(input) === 'boolean') { this.isEditing = input; }
     else { this.isEditing = !this.isEditing; }
     console.log("EDITING TOGGLED & IS NOW: ", this.isEditing);
+  }
+
+  // ********** CONSIDER BREAKING OUT TO A SERVICE - SIMILIAR TO SIGNS *************
+  // Resets the buttons that are triggered by changes
+  private resetFormDisplay() {
+    var controls = this.userSettingsForm.controls;
+    Object.keys(controls).forEach(control => {
+      controls[control].markAsPristine();
+      controls[control].markAsUntouched();
+    });
+  }
+
+  private resetTempSign() {
+    this.tempSign = Object.assign({}, this.sign);  // Make a copy
   }
 }

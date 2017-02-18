@@ -35,21 +35,35 @@
 
   <!-- Icons when Logged IN -->
   <div class="user-nav-area" *ngIf="auth.isLoggedIn">
-    <!-- Toggle for User Nav Links -->
+    <!-- Toggle to OPEN nav links -->
     <section (click)="toggleShowUserNavLinks()" *ngIf="!showUserNavLinks" class="user-nav-link">
       <div class="user-navlinks-toggle">
         <i class="{{helpers.buildIconClass('angle-double-left', 2)}}"></i>
         <i class="{{helpers.buildIconClass('user', 2)}}"></i>
       </div>
     </section>
+    <!-- Opened Nav Links Options -->
     <section *ngIf="showUserNavLinks">
       <ul class="navbar-login-links">
+        <!-- Close Button -->
         <li (click)="toggleShowUserNavLinks()">
           <i class="{{helpers.buildIconClass('angle-double-right', 2)}}"></i>
         </li>
+        <!-- Signout Button -->
         <li (click)="auth.logout()" class="user-signout-link">
-          <!-- <i class="{{helpers.buildIconClass('sign-out', 2)}}"></i> -->
           <p class="signout-text">Signout</p>
+        </li>
+        <!-- Settings Button -->
+        <li>
+          <a [routerLink]="[auth.username, 'settings']" (click)="toggleShowUserNavLinks()">
+            <i class="{{helpers.buildIconClass('cog', 2)}}"></i>
+          </a>
+        </li>
+        <!-- Profile/Home Button -->
+        <li>
+          <a [routerLink]="[auth.username]" (click)="toggleShowUserNavLinks()">
+            <i class="{{helpers.buildIconClass('user', 2)}}"></i>
+          </a>
         </li>
       </ul>
     </section>

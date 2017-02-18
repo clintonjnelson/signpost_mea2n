@@ -1,30 +1,34 @@
 <!-- User Settings Form -->
 <div class="user-settings-container">
-  <form name="userSettingsForm" class="user-settings-form">
+  <h2 class="settings-page-heading">settings</h2>
+
+  <form name="userSettingsForm" class="user-settings-form" #userSettingsForm="ngForm">
 
     <!-- Username -->
-    <md-input-container>
+    <md-input-container class="user-settings-input">
       <i class="{{helpers.buildIconClass('user', 1)}}"></i>
-      <input md-input type="text" name="username" [(ngModel)]="userSettings.username" placeholder="your login/contact email"/>
+      <input md-input type="text" ngControl="username" name="username" [(ngModel)]="tempSettings.username" minlength="1" placeholder="your login/contact email"/>
       <!-- *******VALIDATION ERRORS POPULATE HERE************ -->
+      <!-- Possible Errors: username taken, username invalid characters, too short -->
     </md-input-container>
 
     <!-- Contact & Login Email -->
-    <md-input-container>
+    <md-input-container class="user-settings-input">
       <i class="{{helpers.buildIconClass('envelope', 1)}}"></i>
-      <input md-input type="email" name="email" [(ngModel)]="userSettings.email" placeholder="your login/contact email" md-maxlength="30"/>
+      <input md-input type="email" ngControl="email" name="email" [(ngModel)]="tempSettings.email" placeholder="your login/contact email"/>
       <!-- *******VALIDATION ERRORS POPULATE HERE************ -->
+      <!-- Possible Errors: Email taken, email invalid -->
     </md-input-container>
 
 
     <!-- Save/Cancel Buttons -->
     <div>
       <!-- Save button -->
-      <a (click)="save()" type="submit" class="user-settings-saveicon">
+      <a (click)="save()" type="submit" class="user-settings-saveicon" [hidden]="!userSettingsForm.form.valid || !userSettingsForm.form.dirty">
         <i class="{{helpers.buildIconClass('check', 2)}}"></i>
       </a>
       <!-- Cancel button -->
-      <a (click)="cancel()" class="user-settings-cancelicon">
+      <a (click)="cancel()" class="user-settings-cancelicon" [hidden]="!userSettingsForm.form.dirty">
         <i class="{{helpers.buildIconClass('times', 2)}}"></i>
       </a>
     </div>
