@@ -59,7 +59,7 @@ const PHONE_SIGN: Sign = {
     owner: 'someusername'
 };
 
-const SIGNS: Sign[] = [DEFAULT_FACEBOOK_SIGN, CUSTOM_ETSY_SIGN, EMAIL_SIGN, PHONE_SIGN];
+const SIGNS: Sign[] = [OAUTH_FACEBOOK_SIGN, CUSTOM_ETSY_SIGN, EMAIL_SIGN, PHONE_SIGN];
 
 @Component({
   moduleId: module.id,

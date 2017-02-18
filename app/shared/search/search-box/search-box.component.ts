@@ -9,7 +9,7 @@ const FOUND_USERS: User[] = [
   { username: "Clara", picUrl: "" },
 ];
 
-const DEFAULT_FACEBOOK_SIGN: Sign = {
+const OAUTH_FACEBOOK_SIGN: Sign = {
     _id: '12345',
     bgColor: '#3b5998',
     description: 'some sign',
@@ -37,7 +37,7 @@ const CUSTOM_ETSY_SIGN: Sign = {
 };
 
 const FOUND_SIGNS: Sign[] = [
-  DEFAULT_FACEBOOK_SIGN,
+  OAUTH_FACEBOOK_SIGN,
   CUSTOM_ETSY_SIGN
 ];
 
