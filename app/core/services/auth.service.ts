@@ -8,15 +8,15 @@ export class AuthService {
   username: string;
 
   constructor() {
-    this.isLoggedIn = !!window.localStorage.getItem('auth_key');
+    this.isLoggedIn  = !!window.localStorage.getItem('auth_key');
     this.isLoggedOut = !this.isLoggedIn;
-    this.username   = window.localStorage.getItem('username');
+    this.username    = window.localStorage.getItem('username');
   }
 
   isOwner(username: string) {
     // GET USERNAME FROM SESSION STORAGE & COMPARE
     // MAYBE STORE USERNAME LOCALLY IN THIS AUTH SERVICE
-    var gotUsernameFromSomewhere = "user1";
+
     // RETURN THE COMPARISON OF USERNAMES
     return (true ? true : false);
   }

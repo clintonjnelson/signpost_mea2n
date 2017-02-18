@@ -30,13 +30,16 @@ import { UserSignComponent }           from './users/user-sign/user-sign.compone
 import { UserPageComponent }           from './users/user-page.component';
 import { UserSettingsComponent }       from './users/settings/user-settings.component';
 
+import { NotificationsComponent }      from './notifications/notifications.component';
+
 // Directives
 import { HoverColorDirective } from './shared/hover-color/hover-color.directive';
 import { HoverBackgroundDirective } from './shared/hover-background/hover-background.component';
 
 // Services - make them available EVERYWHERE (otherwise, just add it specifically into Component as a provider)
-import { HelpersService } from './shared/helpers/helpers.service';
-import { AuthService }    from './core/services/auth.service';
+import { HelpersService }      from './shared/helpers/helpers.service';
+import { AuthService }         from './core/services/auth.service';
+import { NotificationService } from './core/services/notification.service';
 
 @NgModule({
   imports:      [
@@ -66,6 +69,8 @@ import { AuthService }    from './core/services/auth.service';
                   UserPageComponent,
                   UserSettingsComponent,
 
+                  NotificationsComponent,
+
                   HoverColorDirective,
                   HoverBackgroundDirective,
                 ],
@@ -75,6 +80,7 @@ import { AuthService }    from './core/services/auth.service';
   providers:    [
                   AuthService,
                   HelpersService,
+                  NotificationService,
                 ]
 })
 export class AppModule { }
