@@ -18,7 +18,7 @@ const DEFAULT_FACEBOOK_SIGN: Sign = {
     linkUrl: 'http://facebook.com',
     picUrl: '',
     signName: 'facebook',
-    signType: 'default',
+    signType: 'oauth',
     username: 'myactualusername',
     owner: 'signowner'
   };

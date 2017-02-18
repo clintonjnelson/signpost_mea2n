@@ -10,8 +10,8 @@ import { HelpersService } from '../../shared/helpers/helpers.service';
 })
 
 export class SignComponent {
-  @Input() forNewSign: boolean = false;
-  @Input() sign: Sign;
+  @Input()  forNewSign: boolean = false;
+  @Input()  sign: Sign;
   @Output() saveEE    = new EventEmitter<any>();
   @Output() destroyEE = new EventEmitter<any>();
 
@@ -21,7 +21,7 @@ export class SignComponent {
     switch (signType) {
       case 'custom':   return 'custom';
       case 'generic':  return 'generic';
-      case 'default':  return 'default';
+      case 'oauth':    return 'oauth';
       default: console.log('No sign type match found for ', signType);
     }
   }

@@ -19,7 +19,7 @@
 
     <!-- Sign Content & Edit Form-->
     <div class="sign-content-container" [ngSwitch]="getFormType(sign.signType)" [ngClass]="{'shift-left': sign.picUrl}">
-      <default-sign-content *ngSwitchCase="'default'" [sign]="sign" [forNewSign]="forNewSign" (saveEE)="save($event)" (destroyEE)="destroy($event)"></default-sign-content>
+      <oauth-sign-content *ngSwitchCase="'oauth'" [sign]="sign" [forNewSign]="forNewSign" (saveEE)="save($event)" (destroyEE)="destroy($event)"></oauth-sign-content>
       <custom-sign-content  *ngSwitchCase="'custom'"  [sign]="sign" [forNewSign]="forNewSign" (saveEE)="save($event)" (destroyEE)="destroy($event)"></custom-sign-content>
       <generic-sign-content *ngSwitchCase="'generic'" [sign]="sign" [forNewSign]="forNewSign" (saveEE)="save($event)" (destroyEE)="destroy($event)"></generic-sign-content>
     </div>

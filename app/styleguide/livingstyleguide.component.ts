@@ -6,7 +6,7 @@ const USERS: User[] = [
     {username: 'Jen',   picUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Official_portrait_of_Barack_Obama.jpg'},
     {username: 'clint', picUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/44_Bill_Clinton_3x4.jpg/220px-44_Bill_Clinton_3x4.jpg'}
   ];
-const DEFAULT_FACEBOOK_SIGN: Sign = {
+const OAUTH_FACEBOOK_SIGN: Sign = {
     _id: '12345',
     bgColor: 'red',
     description: 'some sign',
@@ -15,7 +15,7 @@ const DEFAULT_FACEBOOK_SIGN: Sign = {
     linkUrl: 'http://facebook.com',
     picUrl: 'https://il5.picdn.net/shutterstock/videos/3178849/thumb/1.jpg',
     signName: 'facebook',
-    signType: 'default',
+    signType: 'oauth',
     username: 'myactualusername',
     owner: 'someusername'
   };
@@ -78,7 +78,7 @@ export class LivingStyleGuideComponent {
 
   // SignComponent
   customSign = CUSTOM_ETSY_SIGN;
-  defaultSign = DEFAULT_FACEBOOK_SIGN;
+  oauthSign = OAUTH_FACEBOOK_SIGN;
   emailSign   = EMAIL_SIGN;
   phoneSign   = PHONE_SIGN;
 

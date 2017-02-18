@@ -55,7 +55,7 @@ div.sign-content-container {
 }
 
 /*WHEN YOU MAKE A NEW COMPONENT, FLEX MAY NEED VALUES ON IT IN CSS!!!*/
-generic-sign-content, custom-sign-content, default-sign-content, oauth-sign-content {
+generic-sign-content, custom-sign-content, oauth-sign-content {
   display: flex;
   flex-direction: row;
   flex-grow: 2;

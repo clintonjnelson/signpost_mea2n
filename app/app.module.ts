@@ -21,7 +21,7 @@ import { LivingStyleGuideComponent }   from './styleguide/livingstyleguide.compo
 import { SignComponent }               from './signs/sign/sign.component';
 import { SignsComponent }              from './signs/signs.component';
 import { SignContentComponent }        from './signs/sign/sign-content/sign-content.component';
-import { DefaultSignContentComponent } from './signs/sign/sign-content/default/default-sign-content.component';
+import { OauthSignContentComponent }   from './signs/sign/sign-content/oauth/oauth-sign-content.component';
 import { CustomSignContentComponent }  from './signs/sign/sign-content/custom/custom-sign-content.component';
 import { GenericSignContentComponent } from './signs/sign/sign-content/generic/generic-sign-content.component';
 import { AddSignComponent }            from './signs/add-sign/add-sign.component';
@@ -60,7 +60,7 @@ import { NotificationService } from './core/services/notification.service';
                   SignComponent,
                   SignsComponent,
                   SignContentComponent,        // Superclass
-                  DefaultSignContentComponent,
+                  OauthSignContentComponent,
                   CustomSignContentComponent,
                   GenericSignContentComponent,
                   AddSignComponent,
