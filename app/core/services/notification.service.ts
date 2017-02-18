@@ -19,20 +19,23 @@ export class NotificationService {
     this.currentlyDisplaying = false;
   }
 
+  notify(type: string, msg: string, time: number = 4000) {
+    this.addNotification({type, msg, time});
+  }
+
   addNotification(newNotif: Notification) {
     this.notifications.unshift(newNotif);
-    // If first item, kick off showing, else let it run
+    // If not already displaying, display immediately, else enqueue
     if(!this.currentlyDisplaying) {
       this.displayNotif(this.notifications.pop());
     }
   }
 
-  // THIS IS NOT WAITING - NEED TO MAYBE BREAK UP FUNCTIONS
-  displayNotif(notif: Notification) {
+  private displayNotif(notif: Notification) {
     this.display = notif;
     this.currentlyDisplaying = true;
 
-    var dispTime = (notif.time ? notif.time : 4000);
+    var dispTime = (notif.time ? notif.time : 4000);  // may not need eventually
     setTimeout(nextNotifOrEnd.bind(this), dispTime);
 
     function nextNotifOrEnd() {
