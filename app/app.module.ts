@@ -35,6 +35,7 @@ import { NotificationsComponent }      from './notifications/notifications.compo
 // Directives
 import { HoverColorDirective } from './shared/hover-color/hover-color.directive';
 import { HoverBackgroundDirective } from './shared/hover-background/hover-background.component';
+import { UniqueValidatorDirective } from './shared/validators/unique.directive';
 
 // Services - make them available EVERYWHERE (otherwise, just add it specifically into Component as a provider)
 import { HelpersService }      from './shared/helpers/helpers.service';
@@ -73,6 +74,7 @@ import { NotificationService } from './core/services/notification.service';
 
                   HoverColorDirective,
                   HoverBackgroundDirective,
+                  UniqueValidatorDirective,
                 ],
   bootstrap:    [
                   AppComponent,
