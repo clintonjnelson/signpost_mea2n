@@ -25,6 +25,7 @@ export class UserSettingsComponent implements OnInit {
     this.resetSettingsCopy();
   }
 
+  // Save & Cancel Buttons
   save() {
     var _this = this;
     // RUN VALIDATIONS FIRST -- SHOW ERRORS IF ANY FOUND
