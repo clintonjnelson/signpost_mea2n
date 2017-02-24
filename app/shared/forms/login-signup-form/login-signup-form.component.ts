@@ -1,4 +1,5 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
+import { NgForm, FormControl } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
 import { UserCreds } from '../../../users/user.model';
 
@@ -13,22 +14,33 @@ import { UserCreds } from '../../../users/user.model';
 
 
 export class LoginSignupFormComponent {
+  loginForm: NgForm;
+  @ViewChild('loginForm') loginForm: NgForm;
   @Output() close = new EventEmitter<any>();
-  userForm: UserCreds = {
+  userCreds: UserCreds;
+
+  constructor( private auth: AuthService) {
+    this.userCreds = {
     email:      '',
     password:   '',
     newAccount: false,
-    termsCond:  false
+    termsCond:  null
   };
-
-  constructor( private auth: AuthService) {}
+  }
 
   login(): boolean {
     console.log("LOGIN CLICKED");
-    this.auth.login();
-    // VALIDATE SUCCESS BEFORE CLOSING WHEN HTTP HOOKED UP
-    this.close.emit(null);
-    return false;
+    console.log("LOGIN FORM IS: ", this.loginForm);
+    console.log("USER CREDS IS: ", this.userCreds);
+    if(this.loginForm.form.valid) {
+      this.auth.login();
+      // VALIDATE SUCCESS BEFORE CLOSING WHEN HTTP HOOKED UP
+      this.close.emit(null);
+      return false;
+    }
+    else {
+
+    }
   }
 
   cancel(): boolean {
