@@ -2,15 +2,24 @@
 <div>
   <form name="loginForm" (ngSubmit)="login()" class="login-signup-form" #loginForm="ngForm">
     <!-- Email Input -->
-    <md-input-container md-no-float layout="row" class="login-input-container">
-      <input md-input type="text" [(ngModel)]="userCreds.email" placeholder="email" name="email" minlength="6" [pattern]="emailRegex" required>
-    </md-input-container>
+    <div class="login-signup-input-error-container">
+      <md-input-container md-no-float layout="row" class="login-input-container">
+        <input md-input type="text" [(ngModel)]="userCreds.email" placeholder="email" name="email" minlength="6" [pattern]="userCreds.newAccount ? emailRegex : ''" required>
+      </md-input-container>
+      <div *ngIf="displayedValidationErrors.email" class="input-errors error">
+        {{ displayedValidationErrors.email }}
+      </div>
+    </div>
 
     <!-- Password Input -->
-    <md-input-container md-no-float layout="row" class="login-input-container">
-      <input md-input type="password" [(ngModel)]="userCreds.password" placeholder="password" minlength="6" name="password" required>
-    </md-input-container>
-
+    <div class="login-signup-input-error-container">
+      <md-input-container md-no-float layout="row" class="login-input-container">
+        <input md-input type="password" [(ngModel)]="userCreds.password" placeholder="password" minlength="6" name="password" required>
+      </md-input-container>
+      <div *ngIf="displayedValidationErrors.password" class="input-errors error">
+        {{ displayedValidationErrors.password }}
+      </div>
+    </div>
 
     <!-- New User Checkbox class="sidenav-login-newaccount" -->
     <div class="checkbox-link-shared-line">

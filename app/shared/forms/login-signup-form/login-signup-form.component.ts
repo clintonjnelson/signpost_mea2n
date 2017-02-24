@@ -15,9 +15,9 @@ const EMAIL_REGEX = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"
 
 
 export class LoginSignupFormComponent {
-  loginForm: NgForm;
   emailRegex: RegExp = EMAIL_REGEX;
-  @ViewChild('loginForm') loginForm: NgForm;
+  loginForm: NgForm;
+  @ViewChild('loginForm') currentForm: NgForm;
   @Output() close = new EventEmitter<any>();
   userCreds: UserCreds;
 
@@ -52,6 +52,62 @@ export class LoginSignupFormComponent {
     this.close.emit(null);
     return false;
   }
+
+
+  // ********** CUSTOM VALIDATIONS HERE - MAYBE BREAK INTO LIBRARY CLASS *************
+  // the form would have to be a passed variable
+  // errors array of messages would have to be passed in
+  // displayed validtion errors could be pulled as the primary hasOwnProps keys of validationErrorMessages
+  //
+  displayedValidationErrors = {
+    email: '',  // No message, when valid
+    password: ''      // No message, when valid
+  };
+
+  private validationErrorMessages = {
+    email: {
+      pattern: 'Improper email. Please try again.',
+      minlength: 'Email must be at least 6 characters',
+    },
+    password: {
+      minlength: "Password must be at least 6 characters"
+    }
+  }
+
+  ngAfterViewChecked() {
+    this.formChanged();
+  }
+
+  private formChanged() {
+    if(this.currentForm === this.loginForm) { return; }  // No changes? Stop here.
+
+    this.loginForm = this.currentForm;  // Update the form with changes.
+
+    if(this.loginForm) {
+      this.loginForm.valueChanges.subscribe(data => this.onValueChanged(data));
+    }
+  }
+
+  private onValueChanged(data?: any) {
+    if(!this.loginForm) { return; }    // if no form object, exit.
+    const form = this.loginForm.form;  // get the form
+
+    for(const inputName in this.displayedValidationErrors) {
+      // clear previous error messages
+      this.displayedValidationErrors[inputName] = '';  // each error unser each inputName, clear it
+      const control = form.get(inputName);             // get value from form input
+
+      // If control inputName is dirtied & not valid, show all applicable errors
+      if(control && control.dirty && !control.valid) {
+        const msgs = this.validationErrorMessages[inputName];  // get all messages for inputName
+        for(const error in control.errors) {
+          this.displayedValidationErrors[inputName] += msgs[error] + ' ';
+        }
+      }
+    }
+  }
+
+
 }
 
 

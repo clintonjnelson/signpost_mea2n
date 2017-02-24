@@ -5,7 +5,20 @@
   padding: 15px;
 }
 
+.login-signup-input-error-container {}
+
+.input-errors {
+  margin-bottom: 5px;
+
+}
+
+.error {
+  color: pink;
+  font-family: helvetica, sans-serif;
+}
+
 .login-input-container {
+  color: white;
   display: block;
   padding-top: 5px;
   width: 290px;
@@ -14,6 +27,8 @@
   font-size: 18px;
 }
 .login-signup-checkbox {
+  color: white;
+  font-family: helvetica, sans-serif;
   display: block;
 }
 .checkbox-link-shared-line {
@@ -22,6 +37,7 @@
   /*justify-content: space-between;*/
 }
 .forgot-password-link {
+  font-family: helvetica, sans-serif;
   margin-left: 20px;
   transform: translateY(3px);
 }

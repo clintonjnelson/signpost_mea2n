@@ -72,8 +72,8 @@ export class UserSettingsComponent implements OnInit {
       unique: 'Username has already been taken. Please try another username.'
     },
     email: {
-      required: 'Username is required.',
-      minlength: 'Username must be at least 2 characters long',
+      required: 'Email is required.',
+      minlength: 'Email must be at least 2 characters long',
       structure: 'This did not pass our valid-email check. Please try another or contact us with the name that did not work',
       unique: 'Email has already been taken. Please try another email.'
     }
