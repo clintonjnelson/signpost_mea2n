@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router     } from '@angular/router';
 
 @Injectable()
 
@@ -7,7 +8,7 @@ export class AuthService {
   isLoggedOut: boolean;
   username: string;
 
-  constructor() {
+  constructor(private router: Router) {
     this.isLoggedIn  = !!window.localStorage.getItem('authToken');
     this.isLoggedOut = !this.isLoggedIn;
     this.username    = window.localStorage.getItem('username');
@@ -36,6 +37,7 @@ export class AuthService {
     window.localStorage.setItem('authToken', '');
     window.localStorage.setItem('username', '');
     this.toggleIsLoggedInOut();
+    this.router.navigate(['']);
   }
 
   /// MAYBE REFACTOR THIS INTO LOGIN, USING OPTIONAL PARAMS OF THESE VALUES
