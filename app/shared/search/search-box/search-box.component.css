@@ -1,3 +1,7 @@
+.search-box {
+  margin-top: 20px;
+}
+
 .search-results-container {
   max-width: 750px;
 }
@@ -5,6 +9,7 @@
 .search-results-heading {
   color: white;
   font-family: helvetica, sans-serif;
+  font-weight: normal;
   text-align: center;
 }
 
