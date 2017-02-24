@@ -8,7 +8,7 @@ export class AuthService {
   username: string;
 
   constructor() {
-    this.isLoggedIn  = !!window.localStorage.getItem('auth_key');
+    this.isLoggedIn  = !!window.localStorage.getItem('authToken');
     this.isLoggedOut = !this.isLoggedIn;
     this.username    = window.localStorage.getItem('username');
   }
@@ -16,7 +16,6 @@ export class AuthService {
   isOwner(username: string) {
     // GET USERNAME FROM SESSION STORAGE & COMPARE
     // MAYBE STORE USERNAME LOCALLY IN THIS AUTH SERVICE
-
     // RETURN THE COMPARISON OF USERNAMES
     return (true ? true : false);
   }
@@ -28,15 +27,19 @@ export class AuthService {
 
   login() {
     console.log("AUTH LOGIN CLICKED");
-    window.localStorage.setItem('auth_key', 'supersecretkey');
-    window.localStorage.setItem('username', 'adminuser');
-    this.toggleIsLoggedInOut()
+    this.setAuthCookies('supersecretkey', 'username');
+    this.toggleIsLoggedInOut();
   }
 
   logout() {
     console.log("AUTH LOGOUT CLICKED");
-    window.localStorage.setItem('auth_key', '');
-    window.localStorage.setItem('username', '')
+    window.localStorage.setItem('authToken', '');
+    window.localStorage.setItem('username', '');
     this.toggleIsLoggedInOut();
+  }
+
+  setAuthCookies(authToken: string, username: string) {
+    window.localStorage.setItem('authToken', authToken);
+    window.localStorage.setItem('username', username);
   }
 }
