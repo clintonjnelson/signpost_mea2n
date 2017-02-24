@@ -3,7 +3,7 @@
   <form name="loginForm" (ngSubmit)="login()" class="login-signup-form" #loginForm="ngForm">
     <!-- Email Input -->
     <md-input-container md-no-float layout="row" class="login-input-container">
-      <input md-input type="text" [(ngModel)]="userCreds.email" placeholder="email" name="email" minlength="5" required>
+      <input md-input type="text" [(ngModel)]="userCreds.email" placeholder="email" name="email" minlength="6" [pattern]="emailRegex" required>
     </md-input-container>
 
     <!-- Password Input -->

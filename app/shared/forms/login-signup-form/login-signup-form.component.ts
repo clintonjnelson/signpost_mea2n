@@ -4,6 +4,7 @@ import { AuthService } from '../../../core/services/auth.service';
 import { UserCreds } from '../../../users/user.model';
 
 
+const EMAIL_REGEX = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 
 @Component({
   moduleId: module.id,
@@ -15,18 +16,19 @@ import { UserCreds } from '../../../users/user.model';
 
 export class LoginSignupFormComponent {
   loginForm: NgForm;
+  emailRegex: RegExp = EMAIL_REGEX;
   @ViewChild('loginForm') loginForm: NgForm;
   @Output() close = new EventEmitter<any>();
   userCreds: UserCreds;
 
   constructor( private auth: AuthService) {
     this.userCreds = {
-    email:      '',
-    password:   '',
-    newAccount: false,
-    termsCond:  null
+      email:      '',
+      password:   '',
+      newAccount: false,
+      termsCond:  null
+    };
   };
-  }
 
   login(): boolean {
     console.log("LOGIN CLICKED");
@@ -45,6 +47,8 @@ export class LoginSignupFormComponent {
 
   cancel(): boolean {
     console.log("CLOSE CLICKED!");
+    console.log("USER CREDS IS: ", this.userCreds);
+    console.log("CHECK REGEX: ", this.emailRegex.test(this.userCreds.email));
     this.close.emit(null);
     return false;
   }
