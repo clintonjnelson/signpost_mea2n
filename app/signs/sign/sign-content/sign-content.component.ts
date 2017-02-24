@@ -73,7 +73,7 @@ export class SignContentComponent implements OnInit {
     }
     // ONLY CLOSE THE ADDSIGN AREA & Toggle Editing UPON SUCCESS!!!!
     this.toggleEditing(false);       // SHOULD ONLY DO UPON SUCCESS!!!!!!!
-    this.saveEE.emit(sign);      // keep passing the sign up
+    this.saveEE.emit(tempSign);      // keep passing the sign up
   }
 
   toggleEditing(input: any = null): void {
@@ -85,7 +85,7 @@ export class SignContentComponent implements OnInit {
   // ********** CONSIDER BREAKING OUT TO A SERVICE - SIMILIAR TO SIGNS *************
   // Resets the buttons that are triggered by changes
   private resetFormDisplay() {
-    var controls = this.userSettingsForm.controls;
+    var controls = this.signForm.controls;
     Object.keys(controls).forEach(control => {
       controls[control].markAsPristine();
       controls[control].markAsUntouched();

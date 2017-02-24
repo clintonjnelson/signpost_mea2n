@@ -30,6 +30,9 @@ import { UserSignComponent }           from './users/user-sign/user-sign.compone
 import { UserPageComponent }           from './users/user-page.component';
 import { UserSettingsComponent }       from './users/settings/user-settings.component';
 
+import { RequestPasswordResetComponent } from './password-reset/request-password-reset.component';
+import { PasswordResetComponent }       from './password-reset/password-reset.component';
+
 import { NotificationsComponent }      from './notifications/notifications.component';
 
 // Directives
@@ -69,6 +72,9 @@ import { NotificationService } from './core/services/notification.service';
                   UserSignComponent,
                   UserPageComponent,
                   UserSettingsComponent,
+
+                  RequestPasswordResetComponent,
+                  PasswordResetComponent,
 
                   NotificationsComponent,
 

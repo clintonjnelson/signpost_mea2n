@@ -3,24 +3,35 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // Components for routing to
-import { NavbarComponent }           from './shared/navigation/navbar/navbar.component';
-import { LivingStyleGuideComponent } from './styleguide/livingstyleguide.component';
-import { SearchBoxComponent }        from './shared/search/search-box/search-box.component';
-import { SignsComponent }            from './signs/signs.component';
-import { UserPageComponent }         from './users/user-page.component';
-import { UserSettingsComponent }     from './users/settings/user-settings.component';
+import { RequestPasswordResetComponent } from './password-reset/request-password-reset.component';
+import { PasswordResetComponent }        from './password-reset/password-reset.component';
+import { LivingStyleGuideComponent }     from './styleguide/livingstyleguide.component';
+import { SearchBoxComponent }            from './shared/search/search-box/search-box.component';
+import { UserPageComponent }             from './users/user-page.component';
+import { UserSettingsComponent }         from './users/settings/user-settings.component';
 
 // App Routes
-const routes: Routes = [
-  // { path: '', redirectTo: '/', pathMatch: 'full' },
+const rootRoutes: Routes = [
+  { path: 'requestpasswordchange', component: RequestPasswordResetComponent, pathMatch: 'full'},
+  { path: 'requestpasswordchange/change', component: PasswordResetComponent, pathMatch: 'full' },
+
+  { path: 'styleguide', component: LivingStyleGuideComponent, pathMatch: 'full' },
+
+  { path: ':username/settings', component: UserSettingsComponent, pathMatch: 'full'},
+  { path: ':username', component: UserPageComponent, pathMatch: 'full' },
+
   { path: '', component: SearchBoxComponent, pathMatch: 'full' },
-  { path: 'styleguide', component: LivingStyleGuideComponent },
-  { path: ':username', component: UserPageComponent },
-  { path: ':username/settings', component: UserSettingsComponent}
+  // { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 
+const childRoutes: Routes = [
+
+]
+
+
+
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(rootRoutes) ],
   exports: [ RouterModule ]
 })
 
