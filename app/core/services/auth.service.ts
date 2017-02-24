@@ -38,6 +38,9 @@ export class AuthService {
     this.toggleIsLoggedInOut();
   }
 
+  /// MAYBE REFACTOR THIS INTO LOGIN, USING OPTIONAL PARAMS OF THESE VALUES
+  /// IT WOULD THEN BE CLEAR WHAT IT"S DOING WHEN WE SET THE VALUES MANUALLY
+  /// VERIFY WE DON"T NEED THE LOGIN FUNCTION TO HAVE PARAMS ANYWAY....
   setAuthCookies(authToken: string, username: string) {
     window.localStorage.setItem('authToken', authToken);
     window.localStorage.setItem('username', username);
