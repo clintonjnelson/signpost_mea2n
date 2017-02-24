@@ -1,5 +1,4 @@
 <!-- Signpost Login Form -->
-<!-- <md-card class="sidenav-login"> -->
 <div>
   <form name="loginForm" (ngSubmit)="login()" class="login-signup-form" #loginForm="ngForm">
     <!-- Email Input -->
@@ -14,9 +13,13 @@
 
 
     <!-- New User Checkbox class="sidenav-login-newaccount" -->
-    <md-checkbox [(ngModel)]="userForm.newAccount" color="primary" name="new account" class="login-signup-checkbox">
-      new here?
-    </md-checkbox>
+    <div class="checkbox-link-shared-line">
+      <md-checkbox [(ngModel)]="userForm.newAccount" color="primary" name="new account" class="login-signup-checkbox shared-line">
+        new here?
+      </md-checkbox>
+      <a [routerLink]="['requestpasswordchange']" class="forgot-password-link">forgot password?</a>
+    </div>
+
 
     <!-- Terms & Conditions Checkbox -->
     <md-checkbox *ngIf="userForm.newAccount" [(ngModel)]="userForm.termsCond" class="login-signup-checkbox" name="terms and conditions" [required]="true">
@@ -24,16 +27,16 @@
       <a href="/#/termsandconditions">terms and conditions</a>
     </md-checkbox>
 
+    <div class="buttons-container">
+      <!-- Submit Form Button -->
+      <button md-button type="submit" (click)="login()" class="login-signup-button submit" [disabled]="loginForm.invalid">
+        <i class="fa fa-sign-in fa-3x"></i>
+      </button>
 
-    <!-- Submit Form Button -->
-    <button md-button type="submit" (click)="login()" class="login-signup-button submit" [disabled]="loginForm.invalid">
-      <i class="fa fa-sign-in fa-3x"></i>
-    </button>
-
-    <!-- Cancel Form Button -->
-    <button md-button type="cancel" (click)="cancel()" class="login-signup-button cancel">
-      <i class="fa fa-times fa-3x"></i>
-    </button>
+      <!-- Cancel Form Button -->
+      <button md-button type="cancel" (click)="cancel()" class="login-signup-button cancel">
+        <i class="fa fa-times fa-3x"></i>
+      </button>
+    </div>
   </form>
 </div>
-<!-- </md-card> -->

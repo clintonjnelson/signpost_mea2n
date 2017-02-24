@@ -1,5 +1,8 @@
 .login-signup-form {
   display: block;
+  border: 1px white solid;
+  border-radius: 2px;
+  padding: 15px;
 }
 
 .login-input-container {
@@ -13,7 +16,17 @@
 .login-signup-checkbox {
   display: block;
 }
+.checkbox-link-shared-line {
+  display: flex;
+  flex-direction: row;
+  /*justify-content: space-between;*/
+}
+.forgot-password-link {
+  margin-left: 20px;
+  transform: translateY(3px);
+}
 .login-signup-button {
+  text-align: left;
   background: none;
   border: none;
 }
