@@ -65,3 +65,11 @@
   display: inline;
   font-family: helvetica, sans-serif;
 }
+
+
+/*SignUp Form*/
+.navbar-login-signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
