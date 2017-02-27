@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Input, Output, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { HelpersService } from '../../../shared/helpers/helpers.service';
+import { NgForm, FormControl }   from '@angular/forms';   // Remove if no validation logic
+import { HelpersService }        from '../../../shared/helpers/helpers.service';
 import { AuthService, UserAuth } from '../../../core/services/auth.service';
-import { Subscription } from 'rxjs/Subscription';
-import { Sign } from '../../sign.model';
+import { Subscription }          from 'rxjs/Subscription';
+import { Sign }                  from '../../sign.model';
+
+
 
 @Component({
   moduleId: module.id,
@@ -13,13 +15,14 @@ import { Sign } from '../../sign.model';
 })
 
 export class SignContentComponent implements OnInit {
-  @ViewChild('signForm') signForm: FormGroup;
+  // signForm: NgForm;
+  @ViewChild('signForm') signForm: NgForm;
   @Input()  sign: Sign;
-  @Output() saveEE  = new EventEmitter<any>();
+  @Output() saveEE    = new EventEmitter<any>();
   @Output() destroyEE = new EventEmitter<any>();
   tempSign: Sign;
-  isOwner: boolean = false;
-  auth: UserAuth;
+  isOwner:  boolean = false;
+  auth:     UserAuth;
   _subscription: Subscription;
 
   // For a new sign? If so, tailor the sign form accordingly.
@@ -49,6 +52,7 @@ export class SignContentComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.signForm = this.currentForm;
     this.isOwner = this.authService.isOwner(this.sign.username);
     this.resetTempSign();
   }
@@ -109,4 +113,48 @@ export class SignContentComponent implements OnInit {
   private resetTempSign() {
     this.tempSign = Object.assign({}, this.sign);  // Make a copy
   }
+
+
+  // ******************** CUSTOM VALIDATIONS HERE **************************
+  // NOTE: validationErrorMessages are implemented in each sign content type
+  // validationErrorMessages: Object;
+  // displayedValidationErrors = {
+  //   signName: '',
+  //   linkUrl: '',
+  //   knownAs: '',
+  //   description: ''
+  // }
+
+  // ngAfterViewChecked() {
+  //   this.formChangedCheck();
+  // }
+
+  // private formChangedCheck() {
+  //   if(this.currentForm === this.signForm) { return; }
+
+  //   this.signForm = this.currentForm;
+
+  //   if(this.signForm) {
+  //     this.signForm.valueChanges.subscribe(data => this.onValueChanged(data));
+  //   }
+  // }
+
+  // private onValueChanged(data?: any) {
+  //   if(!this.signForm) { return; }
+  //   const form = this.signForm.form;
+
+  //   for(const inputName in this.displayedValidationErrors) {
+  //     // clear previous error messages
+  //     this.displayedValidationErrors[inputName] = '';
+  //     const control = form.get(inputName);  // get value from input
+
+  //     // If control inputName is dirtied & not valid, show all applicable errors
+  //     if(control && control.dirty && !control.valid) {
+  //       const msgs = this.validationErrorMessages[inputName];  // get all messages for each type
+  //       for(const error in control.errors) {
+  //         this.displayedValidationErrors[inputName] += msgs[error] + ' ';
+  //       }
+  //     }
+  //   }
+  // }
 }

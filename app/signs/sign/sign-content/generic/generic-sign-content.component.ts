@@ -28,4 +28,17 @@ export class GenericSignContentComponent extends SignContentComponent {
       case 'website': return sign.description;
     }
   }
+
+  // validationErrorMessages = {
+  //   email: {
+  //     required: 'An email address is required.',
+  //   },
+  //   phone: {
+  //     required: 'A phone number is required.',
+  //   },
+  //   website: {
+  //     required: 'A web address is required.',
+  //   },
+  //   description: {}
+  // };
 }

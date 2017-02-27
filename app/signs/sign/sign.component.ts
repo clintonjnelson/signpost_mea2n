@@ -10,7 +10,7 @@ import { HelpersService } from '../../shared/helpers/helpers.service';
 })
 
 export class SignComponent {
-  @Input()  forNewSign: boolean = false;
+  @Input()  forNewSign: boolean = false;  // default to existing sign
   @Input()  sign: Sign;
   @Output() saveEE    = new EventEmitter<any>();
   @Output() destroyEE = new EventEmitter<any>();
