@@ -19,7 +19,7 @@
           <i class="{{helpers.buildIconClass('angle-double-right', 2)}} sp-hover"></i>
         </li>
         <!-- UPDATE COLOR IF EVER WANT LINKS TO TURN THEIR PROPER COLOR WHEN HOVERED OVER -->
-        <li class="nav-links-oauth" *ngFor="let link of oauthLinks">
+        <li class="nav-links-oauthService" *ngFor="let link of oauthLinks">
           <icon-link [url]="link.url"
                      [icon]="link.icon"
                      [bgColor]="link.bgColor"
@@ -50,7 +50,7 @@
           <i class="{{helpers.buildIconClass('angle-double-right', 2)}}"></i>
         </li>
         <!-- Signout Button -->
-        <li (click)="auth.logout()" class="user-signout-link">
+        <li (click)="logout()" class="user-signout-link">
           <p class="signout-text">Signout</p>
         </li>
         <!-- Settings Button -->

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Sign } from '../signs/sign.model';
-import { AuthService } from '../core/services/auth.service';
+import { AuthService, UserAuth } from '../core/services/auth.service';
+import { Subscription } from 'rxjs/Subscription';
 
 const OAUTH_FACEBOOK_SIGN: Sign = {
     _id: '12345',
@@ -67,17 +68,29 @@ const SIGNS: Sign[] = [OAUTH_FACEBOOK_SIGN, CUSTOM_ETSY_SIGN, EMAIL_SIGN, PHONE_
 })
 
 export class UserPageComponent {
-  constructor( private auth: AuthService ) {}
-
   signs: Sign[];
   isOwner: boolean = false;
+  auth: UserAuth;
+  _subscription: Subscription;
+
+  constructor( private authService: AuthService ) {
+    this.auth = authService.auth;
+    this._subscription = authService.userAuthEmit.subscribe((newVal: UserAuth) => {
+      this.auth = newVal;
+    });
+  }
+
+  ngOnDestroy() {
+    this._subscription.unsubscribe();
+  }
 
   // TODO: GET THE USER'S SIGNS BASED ON THE USERNAME IN THE ROUTE
   ngOnInit(): void {
     this.signs = SIGNS;
     // LOOKUP USERNAME IN ROUTE & COMPARE TO USERNAME IN SESSION VIA AUTH SERVICE METHOD
     var usernameFromRoute = "USERNAME222"
-    this.isOwner = ( this.auth.isOwner(usernameFromRoute) ? true : false);
+    this.isOwner = ( this.authService.isOwner(usernameFromRoute) ? true : false);
+    console.log("ISOWNER IS: ", this.isOwner);
   }
 
   destroy(event: any) {

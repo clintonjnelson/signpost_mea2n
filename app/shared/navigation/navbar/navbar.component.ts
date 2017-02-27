@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 //import { ActivatedRoute, Params } from '@Angular/router';
-
 import { HelpersService } from '../../helpers/helpers.service';
-import { AuthService }    from '../../../core/services/auth.service';
+import { AuthService, UserAuth } from '../../../core/services/auth.service';
+import { Subscription } from 'rxjs/Subscription';
 
 export class OauthLink {
   icon: string;
@@ -25,20 +25,26 @@ const OAUTHS: OauthLink[] = [
 })
 
 export class NavbarComponent {
-  // Logged OUT links
-  showLoginLinks: boolean = false;
-  showSignpostLoginForm: boolean = false;
-  // navBkgdColor: string = '#9a9a9a';
-  // navItemColor: string = '#c9c9c9';
   oauthLinks = OAUTHS;
-  // Logged IN links
-  showUserNavLinks: boolean = false;
-
+  showLoginLinks:        boolean = false;
+  showSignpostLoginForm: boolean = false;
+  showUserNavLinks:      boolean = false;
+  auth: UserAuth;
+  isLoggedIn: boolean = false;
+  isLoggedOut: boolean = true;
+  username: string = '';
+  _subscription: Subscription;
 
   constructor(
     private helpers: HelpersService,
-    public  auth:    AuthService
-  ) {}
+    public  authService:    AuthService ) {
+    this.auth          = authService.auth;
+    this._subscription = authService.userAuthEmit.subscribe((newVal: UserAuth) => { this.auth = newVal });
+  }
+
+  ngOnDestroy() {
+    this._subscription.unsubscribe();
+  }
 
   //Logged OUT Helpers
   toggleShowSignpostLoginForm(input: any = null): void {
@@ -83,7 +89,7 @@ export class NavbarComponent {
   }
 
   logout(): void {
-    this.auth.logout();
+    this.authService.logout();
   }
 }
 

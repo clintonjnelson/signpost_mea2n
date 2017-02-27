@@ -21,7 +21,7 @@ export class LoginSignupFormComponent {
   @Output() close = new EventEmitter<any>();
   userCreds: UserCreds;
 
-  constructor( private auth: AuthService) {
+  constructor( private authService: AuthService) {
     this.userCreds = {
       email:      '',
       password:   '',
@@ -35,7 +35,7 @@ export class LoginSignupFormComponent {
     console.log("LOGIN FORM IS: ", this.loginForm);
     console.log("USER CREDS IS: ", this.userCreds);
     if(this.loginForm.form.valid) {
-      this.auth.login();
+      this.authService.login();
       // VALIDATE SUCCESS BEFORE CLOSING WHEN HTTP HOOKED UP
       this.close.emit(null);
       return false;

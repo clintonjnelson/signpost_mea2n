@@ -1,17 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Router     } from '@angular/router';
+import { Subject    } from 'rxjs/Subject';
+
+
+export class UserAuth {
+  isLoggedIn:  boolean;
+  isLoggedOut: boolean;
+  username:    string;
+};
 
 @Injectable()
 
 export class AuthService {
-  isLoggedIn: boolean;
-  isLoggedOut: boolean;
-  username: string;
+  // This is for User Authentication Controls
+  auth: UserAuth = {isLoggedIn: false, isLoggedOut: true, username: ''};
+  userAuthEmit: Subject<UserAuth> = new Subject<UserAuth>();
 
   constructor(private router: Router) {
-    this.isLoggedIn  = !!window.localStorage.getItem('authToken');
-    this.isLoggedOut = !this.isLoggedIn;
-    this.username    = window.localStorage.getItem('username');
+    this.auth.isLoggedIn  = !!window.localStorage.getItem('authToken');
+    this.auth.isLoggedOut = !this.auth.isLoggedIn;
+    this.auth.username    = window.localStorage.getItem('username');
   }
 
   isOwner(username: string) {
@@ -21,30 +29,37 @@ export class AuthService {
     return (true ? true : false);
   }
 
-  toggleIsLoggedInOut() {
-    this.isLoggedIn = !this.isLoggedIn;  // Toggle
-    this.isLoggedOut = !this.isLoggedIn; // Opposite
-  }
-
   login() {
     console.log("AUTH LOGIN CLICKED");
     this.setAuthCookies('supersecretkey', 'username');
-    this.toggleIsLoggedInOut();
   }
 
   logout() {
     console.log("AUTH LOGOUT CLICKED");
-    window.localStorage.setItem('authToken', '');
-    window.localStorage.setItem('username', '');
-    this.toggleIsLoggedInOut();
+    this.deleteAuthCookies();
     this.router.navigate(['']);
   }
 
-  /// MAYBE REFACTOR THIS INTO LOGIN, USING OPTIONAL PARAMS OF THESE VALUES
+  updateAuthFromCookies() {
+    this.auth.isLoggedIn  = !!window.localStorage.getItem('authToken');
+    this.auth.isLoggedOut = !this.auth.isLoggedIn;
+    this.auth.username    = window.localStorage.getItem('username');
+    this.userAuthEmit.next(this.auth);
+  }
+
+  deleteAuthCookies() {
+    window.localStorage.setItem('authToken', '');
+    window.localStorage.setItem('username', '');
+    this.updateAuthFromCookies();
+  }
+
+  // *********************** Helpers ***********************
+  /// MAYBE REFACTOR THIS INTO the LOGIN Func, USING OPTIONAL PARAMS OF THESE VALUES
   /// IT WOULD THEN BE CLEAR WHAT IT"S DOING WHEN WE SET THE VALUES MANUALLY
   /// VERIFY WE DON"T NEED THE LOGIN FUNCTION TO HAVE PARAMS ANYWAY....
   setAuthCookies(authToken: string, username: string) {
     window.localStorage.setItem('authToken', authToken);
-    window.localStorage.setItem('username', username);
+    window.localStorage.setItem('username',  username);
+    this.updateAuthFromCookies();
   }
 }

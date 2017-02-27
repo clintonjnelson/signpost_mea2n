@@ -18,7 +18,7 @@ export class PasswordResetComponent {
   constructor(
                private helpers: HelpersService,
                private router:  Router,
-               private auth:    AuthService
+               private authService: AuthService
              ) {
     this.displayedValidationErrors.password = '';
   }
@@ -29,7 +29,7 @@ export class PasswordResetComponent {
     // SUCCESS: Should get the user eat cookie & reroute to the user page
     if(!this.testing) {
       var response = {eatCookie: "somecookie", username: "someone"};
-      this.auth.setAuthCookies(response.eatCookie, response.username);
+      this.authService.setAuthCookies(response.eatCookie, response.username);
       this.router.navigate([response.username]);
     }
     // ERROR: Could not save, waited too long (token expire)... other?

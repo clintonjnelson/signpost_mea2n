@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Input, Output, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { HelpersService } from '../../../shared/helpers/helpers.service';
-import { AuthService } from '../../../core/services/auth.service';
-
+import { AuthService, UserAuth } from '../../../core/services/auth.service';
+import { Subscription } from 'rxjs/Subscription';
 import { Sign } from '../../sign.model';
 
 @Component({
@@ -19,6 +19,8 @@ export class SignContentComponent implements OnInit {
   @Output() destroyEE = new EventEmitter<any>();
   tempSign: Sign;
   isOwner: boolean = false;
+  auth: UserAuth;
+  _subscription: Subscription;
 
   // For a new sign? If so, tailor the sign form accordingly.
   isEditing:           boolean = false;
@@ -33,14 +35,26 @@ export class SignContentComponent implements OnInit {
     }
   }
 
-  constructor( private helpers: HelpersService,
-               private auth:    AuthService) {}
+  // ************** Auth Methods **************
+  constructor( private helpers:     HelpersService,
+               private authService: AuthService) {
+    this.auth = authService.auth;
+    this._subscription = authService.userAuthEmit.subscribe((newVal: UserAuth) => {
+      this.auth = newVal;
+    });
+  }
+
+  ngOnDestroy() {
+    this._subscription.unsubscribe();
+  }
 
   ngOnInit() {
-    this.isOwner = this.auth.isOwner(this.sign.username);
+    this.isOwner = this.authService.isOwner(this.sign.username);
     this.resetTempSign();
   }
 
+
+  // ************* Form Methods *************
   cancel() {
     this.toggleEditing();
     this.resetTempSign();
