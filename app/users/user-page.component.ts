@@ -105,6 +105,15 @@ export class UserPageComponent {
   save(event: any): void {
     // INSTEAD OF MANUALLY PUSHING, MIGHT WANT TO JUST RELOAD FROM SERVER!
     console.log("MADE IT TO USER-PAGE SAVE. SIGN IS: ", event);
-    this.signs.push(event);     // bubbles sign up, so add it to the list
+    // Update Existing Sign or Create New
+    let foundSign = this.signs.find(sign => { return (sign._id === event._id); });
+
+    if(foundSign) {
+      // update the sign
+      let foundSignIndex = this.signs.indexOf(foundSign);
+      this.signs.splice(foundSignIndex, 1, event);
+    } else {
+      this.signs.push(event);     // bubbles sign up, so add it to the list
+    }
   }
 }

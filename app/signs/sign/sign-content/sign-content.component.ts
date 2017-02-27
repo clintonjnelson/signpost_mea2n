@@ -91,7 +91,7 @@ export class SignContentComponent implements OnInit {
     }
     // ONLY CLOSE THE ADDSIGN AREA & Toggle Editing UPON SUCCESS!!!!
     this.toggleEditing(false);       // SHOULD ONLY DO UPON SUCCESS!!!!!!!
-    this.saveEE.emit(tempSign);      // keep passing the sign up
+    this.saveEE.emit(this.sign);      // keep passing the sign up
   }
 
   toggleEditing(input: any = null): void {
