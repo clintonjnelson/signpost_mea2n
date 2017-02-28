@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RequestPasswordResetComponent } from './password-reset/request-password-reset.component';
 import { PasswordResetComponent }        from './password-reset/password-reset.component';
 import { LivingStyleGuideComponent }     from './styleguide/livingstyleguide.component';
-import { SearchBoxComponent }            from './shared/search/search-box/search-box.component';
+import { SearchBoxComponent }            from './search/search-box/search-box.component';
 import { UserPageComponent }             from './users/user-page.component';
 import { UserSettingsComponent }         from './users/settings/user-settings.component';
 

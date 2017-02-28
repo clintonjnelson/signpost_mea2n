@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { User } from '../../../users/user.model';
-import { Sign } from '../../../signs/sign.model';
+import { User } from '../../users/user.model';
+import { Sign } from '../../signs/sign.model';
 
 const FOUND_USERS: User[] = [
   { username: "Jen",   picUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Official_portrait_of_Barack_Obama.jpg" },

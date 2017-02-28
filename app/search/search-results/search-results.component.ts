@@ -1,8 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-// import { Sign } from '../../../signs/sign.model';
 import { Sign } from 'signs/sign.model';
-
 
 // SAME THING AS ANOTHER COMPONENT HAS, SO BREAK OUT & SHARE
 export class User {
@@ -20,7 +17,7 @@ export class SearchResultsComponent {
   @Input() users: User[];
   @Input() signs: Sign[];
 
-  // GET THIS FROM HELPER SERVICE
+  // TODO: GET THIS FROM HELPER SERVICE
   iconClass(iconName: string, size: string = '4'): string {
     return (`fa fa-${iconName} fa-${size}x`);
   }

@@ -17,8 +17,8 @@ import { IconLinkComponent }           from './shared/icon-links/icon-links.comp
 import { NavbarComponent }             from './navigation/navbar/navbar.component';
 import { NavLinkComponent }            from './navigation/navlink/navlink.component';
 
-import { SearchBoxComponent }          from './shared/search/search-box/search-box.component';
-import { SearchResultsComponent}       from './shared/search/search-results/search-results.component';
+import { SearchBoxComponent }          from './search/search-box/search-box.component';
+import { SearchResultsComponent}       from './search/search-results/search-results.component';
 
 import { SignComponent }               from './signs/sign/sign.component';
 import { SignsComponent }              from './signs/signs.component';
