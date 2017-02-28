@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
 import { NgForm, FormControl } from '@angular/forms';
-import { AuthService } from '../../../core/services/auth.service';
-import { UserCreds } from '../../../users/user.model';
+import { AuthService } from '../../core/services/auth.service';
+import { UserCreds } from '../../users/user.model';
 
 
 const EMAIL_REGEX = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);

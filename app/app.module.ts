@@ -15,7 +15,7 @@ import { SearchResultsComponent}       from './shared/search/search-results/sear
 import { NavbarComponent }             from './shared/navigation/navbar/navbar.component';
 import { NavLinkComponent }            from './shared/navigation/navlink/navlink.component';
 import { IconLinkComponent }           from './shared/icon-links/icon-links.component';
-import { LoginSignupFormComponent }    from './shared/forms/login-signup-form/login-signup-form.component';
+import { LoginSignupFormComponent }    from './users/login-signup-form/login-signup-form.component';
 import { LivingStyleGuideComponent }   from './styleguide/livingstyleguide.component';
 
 import { SignComponent }               from './signs/sign/sign.component';
@@ -36,7 +36,7 @@ import { PasswordResetComponent }       from './password-reset/password-reset.co
 import { NotificationsComponent }      from './notifications/notifications.component';
 
 // Directives
-import { HoverColorDirective } from './shared/hover-color/hover-color.directive';
+import { HoverColorDirective }      from './shared/hover-color/hover-color.directive';
 import { HoverBackgroundDirective } from './shared/hover-background/hover-background.component';
 import { UniqueValidatorDirective } from './shared/validators/unique.directive';
 
