@@ -10,13 +10,15 @@ import { MaterialModule }  from '@angular/material';
 
 // Components
 import { AppComponent }                from './app.component';
+import { LivingStyleGuideComponent }   from './styleguide/livingstyleguide.component';
+
+import { IconLinkComponent }           from './shared/icon-links/icon-links.component';
+
+import { NavbarComponent }             from './navigation/navbar/navbar.component';
+import { NavLinkComponent }            from './navigation/navlink/navlink.component';
+
 import { SearchBoxComponent }          from './shared/search/search-box/search-box.component';
 import { SearchResultsComponent}       from './shared/search/search-results/search-results.component';
-import { NavbarComponent }             from './shared/navigation/navbar/navbar.component';
-import { NavLinkComponent }            from './shared/navigation/navlink/navlink.component';
-import { IconLinkComponent }           from './shared/icon-links/icon-links.component';
-import { LoginSignupFormComponent }    from './users/login-signup-form/login-signup-form.component';
-import { LivingStyleGuideComponent }   from './styleguide/livingstyleguide.component';
 
 import { SignComponent }               from './signs/sign/sign.component';
 import { SignsComponent }              from './signs/signs.component';
@@ -26,6 +28,7 @@ import { CustomSignContentComponent }  from './signs/sign/sign-content/custom/cu
 import { GenericSignContentComponent } from './signs/sign/sign-content/generic/generic-sign-content.component';
 import { AddSignComponent }            from './signs/add-sign/add-sign.component';
 
+import { LoginSignupFormComponent }    from './users/login-signup-form/login-signup-form.component';
 import { UserSignComponent }           from './users/user-sign/user-sign.component';
 import { UserPageComponent }           from './users/user-page.component';
 import { UserSettingsComponent }       from './users/settings/user-settings.component';
