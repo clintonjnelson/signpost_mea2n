@@ -24,11 +24,6 @@ const rootRoutes: Routes = [
   // { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 
-const childRoutes: Routes = [
-
-]
-
-
 
 @NgModule({
   imports: [ RouterModule.forRoot(rootRoutes) ],
