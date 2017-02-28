@@ -10,7 +10,7 @@ import { SignContentComponent } from '../sign-content.component';
 
 export class OauthSignContentComponent extends SignContentComponent {
   // See SignContentComponent for data
-  // validationErrorMessages = {
-  //   description: {}
-  // };
+  validationErrorMessages = {
+    description: {}
+  };
 }

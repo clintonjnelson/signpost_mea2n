@@ -7,7 +7,7 @@
 
   <!-- Sign Edit Form -->
   <div *ngIf="isEditing" class="sign-content-edit-form">
-    <form flex name="signForm" class="sign-listitem-form" layout="column">
+    <form flex #signform="ngForm" name="signForm" class="sign-listitem-form" layout="column">
 
       <!-- Description -->
       <md-input-container layout="row">

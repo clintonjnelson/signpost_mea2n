@@ -30,16 +30,14 @@ h3, p {
   white-space: nowrap;
   overflow: hidden;
 }
-
-.sign-content-edit-form {
-  display: flex;
-  flex-direction: row;
-}
-
 .sign-content-title, .sign-content-first-line, .sign-content-second-line {
   font-family: helvetica, sans-serif;
   color: white;
   margin: 0;
+}
+.sign-content-first-line {}
+.sign-content-second-line {
+  font-size: 16px;
 }
 .sign-content-title {
   font-size: 20px;
@@ -49,9 +47,13 @@ h3, p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.sign-content-first-line {}
-.sign-content-second-line {
-  font-size: 16px;
+
+.sign-content-edit-form {
+  display: flex;
+  flex-direction: row;
+}
+ .sign-content-input-container {
+  display: inline-block;
 }
 
 /* Sign Management Container Area */

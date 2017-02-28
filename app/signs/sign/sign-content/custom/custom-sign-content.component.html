@@ -13,41 +13,45 @@
   <!-- Sign Edit Form -->
 
   <div *ngIf="isEditing" class="sign-content-edit-form">
-    <form flex name="signForm" class="sign-listitem-form" layout="column">
+    <form #signForm="ngForm" name="signForm" class="sign-listitem-form">
       <!-- sign Title -->
-      <md-input-container layout="row">
-        <i class="{{helpers.buildIconClass('star', 1)}}"></i>
-        <input md-input type="text" name="title" ngControl="title" [(ngModel)]="tempSign.signName" placeholder="Sign Title" md-maxlength="30" required>
-      </md-input-container>
-      <!-- <div *ngIf="displayedValidationErrors.signName" class="input-errors error">
-        {{ displayedValidationErrors.signName }}
-      </div> -->
+      <div class="sign-content-input-container">
+        <md-input-container>
+          <i class="{{helpers.buildIconClass('star', 1)}}"></i>
+          <input md-input type="text" name="title" [(ngModel)]="tempSign.signName" placeholder="Sign Title" md-maxlength="30" required/>
+        </md-input-container>
+        <div *ngIf="displayedValidationErrors.title" class="input-errors error">
+          {{ displayedValidationErrors.title }}
+        </div>
+      </div>
 
       <!-- url -->
-      <md-input-container layout="row">
-        <i class="{{helpers.buildIconClass('link', 1)}}"></i>
-        <input md-input type="url" name="url" ngControl="url" [(ngModel)]="tempSign.linkUrl" placeholder="http://www.somewebsite.com/..." required/>
-      </md-input-container>
- <!--      <div *ngIf="displayedValidationErrors.url" class="input-errors error">
-        {{ displayedValidationErrors.url }}
-      </div> -->
+      <div class="sign-content-input-container">
+        <md-input-container>
+          <i class="{{helpers.buildIconClass('link', 1)}}"></i>
+          <input md-input type="url" name="url" [(ngModel)]="tempSign.linkUrl" placeholder="http://www.somewebsite.com/..." required/>
+        </md-input-container>
+        <div *ngIf="displayedValidationErrors.url" class="input-errors error">
+          {{ displayedValidationErrors.url }}
+        </div>
+      </div>
 
       <!-- knownAs/username -->
-      <md-input-container layout="row">
+      <md-input-container>
         <i class="{{helpers.buildIconClass('user-o', 1)}}"></i>
-        <input md-input type="text" name="username" ngControl="username" [(ngModel)]="tempSign.knownAs" placeholder="@myusername" md-maxlength="30">
+        <input md-input type="text" name="username" [(ngModel)]="tempSign.knownAs" placeholder="@myusername" md-maxlength="30">
       </md-input-container>
 
       <!-- description -->
-      <md-input-container layout="row">
+      <md-input-container>
         <i class="{{helpers.buildIconClass('info-circle', 1)}}"></i>
-        <input md-input type="text" name="desc" ngControl="desc" [(ngModel)]="tempSign.description" placeholder="short description">
+        <input md-input type="text" name="desc" [(ngModel)]="tempSign.description" placeholder="short description">
       </md-input-container>
 
       <!-- form buttons -->
       <div>
         <!-- ok button -->
-        <a (click)="save(tempSign)" type="submit" class="sign-listitem-saveicon">
+        <a (click)="save(tempSign)" type="submit" class="sign-listitem-saveicon" [attr.disabled]="!signForm.form.valid">
           <i class="{{helpers.buildIconClass('check', 2)}}"></i>
         </a>
         <!-- cancel button -->

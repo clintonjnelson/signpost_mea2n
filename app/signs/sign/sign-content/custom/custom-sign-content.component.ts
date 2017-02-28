@@ -10,14 +10,14 @@ import { SignContentComponent } from '../sign-content.component';
 
 export class CustomSignContentComponent extends SignContentComponent {
 
-  // validationErrorMessages = {
-  //   signName: {
-  //     required: 'A title is required.',
-  //   },
-  //   linkUrl: {
-  //     required: 'A web address is required.',
-  //   },
-  //   knownAs: {},
-  //   description: {}
-  // };
+  validationErrorMessages = {
+    title: {
+      required: 'A title is required.',
+    },
+    url: {
+      required: 'A web address is required.',
+    },
+    knownAs: {},
+    description: {}
+  };
 }

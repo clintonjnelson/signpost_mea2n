@@ -15,8 +15,8 @@ import { Sign }                  from '../../sign.model';
 })
 
 export class SignContentComponent implements OnInit {
-  // signForm: NgForm;
-  @ViewChild('signForm') signForm: NgForm;
+  signForm: NgForm;
+  @ViewChild('signForm') currentForm: NgForm;
   @Input()  sign: Sign;
   @Output() saveEE    = new EventEmitter<any>();
   @Output() destroyEE = new EventEmitter<any>();
@@ -117,44 +117,48 @@ export class SignContentComponent implements OnInit {
 
   // ******************** CUSTOM VALIDATIONS HERE **************************
   // NOTE: validationErrorMessages are implemented in each sign content type
-  // validationErrorMessages: Object;
-  // displayedValidationErrors = {
-  //   signName: '',
-  //   linkUrl: '',
-  //   knownAs: '',
-  //   description: ''
-  // }
+  validationErrorMessages: Object;
+  displayedValidationErrors = {
+    signName: '',
+    title: '',
+    linkUrl: '',
+    knownAs: '',
+    description: '',
+    url: '',
+    email: '',
+    phone: ''
+  }
 
-  // ngAfterViewChecked() {
-  //   this.formChangedCheck();
-  // }
+  ngAfterViewChecked() {
+    this.formChangedCheck();
+  }
 
-  // private formChangedCheck() {
-  //   if(this.currentForm === this.signForm) { return; }
+  private formChangedCheck() {
+    if(this.currentForm === this.signForm) { return; }
 
-  //   this.signForm = this.currentForm;
+    this.signForm = this.currentForm;
 
-  //   if(this.signForm) {
-  //     this.signForm.valueChanges.subscribe(data => this.onValueChanged(data));
-  //   }
-  // }
+    if(this.signForm) {
+      this.signForm.valueChanges.subscribe(data => this.onValueChanged(data));
+    }
+  }
 
-  // private onValueChanged(data?: any) {
-  //   if(!this.signForm) { return; }
-  //   const form = this.signForm.form;
+  private onValueChanged(data?: any) {
+    if(!this.signForm) { return; }
+    const form = this.signForm.form;
 
-  //   for(const inputName in this.displayedValidationErrors) {
-  //     // clear previous error messages
-  //     this.displayedValidationErrors[inputName] = '';
-  //     const control = form.get(inputName);  // get value from input
+    for(const inputName in this.displayedValidationErrors) {
+      // clear previous error messages
+      this.displayedValidationErrors[inputName] = '';
+      const control = form.get(inputName);  // get value from input
 
-  //     // If control inputName is dirtied & not valid, show all applicable errors
-  //     if(control && control.dirty && !control.valid) {
-  //       const msgs = this.validationErrorMessages[inputName];  // get all messages for each type
-  //       for(const error in control.errors) {
-  //         this.displayedValidationErrors[inputName] += msgs[error] + ' ';
-  //       }
-  //     }
-  //   }
-  // }
+      // If control inputName is dirtied & not valid, show all applicable errors
+      if(control && control.dirty && !control.valid) {
+        const msgs = this.validationErrorMessages[inputName];  // get all messages for each type
+        for(const error in control.errors) {
+          this.displayedValidationErrors[inputName] += msgs[error] + ' ';
+        }
+      }
+    }
+  }
 }
