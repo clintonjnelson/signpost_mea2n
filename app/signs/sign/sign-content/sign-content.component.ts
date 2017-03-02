@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output, OnInit, ViewChild, OnDestroy } 
 import { NgForm, FormControl }   from '@angular/forms';   // Remove if no validation logic
 import { HelpersService }        from '../../../shared/helpers/helpers.service';
 import { AuthService, UserAuth } from '../../../core/services/auth.service';
+import { ModalService }          from '../../../core/services/modal.service';
 import { Subscription }          from 'rxjs/Subscription';
 import { Sign }                  from '../../sign.model';
 
@@ -39,8 +40,9 @@ export class SignContentComponent implements OnInit {
   }
 
   // ************** Auth Methods **************
-  constructor( private helpers:     HelpersService,
-               private authService: AuthService) {
+  constructor( private helpers:      HelpersService,
+               private authService:  AuthService,
+               private modalService: ModalService) {
     this.auth = authService.auth;
     this._subscription = authService.userAuthEmit.subscribe((newVal: UserAuth) => {
       this.auth = newVal;
@@ -66,14 +68,22 @@ export class SignContentComponent implements OnInit {
 
   destroy() {
     console.log("INSIDE DELETE...");
+    var that = this;
+    var confirmResponse: boolean;
     var delSign = this.sign;
     if(this.forSignCreation) {
       console.log("FOR NEW SIGN CREATION, SO PASSING CLOSE ONLY");
       this.destroyEE.emit({sign: null, destroy: false, close: true});
     }
     else {
-      console.log("SHOULD CALL TO DESTROY SIGN; EMITTING TO SIGNCOMPONENT?");
-      this.destroyEE.emit({sign: delSign, destroy: true, close: true});
+      // Open modal via service for confirmation
+      this.modalService
+        .confirm('Sign Deletion', 'Are you sure you want to delete this '+ that.sign.signName +' sign?')
+        .subscribe((response) => {
+          if(response === true) {
+            that.destroyEE.emit({sign: delSign, destroy: true, close: true});
+          }
+        });
     }
     this.toggleEditing(false);  // Close editing window
   }

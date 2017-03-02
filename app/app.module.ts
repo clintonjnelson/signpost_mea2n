@@ -37,6 +37,7 @@ import { RequestPasswordResetComponent } from './password-reset/request-password
 import { PasswordResetComponent }       from './password-reset/password-reset.component';
 
 import { NotificationsComponent }      from './notifications/notifications.component';
+import { ConfirmModalComponent }       from './signs/confirm-modal/confirm-modal.component';
 
 // Directives
 import { HoverColorDirective }      from './shared/hover-color/hover-color.directive';
@@ -47,6 +48,7 @@ import { UniqueValidatorDirective } from './shared/validators/unique.directive';
 import { HelpersService }      from './shared/helpers/helpers.service';
 import { AuthService }         from './core/services/auth.service';
 import { NotificationService } from './core/services/notification.service';
+import { ModalService }        from './core/services/modal.service';
 
 @NgModule({
   imports:      [
@@ -80,6 +82,7 @@ import { NotificationService } from './core/services/notification.service';
                   PasswordResetComponent,
 
                   NotificationsComponent,
+                  ConfirmModalComponent,
 
                   HoverColorDirective,
                   HoverBackgroundDirective,
@@ -92,6 +95,10 @@ import { NotificationService } from './core/services/notification.service';
                   AuthService,
                   HelpersService,
                   NotificationService,
-                ]
+                  ModalService,
+                ],
+  entryComponents: [
+                  ConfirmModalComponent,
+  ]
 })
 export class AppModule { }
