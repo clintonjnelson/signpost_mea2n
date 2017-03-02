@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
-import { HelpersService } from '../../shared/helpers/helpers.service';
+import { HelpersService } from '../helpers/helpers.service';
 
 @Component({
   moduleId: module.id,
