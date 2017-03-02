@@ -12,8 +12,8 @@
 
   <!-- Sign Edit Form -->
 
-  <div *ngIf="isEditing" class="sign-content-edit-form">
-    <form #signForm="ngForm" name="signForm" class="sign-listitem-form">
+  <div *ngIf="isEditing" class="sign-content-edit-form-container">
+    <form #signForm="ngForm" name="signForm" class="sign-form">
       <!-- sign Title -->
       <div class="sign-content-input-container">
         <md-input-container>
@@ -51,11 +51,11 @@
       <!-- form buttons -->
       <div>
         <!-- ok button -->
-        <a (click)="save(tempSign)" type="submit" class="sign-listitem-saveicon" [attr.disabled]="!signForm.form.valid">
+        <a (click)="save(tempSign)" type="submit" class="sign-saveicon" [attr.disabled]="!signForm.form.valid">
           <i class="{{helpers.buildIconClass('check', 2)}}"></i>
         </a>
         <!-- cancel button -->
-        <a (click)="cancel()" class="sign-listitem-cancelicon">
+        <a (click)="cancel()" class="sign-cancelicon">
           <i *ngIf="!showPreviewLabel" class="{{helpers.buildIconClass('times', 2)}}"></i>
           <p *ngIf="showPreviewLabel"  class="preview-label">Preview</p>
         </a>

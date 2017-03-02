@@ -6,8 +6,8 @@
   </div>
 
   <!-- Sign Edit Form -->
-  <div *ngIf="isEditing" class="sign-content-edit-form">
-    <form flex #signform="ngForm" name="signForm" class="sign-listitem-form" layout="column">
+  <div *ngIf="isEditing" class="sign-content-edit-form-container">
+    <form flex #signform="ngForm" name="signForm" class="sign-form" layout="column">
 
       <!-- Description -->
       <md-input-container layout="row">
@@ -19,11 +19,11 @@
       <!-- Form Buttons -->
       <div>
         <!-- ok button -->
-        <a (click)="save(tempSign)" type="submit" class="sign-listitem-saveicon" >
+        <a (click)="save(tempSign)" type="submit" class="sign-saveicon" >
           <i class="{{helpers.buildIconClass('check', 2)}}"></i>
         </a>
         <!-- cancel button -->
-        <a (click)="cancel()" class="sign-listitem-cancelicon">
+        <a (click)="cancel()" class="sign-cancelicon">
           <i *ngIf="!showPreviewLabel" class="{{helpers.buildIconClass('times', 2)}}"></i>
           <p *ngIf="showPreviewLabel"  class="preview-label">Preview</p>
         </a>
