@@ -1,4 +1,5 @@
 .sign {
+  position: relative;   /* Helps the absolute positioned items below */
   border: 3px solid #c9c9c9;
   border-radius: 5px;
   padding: 5px;
@@ -81,4 +82,25 @@ i.underlay-icon {
 }
 .sign-content-second-line {
   font-size: 16px;
+}
+
+/* User Management Container Area */
+.user-management-container {
+  position: absolute;
+  right: 0;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.user-management-container {
+  color: white;
+  font-family: helvetica, sans-serif;
+  font-weight: bold;
+  margin-right: 5px;
+  top: 0px;
+}
+.user-management-container:hover, .user-management-container > i:hover {
+  color: #FF3030;
 }

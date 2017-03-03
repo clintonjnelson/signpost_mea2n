@@ -17,7 +17,7 @@
     <h3 class="search-subheading">users found</h3>
     <ul>
       <li *ngFor="let user of filteredUsers">
-        <a routerLink="[/{{user.username}}]" class="search-results-user-sign">
+        <a routerLink="/{{user.username}}" class="search-results-user-sign">
           <user-sign [user]="user"></user-sign>
         </a>
       </li>

@@ -1,5 +1,5 @@
 <!-- DO WE REALLY NEED AN ID HERE WITH: id="{{'user-sign-' + sign._id}}"  -->
-<div layout="row" class="sign">
+<div class="sign">
 
   <!-- Main Icon -->
   <div class="sign-image-container">
@@ -15,5 +15,10 @@
         <h3 class="sign-content-title">{{ user.username }}</h3>
       </div>
     </div>
+  </div>
+
+  <div *ngIf="isAdmin" class="user-management-container">
+    <i *ngIf="user.status === 'active'"   (click)="deactivateUser()" class="{{helpers.buildIconClass('times', 1)}}"></i>
+    <i *ngIf="user.status === 'inactive'" (click)="activateUser()"   class="{{helpers.buildIconClass('refresh', 1)}}"></i>
   </div>
 </div>

@@ -3,10 +3,10 @@ import { User } from '../../users/user.model';
 import { Sign } from '../../signs/sign.model';
 
 const FOUND_USERS: User[] = [
-  { username: "Jen",   picUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Official_portrait_of_Barack_Obama.jpg" },
-  { username: "Clint", picUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/44_Bill_Clinton_3x4.jpg/220px-44_Bill_Clinton_3x4.jpg" },
-  { username: "Eilee", picUrl: "" },
-  { username: "Clara", picUrl: "" },
+  { username: "Jen",   picUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Official_portrait_of_Barack_Obama.jpg", status: "active" },
+  { username: "Clint", picUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/44_Bill_Clinton_3x4.jpg/220px-44_Bill_Clinton_3x4.jpg", status: "active"},
+  { username: "Eilee", picUrl: "", status: "active" },
+  { username: "Clara", picUrl: "", status: "active" },
 ];
 
 const OAUTH_FACEBOOK_SIGN: Sign = {

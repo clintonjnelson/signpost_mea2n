@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 // Components for routing to
 import { RequestPasswordResetComponent } from './password-reset/request-password-reset.component';
 import { PasswordResetComponent }        from './password-reset/password-reset.component';
+import { AdminUserManagementComponent }  from './admin/user-management/admin-user-management.component';
 import { LivingStyleGuideComponent }     from './styleguide/livingstyleguide.component';
 import { SearchBoxComponent }            from './search/search-box/search-box.component';
 import { UserPageComponent }             from './users/user-page.component';
@@ -14,6 +15,8 @@ import { UserSettingsComponent }         from './users/settings/user-settings.co
 const rootRoutes: Routes = [
   { path: 'requestpasswordchange', component: RequestPasswordResetComponent, pathMatch: 'full'},
   { path: 'requestpasswordchange/change', component: PasswordResetComponent, pathMatch: 'full' },
+
+  { path: 'admin/users', component: AdminUserManagementComponent, pathMatch: 'full' },
 
   { path: 'styleguide', component: LivingStyleGuideComponent, pathMatch: 'full' },
 
