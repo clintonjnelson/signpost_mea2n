@@ -64,6 +64,14 @@ md-input-container {
 .md-input-element {
   color: white;
 }
+.preview-button-label {
+  color: white;
+  font-family: helvetica, sans-serif;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0 0 0 10px;
+}
+
 
 /* Sign Form Errors */
 .settings-input-error-container {

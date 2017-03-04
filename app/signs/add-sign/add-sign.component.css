@@ -4,6 +4,10 @@
   justify-content: center;
 }
 
+/deep/ label.md-input-placeholder.md-empty:not(.md-focused) {
+  margin-left: 20px;
+}
+
 p.heading {
   color: white;
   font-family: helvetica, sans-serif;

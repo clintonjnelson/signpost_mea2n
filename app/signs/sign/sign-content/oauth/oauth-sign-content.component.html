@@ -25,7 +25,8 @@
         <!-- cancel button -->
         <a (click)="cancel()" class="sign-cancelicon">
           <i *ngIf="!showPreviewLabel" class="{{helpers.buildIconClass('times', 2)}}"></i>
-          <p *ngIf="showPreviewLabel"  class="preview-label">Preview</p>
+          <!-- I THINK THIS NEXT HTML TAG SHOULD NOT BE HERE, BUT VERIFY BEFORE REMOVE -->
+          <p *ngIf="showPreviewLabel"  class="preview-button-label">Preview</p>
         </a>
       </div>
     </form>

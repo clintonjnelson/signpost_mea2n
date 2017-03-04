@@ -101,10 +101,12 @@ export class AddSignComponent {
     this.toggleShowForm(false);
   }
   save(event: any) {
-    console.log("SIGN AT THE ADDSIGN LEVEL IS: ", event);
+    var newSign = event;
+    if(!event._id) { newSign._id = this.signs.length; }
+    console.log("SIGN AT THE ADDSIGN LEVEL IS: ", newSign);
     // Reset the area to closed. Triggered by event emitters from inner save/close
     this.closeForms();
-    this.saveEE.emit(event);    // keep passing the sign up
+    this.saveEE.emit(newSign);    // keep passing the sign up
   }
 
   // Toggle Control Functions
