@@ -18,7 +18,7 @@
       <div class="sign-content-input-container">
         <md-input-container>
           <i class="{{helpers.buildIconClass('star', 1)}}"></i>
-          <input md-input type="text" name="title" [(ngModel)]="tempSign.signName" placeholder="Sign Title" md-maxlength="30" required/>
+          <input mdInput type="text" name="title" [(ngModel)]="tempSign.signName" placeholder="Sign Title" md-maxlength="30" required/>
         </md-input-container>
         <div *ngIf="displayedValidationErrors.title" class="input-errors error">
           {{ displayedValidationErrors.title }}
@@ -29,7 +29,7 @@
       <div class="sign-content-input-container">
         <md-input-container>
           <i class="{{helpers.buildIconClass('link', 1)}}"></i>
-          <input md-input type="url" name="url" [(ngModel)]="tempSign.linkUrl" placeholder="http://www.somewebsite.com/..." required/>
+          <input mdInput type="url" name="url" [(ngModel)]="tempSign.linkUrl" placeholder="http://www.somewebsite.com/..." required/>
         </md-input-container>
         <div *ngIf="displayedValidationErrors.url" class="input-errors error">
           {{ displayedValidationErrors.url }}
@@ -39,13 +39,13 @@
       <!-- knownAs/username -->
       <md-input-container>
         <i class="{{helpers.buildIconClass('user-o', 1)}}"></i>
-        <input md-input type="text" name="username" [(ngModel)]="tempSign.knownAs" placeholder="@myusername" md-maxlength="30">
+        <input mdInput type="text" name="username" [(ngModel)]="tempSign.knownAs" placeholder="@myusername" md-maxlength="30">
       </md-input-container>
 
       <!-- description -->
       <md-input-container>
         <i class="{{helpers.buildIconClass('info-circle', 1)}}"></i>
-        <input md-input type="text" name="desc" [(ngModel)]="tempSign.description" placeholder="short description">
+        <input mdInput type="text" name="desc" [(ngModel)]="tempSign.description" placeholder="short description">
       </md-input-container>
 
       <!-- form buttons -->

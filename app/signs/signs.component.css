@@ -12,3 +12,8 @@ ul {
 ul li {
   margin-bottom: 5px;
 }
+
+/*Drag & Drop Custom Styling*/
+.gu-mirror {
+  list-style: none;
+}

@@ -7,6 +7,7 @@ import { RouterModule }    from '@angular/router';
 import { AppRouterModule } from './app-routing.module';
 import { FormsModule }     from '@angular/forms'
 import { MaterialModule }  from '@angular/material';
+import { DragulaModule }   from 'ng2-dragula/ng2-dragula';
 
 // Components
 import { AppComponent }                from './app.component';
@@ -59,6 +60,7 @@ import { ModalService }        from './core/services/modal.service';
                   AppRouterModule,
                   FormsModule,
                   MaterialModule.forRoot(),
+                  DragulaModule,
                 ],
   declarations: [
                   AppComponent,
