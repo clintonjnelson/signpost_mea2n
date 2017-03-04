@@ -17,6 +17,7 @@ import { IconLinkComponent }           from './shared/icon-links/icon-links.comp
 import { NavbarComponent }             from './navigation/navbar/navbar.component';
 import { NavLinkComponent }            from './navigation/navlink/navlink.component';
 
+import { AdminDashboardComponent }     from './admin/dashboard/admin-dashboard.component';
 import { AdminUserManagementComponent } from './admin/user-management/admin-user-management.component';
 
 import { SearchBoxComponent }          from './search/search-box/search-box.component';
@@ -65,6 +66,7 @@ import { ModalService }        from './core/services/modal.service';
                   SearchBoxComponent,
                   SearchResultsComponent,
                   NavLinkComponent,
+                  AdminDashboardComponent,
                   AdminUserManagementComponent,
                   LoginSignupFormComponent,
                   IconLinkComponent,
