@@ -66,10 +66,10 @@ export class SearchResultsComponent implements OnInit {
       }
     });
 
-    function addToFilters(sign) {
+    function addToFilters(sign: Sign) {
       that.filters[sign.icon] = false;
     }
-    function addDisplayIcon(sign) {
+    function addDisplayIcon(sign: Sign) {
       that.filterIcons.push({icon: sign.icon, bgColor: sign.bgColor});
     }
   }

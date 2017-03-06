@@ -21,7 +21,7 @@ export class UserSettingsComponent implements OnInit {
 
   ngOnInit() {
     // GET THE USER SETTINGS FROM API. IF ALREADY HAVE, THEN REMOVE NG_ON_INIT
-    this.userSettings = {picUrl: '', username: 'adminuser', email: 'admin@example.com'};
+    this.userSettings = {picUrl: '', username: 'adminuser', email: 'admin@example.com', status: 'active'};
     this.resetSettingsCopy();
   }
 

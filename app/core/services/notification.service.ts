@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 export class Notification {
   type: string;
   msg: string;
-  time: number;
+  displayTime: number;
 }
 
 @Injectable()
@@ -19,11 +19,13 @@ export class NotificationService {
     this.currentlyDisplaying = false;
   }
 
-  notify(type: string, msg: string, time: number = 4000) {
-    this.addNotification({type, msg, time});
+  // Types are: Error, Warning, Info, Success
+  // Time is the display time
+  notify(type: string, msg: string, displayTime: number = 6000) {
+    this.addNotification({type, msg, displayTime});
   }
 
-  addNotification(newNotif: Notification) {
+  private addNotification(newNotif: Notification) {
     this.notifications.unshift(newNotif);
     // If not already displaying, display immediately, else enqueue
     if(!this.currentlyDisplaying) {
@@ -35,7 +37,7 @@ export class NotificationService {
     this.display = notif;
     this.currentlyDisplaying = true;
 
-    var dispTime = (notif.time ? notif.time : 4000);  // may not need eventually
+    var dispTime = (notif.displayTime ? notif.displayTime : 6000);  // may not need eventually
     setTimeout(nextNotifOrEnd.bind(this), dispTime);
 
     function nextNotifOrEnd() {

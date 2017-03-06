@@ -12,13 +12,17 @@ import { SearchBoxComponent }            from './search/search-box/search-box.co
 import { UserPageComponent }             from './users/user-page.component';
 import { UserSettingsComponent }         from './users/settings/user-settings.component';
 
+// Guards
+import { AdminGuard } from './core/auth/admin-guard.service';
+import { OwnerGuard } from './core/auth/owner-guard.service';
+
 // App Routes
 const rootRoutes: Routes = [
   { path: 'requestpasswordchange', component: RequestPasswordResetComponent, pathMatch: 'full'},
   { path: 'requestpasswordchange/change', component: PasswordResetComponent, pathMatch: 'full' },
 
-  { path: 'admin/users', component: AdminUserManagementComponent, pathMatch: 'full' },
-  { path: 'admin', component: AdminDashboardComponent, pathMatch: 'full' },
+  { path: 'admin/users', canActivate: [AdminGuard], component: AdminUserManagementComponent, pathMatch: 'full' },
+  { path: 'admin', canActivate: [AdminGuard], component: AdminDashboardComponent, pathMatch: 'full' },
 
   { path: 'styleguide', component: LivingStyleGuideComponent, pathMatch: 'full' },
 

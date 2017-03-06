@@ -3,8 +3,8 @@ import { User } from '../users/user.model';
 import { Sign } from 'signs/sign.model';
 
 const USERS: User[] = [
-    {username: 'Jen',   picUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Official_portrait_of_Barack_Obama.jpg'},
-    {username: 'clint', picUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/44_Bill_Clinton_3x4.jpg/220px-44_Bill_Clinton_3x4.jpg'}
+    {username: 'Jen',   picUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Official_portrait_of_Barack_Obama.jpg', status: 'active'},
+    {username: 'clint', picUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/44_Bill_Clinton_3x4.jpg/220px-44_Bill_Clinton_3x4.jpg', status: 'active'}
   ];
 const OAUTH_FACEBOOK_SIGN: Sign = {
     _id: '12345',

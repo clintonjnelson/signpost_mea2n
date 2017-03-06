@@ -26,7 +26,7 @@
 
       // other libraries
       'rxjs':                      'npm:rxjs',
-      'dragula':                   'npm:dragula/dist/dragula.js',
+      'dragula':                   'npm:dragula/dist',
       'ng2-dragula':               'npm:ng2-dragula',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
     },
@@ -41,6 +41,10 @@
       },
       'ng2-dragula': {
         main: 'ng2-dragula.js',   // necessary
+        defaultExtension: 'js'
+      },
+      dragula: {
+        main: 'dragula.js',
         defaultExtension: 'js'
       }
     }
