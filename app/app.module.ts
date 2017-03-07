@@ -1,6 +1,5 @@
 //// This file exists to establish key facts about the ENTIRE app
 // Modules
-// import 'hammerjs';
 import { NgModule }        from '@angular/core';
 import { BrowserModule }   from '@angular/platform-browser';
 import { RouterModule }    from '@angular/router';
@@ -8,6 +7,7 @@ import { AppRouterModule } from './app-routing.module';
 import { FormsModule }     from '@angular/forms'
 import { MaterialModule }  from '@angular/material';
 import { DragulaModule }   from 'ng2-dragula/ng2-dragula';
+import 'hammerjs';
 
 // Components
 import { AppComponent }                from './app.component';

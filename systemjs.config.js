@@ -26,9 +26,10 @@
 
       // other libraries
       'rxjs':                      'npm:rxjs',
+      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
+      'hammerjs':                  'npm:hammerjs',
       'dragula':                   'npm:dragula/dist',
       'ng2-dragula':               'npm:ng2-dragula',
-      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -37,6 +38,10 @@
         defaultExtension: 'js'
       },
       rxjs: {
+        defaultExtension: 'js'
+      },
+      hammerjs: {
+        main: 'hammer.js',
         defaultExtension: 'js'
       },
       'ng2-dragula': {
