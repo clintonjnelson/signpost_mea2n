@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DragulaService } from 'ng2-dragula/ng2-dragula';
-import { AuthService } from '../core/services/auth.service';
+import { AuthService } from '../core/auth/auth.service';
 import { Sign } from './sign.model';
 
 

@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 //import { ActivatedRoute, Params } from '@Angular/router';
 import { HelpersService } from '../../shared/helpers/helpers.service';
-import { AuthService, UserAuth } from '../../core/services/auth.service';
+import { AuthService, UserAuth } from '../../core/auth/auth.service';
 import { Subscription } from 'rxjs/Subscription';
 
 export class OauthLink {

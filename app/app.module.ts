@@ -50,7 +50,7 @@ import { UniqueValidatorDirective } from './shared/validators/unique.directive';
 
 // Services - make them available EVERYWHERE (otherwise, just add it specifically into Component as a provider)
 import { HelpersService }      from './shared/helpers/helpers.service';
-import { AuthService }         from './core/services/auth.service';
+import { AuthService }         from './core/auth/auth.service';
 import { NotificationService } from './core/services/notification.service';
 import { ModalService }        from './core/services/modal.service';
 

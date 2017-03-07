@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Sign } from '../signs/sign.model';
-import { AuthService, UserAuth } from '../core/services/auth.service';
+import { AuthService, UserAuth } from '../core/auth/auth.service';
 import { Subscription } from 'rxjs/Subscription';
 
 const OAUTH_FACEBOOK_SIGN: Sign = {
