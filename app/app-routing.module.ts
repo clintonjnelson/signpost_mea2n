@@ -21,12 +21,12 @@ const rootRoutes: Routes = [
   { path: 'requestpasswordchange', component: RequestPasswordResetComponent, pathMatch: 'full'},
   { path: 'requestpasswordchange/change', component: PasswordResetComponent, pathMatch: 'full' },
 
-  { path: 'admin/users', canActivate: [AdminGuard], component: AdminUserManagementComponent, pathMatch: 'full' },
-  { path: 'admin', canActivate: [AdminGuard], component: AdminDashboardComponent, pathMatch: 'full' },
+  { path: 'admin/users', component: AdminUserManagementComponent, canActivate: [AdminGuard], pathMatch: 'full' },
+  { path: 'admin', component: AdminDashboardComponent, canActivate: [AdminGuard], pathMatch: 'full' },
 
   { path: 'styleguide', component: LivingStyleGuideComponent, pathMatch: 'full' },
 
-  { path: ':username/settings', component: UserSettingsComponent, pathMatch: 'full'},
+  { path: ':username/settings', component: UserSettingsComponent, canActivate: [OwnerGuard], pathMatch: 'full'},
   { path: ':username', component: UserPageComponent, pathMatch: 'full' },
 
   { path: '', component: SearchBoxComponent, pathMatch: 'full' },

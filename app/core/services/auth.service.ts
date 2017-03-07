@@ -34,7 +34,7 @@ export class AuthService {
 
   isAdmin() {
     // FIX THIS - ONLY A TEMP HACK TO MOCK STORED USER IS AN ADMIN OR NOT
-    return this.role === 'admin';
+    return false; // this.role === 'admin';
   }
 
   login() {

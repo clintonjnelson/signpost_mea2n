@@ -8,13 +8,13 @@ import { NotificationService } from '../services/notification.service';
 export class OwnerGuard implements CanActivate {
   constructor (private authService:  AuthService,
                private router:       Router,
-               private notification: NotificationService,
-               private route:        ActivatedRouteSnapshot) {}
+               private notification: NotificationService) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let url: string = state.url;
     // MUST have the username param to use Owner auth guard
-    let username: string = this.route.params['username'];
+    let username: string = route.params['username'];
+    console.log("THE ROUTE IS: ", route);
 
     return this.checkOwnerLogin(username, url);
   }
@@ -34,10 +34,11 @@ export class OwnerGuard implements CanActivate {
       this.router.navigate(['']);
     }
     else {
-      let currentUserUsername     = this.authService.auth.username;
-      let currentUserSettingsPath = currentUserUsername + '/settings'
+      // let currentUserUsername     = this.authService.auth.username;
+      // let currentUserSettingsPath = currentUserUsername + '/settings';
       // Send them to THEIR OWN settings page
-      this.router.navigate([currentUserSettingsPath]);
+      // this.router.navigate([currentUserSettingsPath]);
+      this.router.navigate(['']);
     }
 
     return false;

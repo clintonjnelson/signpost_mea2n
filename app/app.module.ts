@@ -54,6 +54,10 @@ import { AuthService }         from './core/services/auth.service';
 import { NotificationService } from './core/services/notification.service';
 import { ModalService }        from './core/services/modal.service';
 
+// Guards
+import { AdminGuard } from './core/auth/admin-guard.service';
+import { OwnerGuard } from './core/auth/owner-guard.service';
+
 @NgModule({
   imports:      [
                   BrowserModule,
@@ -103,6 +107,8 @@ import { ModalService }        from './core/services/modal.service';
                   HelpersService,
                   NotificationService,
                   ModalService,
+                  AdminGuard,
+                  OwnerGuard,
                 ],
   entryComponents: [
                   ConfirmModalComponent,
